@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
+		<property name="environment">
+			<props>
+				<prop key="java.naming.factory.initial">${jms.factory.initial}</prop>
+				<prop key="java.naming.provider.url">${jms.provider.url}</prop>
+				<prop key="queue.Demo.A">${jms.queue.name.a}</prop>
+				<prop key="queue.Demo.B">${jms.queue.name.b}</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="connectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>${jms.factory.name}</value>
+		</property>
+	</bean>
+	<bean id="destinationA" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>${jms.queue.name.a}</value>
+		</property>
+	</bean>
+	<bean id="destinationB" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>${jms.queue.name.b}</value>
+		</property>
+	</bean>
+	
+	<bean id="jmsTemplateA" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="destinationA" />
+		<property name="receiveTimeout">
+			<value>30000</value>
+		</property>
+	</bean>
+	<bean id="jmsTemplateB" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="defaultDestination" ref="destinationB" />
+		<property name="receiveTimeout">
+			<value>30000</value>
+		</property>
+	</bean>
+	<bean id="queueMessageProducer" class="com.bulain.jbpm4order.jms.QueueMessageProducer">
+	    <property name="jmsTemplate" ref="jmsTemplateA"/>
+	</bean>
+	<bean id="queueMessageConsumer" class="com.bulain.jbpm4order.jms.QueueMessageConsumer">
+	    <property name="jmsTemplate" ref="jmsTemplateB"/>
+	</bean>
+	
+	<!-- 
+	<bean id="jmsContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+	    <property name="connectionFactory" ref="connectionFactory"/>
+	    <property name="destination" ref="destinationA"/>
+	    <property name="messageListener" ref="messageListenerAdapter" />
+	</bean>
+	<bean id="delegate" class="com.bulain.jbpm4order.jms.MessageListener">
+		<property name="jmsTemplate" ref="jmsTemplateB"/>
+	</bean>
+	<bean id="messageListenerAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+	    <property name="delegate" ref="delegate"/>
+	    <property name="defaultListenerMethod" value="onMessage"/>
+	</bean>
+	  -->
+</beans>

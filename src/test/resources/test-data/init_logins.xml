@@ -1,0 +1,122 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="logins">
+		<column>id</column>
+        <column>login_name</column>
+        <column>email</column>
+        <column>hashed_password</column>
+        <column>enabled</column>
+        <!-- deleteByPrimaryKey -->
+        <row>
+            <value>101</value>
+            <value>login_name_101</value>
+            <value>email_101</value>
+            <value>hashed_password_101</value>
+            <value>enabled_101</value>
+        </row>
+        <!-- selectByPrimaryKey -->
+        <row>
+            <value>102</value>
+            <value>login_name_102</value>
+            <value>email_102</value>
+            <value>hashed_password_102</value>
+            <value>enabled_102</value>
+        </row>
+        <!-- updateByPrimaryKeySelective -->
+        <row>
+            <value>103</value>
+            <value>login_name_103</value>
+            <value>email_103</value>
+            <value>hashed_password_103</value>
+            <value>enabled_103</value>
+        </row>
+        <!-- updateByPrimaryKey -->
+        <row>
+            <value>104</value>
+            <value>login_name_104</value>
+            <value>email_104</value>
+            <value>hashed_password_104</value>
+            <value>enabled_104</value>
+        </row>
+        <!-- page -->
+        <row>
+            <value>105</value>
+            <value>login_name_page</value>
+            <value>email_page</value>
+            <value>hashed_password_page</value>
+            <value>enabled_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>login_name_page</value>
+            <value>email_page</value>
+            <value>hashed_password_page</value>
+            <value>enabled_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>login_name_page</value>
+            <value>email_page</value>
+            <value>hashed_password_page</value>
+            <value>enabled_page</value>
+        </row>
+	</table>
+	<table name="groups">
+		<column>id</column>
+        <column>name</column>
+        <column>note</column>
+       <row>
+            <value>102</value>
+            <value>name_102</value>
+            <value>note_102</value>
+        </row>
+        <row>
+            <value>105</value>
+            <value>name_105</value>
+            <value>note_105</value>
+        </row>
+    </table>
+    <table name="group_logins">
+		<column>id</column>
+        <column>group_id</column>
+        <column>login_id</column>
+        <row>
+        	<value>102</value>
+            <value>102</value>
+            <value>102</value>
+        </row>
+        <row>
+        	<value>105</value>
+            <value>105</value>
+            <value>105</value>
+        </row>
+        <row>
+        	<value>106</value>
+            <value>105</value>
+            <value>106</value>
+        </row>
+        <row>
+        	<value>107</value>
+            <value>105</value>
+            <value>107</value>
+        </row>
+	</table>
+	<table name="permissions">
+		<column>id</column>
+        <column>permission</column>
+        <row>
+            <value>102</value>
+            <value>permission_102</value>
+        </row>
+    </table>
+	<table name="group_permissions">
+		<column>id</column>
+        <column>group_id</column>
+        <column>permission</column>
+        <row>
+            <value>102</value>
+            <value>102</value>
+            <value>permission_102</value>
+        </row>
+	</table>
+</dataset>

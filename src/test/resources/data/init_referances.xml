@@ -1,0 +1,4 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="referances"></table>
+</dataset>

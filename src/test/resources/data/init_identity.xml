@@ -1,0 +1,16 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="persons"></table>
+	<table name="logins"></table>
+	<table name="groups"></table>
+	<table name="permissions">
+		<column>id</column>
+        <column>permission</column>
+        <row>
+            <value>101</value>
+            <value>Admin</value>
+        </row>
+	</table>
+	<table name="group_permissions"></table>
+	<table name="group_logins"></table>
+</dataset>

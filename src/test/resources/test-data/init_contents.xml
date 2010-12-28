@@ -1,0 +1,100 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="contents">
+		<column>id</column>
+        <column>file_name</column>
+        <column>content_type</column>
+        <column>ref_id</column>
+        <column>ref_name</column>
+        <column>catagory</column>
+        <column>lang</column>
+        <!-- deleteByPrimaryKey -->
+        <row>
+            <value>101</value>
+            <value>file_name_101</value>
+            <value>content_type_101</value>
+            <value>101</value>
+            <value>ref_name_101</value>
+            <value>catagory_101</value>
+            <value>lang_101</value>
+        </row>
+        <!-- selectByPrimaryKey -->
+        <row>
+            <value>102</value>
+            <value>file_name_102</value>
+            <value>content_type_102</value>
+            <value>102</value>
+            <value>ref_name_102</value>
+            <value>catagory_102</value>
+            <value>lang_102</value>
+        </row>
+        <!-- updateByPrimaryKeySelective -->
+        <row>
+            <value>103</value>
+            <value>file_name_103</value>
+            <value>content_type_103</value>
+            <value>103</value>
+            <value>ref_name_103</value>
+            <value>catagory_103</value>
+            <value>lang_103</value>
+        </row>
+        <!-- updateByPrimaryKey -->
+        <row>
+            <value>104</value>
+            <value>file_name_104</value>
+            <value>content_type_104</value>
+            <value>104</value>
+            <value>ref_name_104</value>
+            <value>catagory_104</value>
+            <value>lang_104</value>
+        </row>
+        <!-- page -->
+        <row>
+            <value>105</value>
+            <value>file_name_page</value>
+            <value>content_type_page</value>
+            <value>1</value>
+            <value>ref_name_page</value>
+            <value>catagory_page</value>
+            <value>lang_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>file_name_page</value>
+            <value>content_type_page</value>
+            <value>1</value>
+            <value>ref_name_page</value>
+            <value>catagory_page</value>
+            <value>lang_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>file_name_page</value>
+            <value>content_type_page</value>
+            <value>1</value>
+            <value>ref_name_page</value>
+            <value>catagory_page</value>
+            <value>lang_page</value>
+        </row>
+        <!-- updateByPrimaryKeyWithBLOBs -->
+        <row>
+            <value>108</value>
+            <value>file_name_108</value>
+            <value>content_type_108</value>
+            <value>108</value>
+            <value>ref_name_108</value>
+            <value>catagory_108</value>
+            <value>lang_108</value>
+        </row>
+        <!-- selectByPrimaryKeyWithoutBLOBs -->
+        <row>
+            <value>109</value>
+            <value>file_name_109</value>
+            <value>content_type_109</value>
+            <value>109</value>
+            <value>ref_name_109</value>
+            <value>catagory_109</value>
+            <value>lang_109</value>
+        </row>
+	</table>
+</dataset>

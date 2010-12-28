@@ -1,0 +1,70 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="mail_templates">
+		<column>id</column>
+        <column>name</column>
+        <column>lang</column>
+        <column>subject</column>
+        <!-- deleteByPrimaryKey -->
+        <row>
+            <value>101</value>
+            <value>name_101</value>
+            <value>lang_101</value>
+            <value>subject_101</value>
+        </row>
+        <!-- selectByPrimaryKey -->
+        <row>
+            <value>102</value>
+            <value>name_102</value>
+            <value>lang_102</value>
+            <value>subject_102</value>
+        </row>
+        <!-- updateByPrimaryKeySelective -->
+        <row>
+            <value>103</value>
+            <value>name_103</value>
+            <value>lang_103</value>
+            <value>subject_103</value>
+        </row>
+        <!-- updateByPrimaryKey -->
+        <row>
+            <value>104</value>
+            <value>name_104</value>
+            <value>lang_104</value>
+            <value>subject_104</value>
+        </row>
+        <!-- page -->
+        <row>
+            <value>105</value>
+            <value>name_page</value>
+            <value>lang_page</value>
+            <value>subject_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>name_page</value>
+            <value>lang_page</value>
+            <value>subject_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>name_page</value>
+            <value>lang_page</value>
+            <value>subject_page</value>
+        </row>
+        <!-- updateByPrimaryKeyWithBLOBs -->
+        <row>
+            <value>108</value>
+            <value>name_108</value>
+            <value>lang_108</value>
+            <value>subject_108</value>
+        </row>
+        <!-- selectByPrimaryKeyWithoutBLOBs -->
+        <row>
+            <value>109</value>
+            <value>name_109</value>
+            <value>lang_109</value>
+            <value>subject_109</value>
+        </row>
+	</table>
+</dataset>

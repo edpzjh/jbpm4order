@@ -1,0 +1,72 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="referances">
+		<column>id</column>
+		<column>name</column>
+        <column>code</column>
+        <column>text</column>
+        <column>lang</column>
+        <column>catagory</column>
+        <!-- deleteByPrimaryKey -->
+        <row>
+            <value>101</value>
+            <value>name_101</value>
+            <value>code_101</value>
+            <value>text_101</value>
+            <value>lang_101</value>
+            <value>catagory_101</value>
+        </row>
+        <!-- selectByPrimaryKey -->
+        <row>
+            <value>102</value>
+            <value>name_102</value>
+            <value>code_102</value>
+            <value>text_102</value>
+            <value>lang_102</value>
+            <value>catagory_102</value>
+        </row>
+        <!-- updateByPrimaryKeySelective -->
+        <row>
+            <value>103</value>
+            <value>name_103</value>
+            <value>code_103</value>
+            <value>text_103</value>
+            <value>lang_103</value>
+            <value>catagory_103</value>
+        </row>
+        <!-- updateByPrimaryKey -->
+        <row>
+            <value>104</value>
+            <value>name_104</value>
+            <value>code_104</value>
+            <value>text_104</value>
+            <value>lang_104</value>
+            <value>catagory_104</value>
+        </row>
+        <!-- page -->
+        <row>
+            <value>105</value>
+            <value>name_page</value>
+            <value>code_page</value>
+            <value>text_page</value>
+            <value>lang_page</value>
+            <value>catagory_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>name_page</value>
+            <value>code_page</value>
+            <value>text_page</value>
+            <value>lang_page</value>
+            <value>catagory_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>name_page</value>
+            <value>code_page</value>
+            <value>text_page</value>
+            <value>lang_page</value>
+            <value>catagory_page</value>
+        </row>
+	</table>
+</dataset>

@@ -1,0 +1,77 @@
+package com.bulain.jbpm4order.controller;
+
+import java.util.List;
+import java.util.Map;
+
+import com.bulain.common.JbpmTestCase;
+import com.bulain.jbpm4order.model.Constants;
+import com.bulain.jbpm4order.model.Login;
+import com.bulain.jbpm4order.pojo.LoginSearch;
+import com.bulain.jbpm4order.service.LoginService;
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionProxy;
+
+public class AuthenticateActionTest extends JbpmTestCase {
+	private LoginService loginService;
+	private Integer loginId;
+	
+	public static void main(String[] args) {
+		junit.textui.TestRunner.run(AuthenticateActionTest.class);
+	}
+	
+	protected void setUp() throws Exception {
+		super.setUp();
+		loginService = (LoginService) applicationContext.getBean("loginService");
+		setUpLogin();
+	}
+
+	protected void tearDown() throws Exception {
+		tearDownLogin();
+		super.tearDown();
+	}
+
+	private void setUpLogin(){
+		Login login = new Login();
+		login.setLoginName("loginName");
+		login.setEmail("email@email.com");
+		login.setHashedPassword("hashedPassword");
+		login.setEnabled("enabled");
+		
+		loginService.insert(login);
+		
+		LoginSearch search = new LoginSearch();
+		search.setLoginName("loginName");
+		List<Login> listLogin = loginService.find(search);
+		loginId = listLogin.get(0).getId();
+	}
+	
+	private void tearDownLogin(){
+		loginService.delete(loginId);
+	}
+	
+	public void testLogonAndLogout() throws Exception{
+		initServletMockObjects();
+		ActionProxy proxy = getActionProxy("/authenticate/login");
+		String result = proxy.execute();
+		assertEquals(Action.SUCCESS, result);
+		Map<String, Object> session = ActionContext.getContext().getSession();
+		assertNull(session.get(Constants.SESSION_KEY_LOGIN));
+		
+		initServletMockObjects();
+		request.setParameter("login.loginName", "loginName");
+		request.setParameter("login.hashedPassword", "hashedPassword");
+		proxy = getActionProxy("/authenticate/logon");
+		result = proxy.execute();
+		assertEquals(Action.SUCCESS, result);
+		session = ActionContext.getContext().getSession();
+		assertNotNull(session.get(Constants.SESSION_KEY_LOGIN));
+		
+		initServletMockObjects();
+		proxy = getActionProxy("/authenticate/logout");
+		result = proxy.execute();
+		assertEquals(Action.SUCCESS, result);
+		session = ActionContext.getContext().getSession();
+		assertNull(session.get(Constants.SESSION_KEY_LOGIN));
+	}
+}

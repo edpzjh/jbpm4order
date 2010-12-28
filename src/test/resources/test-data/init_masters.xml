@@ -1,0 +1,46 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="groups">
+		<column>id</column>
+        <column>name</column>
+        <column>note</column>
+        <row>
+            <value>105</value>
+            <value>name_page</value>
+            <value>note_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>name_page</value>
+            <value>note_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>name_page</value>
+            <value>note_page</value>
+        </row>
+	</table>
+	<table name="persons">
+		<column>id</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <row>
+            <value>105</value>
+            <value>first_name_page</value>
+            <value>last_name_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>first_name_page</value>
+            <value>last_name_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>first_name_page</value>
+            <value>last_name_page</value>
+        </row>
+    </table>
+    <table name="logins"/>
+	<table name="group_logins"/>
+	<table name="group_permissions"/>
+</dataset>

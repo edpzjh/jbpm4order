@@ -1,0 +1,63 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="authorizes">
+		<column>id</column>
+        <column>controller</column>
+        <column>action</column>
+        <column>permission</column>
+        <!-- deleteByPrimaryKey -->
+        <row>
+            <value>101</value>
+            <value>controller_101</value>
+            <value>action_101</value>
+            <value>permission_101</value>
+        </row>
+        <!-- selectByPrimaryKey -->
+        <row>
+            <value>102</value>
+            <value>controller_102</value>
+            <value>action_102</value>
+            <value>permission_102</value>
+        </row>
+        <!-- updateByPrimaryKeySelective -->
+        <row>
+            <value>103</value>
+            <value>controller_103</value>
+            <value>action_103</value>
+            <value>permission_103</value>
+        </row>
+        <!-- updateByPrimaryKey -->
+        <row>
+            <value>104</value>
+            <value>controller_104</value>
+            <value>action_104</value>
+            <value>permission_104</value>
+        </row>
+        <!-- page -->
+        <row>
+            <value>105</value>
+            <value>controller_page</value>
+            <value>action_page</value>
+            <value>permission_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>controller_page</value>
+            <value>action_page</value>
+            <value>permission_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>controller_page</value>
+            <value>action_page</value>
+            <value>permission_page</value>
+        </row>
+        <!-- getPermission -->
+        <row>
+            <value>108</value>
+            <value>controller_108</value>
+            <value>action_108</value>
+            <value>permission_108</value>
+        </row>
+	</table>
+</dataset>

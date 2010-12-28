@@ -1,0 +1,81 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="permissions">
+		<column>id</column>
+        <column>permission</column>
+        <!-- deleteByPrimaryKey -->
+        <row>
+            <value>101</value>
+            <value>permission_101</value>
+        </row>
+        <!-- selectByPrimaryKey -->
+        <row>
+            <value>102</value>
+            <value>permission_102</value>
+        </row>
+        <!-- updateByPrimaryKeySelective -->
+        <row>
+            <value>103</value>
+            <value>permission_103</value>
+        </row>
+        <!-- updateByPrimaryKey -->
+        <row>
+            <value>104</value>
+            <value>permission_104</value>
+        </row>
+        <!-- page -->
+        <row>
+            <value>105</value>
+            <value>permission_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>permission_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>permission_page</value>
+        </row>
+	</table>
+	<table name="groups">
+		<column>id</column>
+        <column>name</column>
+        <column>note</column>
+        <row>
+            <value>105</value>
+            <value>name_page</value>
+            <value>note_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>name_page</value>
+            <value>note_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>name_page</value>
+            <value>note_page</value>
+        </row>
+	</table>
+	<table name="group_permissions">
+		<column>id</column>
+        <column>group_id</column>
+        <column>permission</column>
+        <row>
+            <value>105</value>
+            <value>105</value>
+            <value>permission_page</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>105</value>
+            <value>permission_page</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>105</value>
+            <value>permission_page</value>
+        </row>
+     </table>
+     <table name="group_logins"/>
+</dataset>

@@ -1,0 +1,131 @@
+<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<dataset>
+	<table name="authorizes">
+		<column>id</column>
+        <column>controller</column>
+        <column>action</column>
+        <column>permission</column>
+        <row>
+            <value>101</value>
+            <value>authorize</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>102</value>
+            <value>content</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>103</value>
+            <value>group</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>104</value>
+            <value>login</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>105</value>
+            <value>person</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>106</value>
+            <value>profile</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>107</value>
+            <value>referance</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>108</value>
+            <value>order</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+        <row>
+            <value>109</value>
+            <value>workflow</value>
+            <value>*</value>
+            <value>Admin</value>
+        </row>
+	</table>
+	<table name="permissions">
+		<column>id</column>
+        <column>permission</column>
+        <row>
+            <value>101</value>
+            <value>Admin</value>
+        </row>
+	</table>
+	<table name="groups">
+		<column>id</column>
+        <column>name</column>
+        <column>note</column>
+        <row>
+            <value>101</value>
+            <value>Admin</value>
+            <value></value>
+        </row>
+	</table>
+	<table name="persons">
+		<column>id</column>
+        <column>first_name</column>
+        <column>last_name</column>
+        <row>
+            <value>101</value>
+            <value>Admin</value>
+            <value></value>
+        </row>
+	</table>
+	<table name="logins">
+		<column>id</column>
+        <column>person_id</column>
+        <column>login_name</column>
+        <column>email</column>
+        <column>hashed_password</column>
+        <column>enabled</column>
+        <row>
+            <value>101</value>
+            <value>101</value>
+            <value>admin</value>
+            <value>admin@g.com</value>
+            <value>admin</value>
+            <value>Yes</value>
+        </row>
+	</table>
+	<table name="group_permissions">
+        <column>id</column>
+        <column>group_id</column>
+        <column>permission</column>
+        <row>
+            <value>101</value>
+            <value>101</value>
+            <value>Admin</value>
+        </row>
+	</table>
+	<table name="group_logins">
+		<column>id</column>
+        <column>group_id</column>
+        <column>login_id</column>
+        <row>
+            <value>101</value>
+            <value>101</value>
+            <value>101</value>
+        </row>
+	</table>
+	<table name="mail_templates"></table>
+	<table name="referances"></table>
+	<table name="profiles"></table>
+	<table name="orders"></table>
+</dataset>

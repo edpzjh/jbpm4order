@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	<bean id="authorizeService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.AuthorizeServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="contentService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.ContentServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="groupService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.GroupServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="loginService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.LoginServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="mailTemplateService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.MailTemplateServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="masterService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.MasterServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="orderService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.OrderServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="personService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.PersonServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="profileService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.ProfileServiceImpl"/>
+		</property>
+	</bean>	
+	
+	<bean id="referanceService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.bulain.jbpm4order.service.ReferanceServiceImpl"/>
+		</property>
+	</bean>	
+	
+</beans>
