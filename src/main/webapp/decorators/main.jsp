@@ -8,6 +8,7 @@
 		<script src="<s:url value='/public/jquery/js/jquery-1.4.2.js'/>" type="text/javascript"></script>
 		<script src="<s:url value='/public/jquery/js/jquery.validate.js'/>" type="text/javascript"></script>
 		<script src="<s:url value='/public/javascripts/public.js'/>" type="text/javascript"></script>
+		<script src="<s:url value='/public/javascripts/menu.js'/>" type="text/javascript"></script>
 		<title><decorator:title default="sitemesh" /></title>
 		<decorator:head />
 	</head>
@@ -17,7 +18,7 @@
 		  </div>
 		  <div id="login"><span><a href="?request_locale=en_US">English</a>|<a href="?request_locale=zh_CN">Chinese</a></span></div>
 		  <div id="main">
-		    <div id="sidebar"></div>
+		    <div id="sidebar"><s:include value="_menu.jsp"/></div>
 		    <div id="content"><decorator:body /></div>
 		  </div>
 		  <hr/>

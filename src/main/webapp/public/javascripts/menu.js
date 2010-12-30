@@ -160,7 +160,7 @@ function openMenu(sSectionID)
 
     eHeader.className = "headerOpen";
     eSection.style.display = "";
-    eraseFromConglomerateCookie("_ever_menu_cookie", sSectionID);
+    eraseFromConglomerateCookie("_cookie", sSectionID);
 }
 
 function closeMenu(sSectionID)
@@ -170,14 +170,14 @@ function closeMenu(sSectionID)
 
     eHeader.className = "headerClosed";
     eSection.style.display = "none";
-    saveToConglomerateCookie("_ever_menu_cookie", sSectionID, '0');
+    saveToConglomerateCookie("_cookie", sSectionID, '0');
 
     areAllMenusOpen = false;
 }
 
 function toggleMenu(sSectionID)
 {
-	if (readFromConglomerateCookie("_ever_menu_cookie", sSectionID, '1') == "1")
+	if (readFromConglomerateCookie("_cookie", sSectionID, '1') == "1")
 	{
         closeMenu(sSectionID);
         restoreShowHideAllMenu();
@@ -194,7 +194,7 @@ function toggleMenu(sSectionID)
 
 function restoreMenu(sSectionID)
 {
-	if (readFromConglomerateCookie("_ever_menu_cookie", sSectionID, '1') == "1")
+	if (readFromConglomerateCookie("_cookie", sSectionID, '1') == "1")
 	{
         openMenu(sSectionID);
 	}

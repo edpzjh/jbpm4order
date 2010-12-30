@@ -4,7 +4,6 @@
 
 <html>
 <head>
-	<link href="<s:url value='/public/stylesheets/globel.css'/>" rel="stylesheet" type="text/css"/>
     <title><s:text name="referance.model"/><s:text name="title.list"/></title>
 </head>
 <body>
