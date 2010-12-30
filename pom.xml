@@ -31,6 +31,7 @@
 	<xmemcached.version>1.2.6.1</xmemcached.version>
 	<json.version>2.1</json.version>
 	<jms.version>1.1</jms.version>
+	<geronimo-jms.version>1.1.1</geronimo-jms.version>
 	<servlet.version>2.4</servlet.version>
 	<jsp.version>2.0</jsp.version>
 	<mysql.version>5.0.8</mysql.version>
@@ -73,6 +74,26 @@
 	    <version>${log4j.version}</version>
 	</dependency>
 	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>${slf4j.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-core</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-context</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-context-support</artifactId>
+	  <version>${spring.version}</version>
+	</dependency>
+	<dependency>
 	  <groupId>org.springframework</groupId>
 	  <artifactId>spring-orm</artifactId>
 	  <version>${spring.version}</version>
@@ -90,6 +111,11 @@
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-jms</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-web</artifactId>
 	    <version>${spring.version}</version>
 	</dependency>
 	<dependency>
@@ -292,8 +318,8 @@
 	    <classifier>jdk15</classifier>
 	</dependency>
 	<dependency>
-	    <groupId>javax.jms</groupId>
-	    <artifactId>jms</artifactId>
+	    <groupId>org.apache.geronimo.specs</groupId>
+	    <artifactId>geronimo-jms_1.1_spec</artifactId>
 	    <version>${jms.version}</version>
 	</dependency>
 	<dependency>
@@ -311,6 +337,12 @@
   			<artifactId>cglib</artifactId>
      	</exclusion>
      </exclusions>
+	</dependency>
+	<dependency>
+	    <groupId>net.sourceforge.jwebunit</groupId>
+	    <artifactId>jwebunit-core</artifactId>
+	    <version>${jwebunit.version}</version>
+	    <scope>test</scope>
 	</dependency>
 	<dependency>
 	    <groupId>net.sourceforge.jwebunit</groupId>
