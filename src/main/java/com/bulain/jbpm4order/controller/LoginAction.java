@@ -88,6 +88,12 @@ public class LoginAction extends PageSupportActionSupport{
 		return SUCCESS;
 	}
 	
+    public void validate() {
+    	super.validate();
+    	if(this.hasErrors()){
+    		prepareEdit();
+    	}
+    }
 	protected void prepareList() {
 		listReferanceBoolean = referanceService.findItem(ItemConst.NAME_BOOLEAN, getLanguage());
 		listMasterGroup = masterService.findMaster4Group();

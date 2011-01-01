@@ -66,6 +66,12 @@ public class ProfileAction extends PageSupportActionSupport{
 		return SUCCESS;
 	}
 	
+    public void validate() {
+    	super.validate();
+    	if(this.hasErrors()){
+    		prepareEdit();
+    	}
+    }
 	public void prepareList() {
 		listReferanceLanguage = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 		listReferanceCountry = referanceService.findItem(ItemConst.NAME_COUNTRY, getLanguage());
