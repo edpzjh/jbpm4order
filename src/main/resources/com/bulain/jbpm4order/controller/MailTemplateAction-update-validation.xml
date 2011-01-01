@@ -9,8 +9,8 @@
 			<message key="validate.requiredstring"></message>
 		</field-validator>
 		<field-validator type="stringlength">
-			<param name="minLength">1</param>
-			<param name="maxLength">20</param>
+			<param name="minLength">0</param>
+			<param name="maxLength">255</param>
 			<message key="validate.stringlength"></message>
 		</field-validator>
 	</field>
@@ -32,7 +32,7 @@
 		</field-validator>
 		<field-validator type="stringlength">
 			<param name="minLength">0</param>
-			<param name="maxLength">200</param>
+			<param name="maxLength">255</param>
 			<message key="validate.stringlength"></message>
 		</field-validator>
 	</field>
