@@ -43,7 +43,6 @@ public class LoginAction extends PageSupportActionSupport{
 		page = getPageFromSession();
 		
 		List<Login> list = loginService.page(search, page);
-		prepareSearch();
 		listLogin = formatList(list);
 		
 		putSearchToSession(LoginSearch.class, search);
@@ -89,14 +88,16 @@ public class LoginAction extends PageSupportActionSupport{
 		return SUCCESS;
 	}
 	
-	protected void prepareSearch() {
+	protected void prepareList() {
 		listReferanceBoolean = referanceService.findItem(ItemConst.NAME_BOOLEAN, getLanguage());
 		listMasterGroup = masterService.findMaster4Group();
 		listMasterPerson = masterService.findMaster4Person();
 	}
-	
+	protected void prepareNewn() {
+		prepareList();
+	}
 	protected void prepareEdit() {
-		prepareSearch();
+		prepareList();
 	}
 
 	protected List<LoginView> formatList(List<Login> list){

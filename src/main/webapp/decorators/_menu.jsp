@@ -16,6 +16,7 @@
 			<li class="sub-menu"><a href="<s:url value="/authorize/list.action"/>"><s:text name="authorize.model"/><s:text name="title.list"/></a></li>
 			<li class="sub-menu"><a href="<s:url value="/referance/list.action"/>"><s:text name="referance.model"/></a></li>
 			<li class="sub-menu"><a href="<s:url value="/content/list.action"/>"><s:text name="content.model"/><s:text name="title.list"/></a></li>
+			<li class="sub-menu"><a href="<s:url value="/mailTemplate/list.action"/>"><s:text name="mailTemplate.model"/><s:text name="title.list"/></a></li>
 			<li class="sub-menu"><a href="<s:url value="/profile/list.action"/>"><s:text name="profile.model"/><s:text name="title.list"/></a></li>
 			<li class="sub-menu"><a href="<s:url value="/order/list.action"/>"><s:text name="order.model"/><s:text name="title.list"/></a></li>
 			<li class="sub-menu"><a href="<s:url value="/workflow/list.action"/>">Workflow</a></li>

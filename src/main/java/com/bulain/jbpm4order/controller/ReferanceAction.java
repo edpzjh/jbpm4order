@@ -33,7 +33,6 @@ public class ReferanceAction extends PageSupportActionSupport{
 		page = getPageFromSession();
 		
 		List<Referance> list = referanceService.page(search, page);
-		prepareSearch();
 		listReferance = formatList(list);
 		
 	    putSearchToSession(ReferanceSearch.class, search);
@@ -77,14 +76,16 @@ public class ReferanceAction extends PageSupportActionSupport{
     	}
     }
 
-	protected void prepareSearch() {
+	protected void prepareList() {
 		listReferanceName = referanceService.findItem(ItemConst.NAME_REFERANCE, getLanguage());
 		listReferanceLang = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 		listReferanceCatagory = referanceService.findItem(ItemConst.NAME_CATAGORY, getLanguage());
 	}
-	
+	protected void prepareNewn(){
+		prepareList();
+	}
 	protected void prepareEdit(){
-		prepareSearch();
+		prepareList();
 	}
 	
 	protected List<ReferanceView> formatList(List<Referance> list){

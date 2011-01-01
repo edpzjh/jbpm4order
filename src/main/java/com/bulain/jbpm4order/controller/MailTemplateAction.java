@@ -74,14 +74,19 @@ public class MailTemplateAction extends PageSupportActionSupport{
 		return SUCCESS;
 	}
 	
+    public void validate() {
+    	super.validate();
+    	if(this.hasErrors()){
+    		prepareEdit();
+    	}
+    }
+    
 	public void prepareList() {
 		listReferanceLang = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 	}
-	
 	protected void prepareNewn(){
 		prepareList();
 	}
-	
 	protected void prepareEdit(){
 		prepareList();
 	}

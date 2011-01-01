@@ -41,7 +41,6 @@ public class ContentAction extends PageSupportActionSupport{
 		page = getPageFromSession();
 		
 		List<Content> list = contentService.page(search, page);
-		prepareSearch();
 		listContent = formatList(list);
 		
 		putSearchToSession(ContentSearch.class, search);
@@ -130,12 +129,14 @@ public class ContentAction extends PageSupportActionSupport{
     	}
     }
 	
-	protected void prepareSearch() {
+	protected void prepareList() {
 		listReferanceLang = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 	}
-	
+	protected void prepareNewn(){
+		prepareList();
+	}
 	protected void prepareEdit(){
-		prepareSearch();
+		prepareList();
 	}
 	
 	protected List<ContentView> formatList(List<Content> list){
