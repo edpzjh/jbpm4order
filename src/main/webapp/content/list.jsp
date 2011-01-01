@@ -37,7 +37,7 @@
             <td class="page-form-value"><input type="text" name="search.catagory" value="<s:property value="search.catagory"/>"/></td>
             <td class="page-form-label"><s:text name="content.lang"/></td>
             <td class="page-form-value">
-            	<s:select name="search.lang" list="listReferanceLang" listKey="code" listValue="text" value="search.lang" />
+            	<s:select name="search.lang" list="listReferanceLang" listKey="key" listValue="value" value="search.lang" />
             </td>
         </tr>
         <tr>

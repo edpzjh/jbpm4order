@@ -30,7 +30,7 @@
         <td class="page-form-value"><s:textfield key="content.catagory"/></td>
     	<td class="page-form-label"><s:text name="content.lang"/></td>
         <td class="page-form-value">
-        	<s:select name="content.lang" list="listReferanceLang" listKey="code" listValue="text" value="content.lang" />
+        	<s:select name="content.lang" list="listReferanceLang" listKey="key" listValue="value" value="content.lang" />
         </td>
     </tr>
     <tr>

@@ -32,9 +32,7 @@ public class ProfileAction extends PageSupportActionSupport{
 		page = getPageFromSession();
 		
 		List<Profile> list = profileService.page(search, page);
-		prepareSearch();
 		listProfile = formatList(list);
-		
 		
 		putSearchToSession(ProfileSearch.class, search);
 	    putPageToSession();
@@ -44,7 +42,6 @@ public class ProfileAction extends PageSupportActionSupport{
 	
 	public String newn(){
 		profile = new Profile();
-		prepareEdit();
 		return SUCCESS;
 	}
 	public String create(){
@@ -58,7 +55,6 @@ public class ProfileAction extends PageSupportActionSupport{
 	}
 	public String edit(){
 		profile = profileService.get(id);
-		prepareEdit();
 		return SUCCESS;
 	}
 	public String update(){
@@ -70,13 +66,15 @@ public class ProfileAction extends PageSupportActionSupport{
 		return SUCCESS;
 	}
 	
-	protected void prepareSearch() {
+	public void prepareList() {
 		listReferanceLanguage = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 		listReferanceCountry = referanceService.findItem(ItemConst.NAME_COUNTRY, getLanguage());
 	}
-	
-	protected void prepareEdit(){
-		prepareSearch();
+	public void prepareNewn(){
+		prepareList();
+	}
+	public void prepareEdit(){
+		prepareList();
 	}
 	
 	protected List<ProfileView> formatList(List<Profile> list){

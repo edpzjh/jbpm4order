@@ -23,11 +23,11 @@
         <tr>
 	        <td class="page-form-label"><s:text name="profile.language"/></td>
 	        <td class="page-form-value">
-	        	<s:select name="search.language" list="listReferanceLanguage" listKey="code" listValue="text" value="search.language" />
+	        	<s:select name="search.language" list="listReferanceLanguage" listKey="key" listValue="value" value="search.language" />
 	        </td>
 	        <td class="page-form-label"><s:text name="profile.country"/></td>
 	        <td class="page-form-value">
-	        	<s:select name="search.country" list="listReferanceCountry" listKey="code" listValue="text" value="search.country" />
+	        	<s:select name="search.country" list="listReferanceCountry" listKey="key" listValue="value" value="search.country" />
 	        </td>
 	    </tr>
         <tr>
