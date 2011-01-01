@@ -24,16 +24,14 @@ public class MailTemplateAction extends PageSupportActionSupport{
 	private transient MailTemplateService mailTemplateService;
 	private transient ReferanceService referanceService;
 	
-	private List<Item> listReferanceLanguage;
+	private List<Item> listReferanceLang;
 	
 	public String list(){
 		search = (MailTemplateSearch) getSearchFromSession(MailTemplateSearch.class, search);
 		page = getPageFromSession();
 		
 		List<MailTemplate> list = mailTemplateService.page(search, page);
-		prepareSearch();
 		listMailTemplate = formatList(list);
-		
 		
 		putSearchToSession(MailTemplateSearch.class, search);
 	    putPageToSession();
@@ -76,12 +74,16 @@ public class MailTemplateAction extends PageSupportActionSupport{
 		return SUCCESS;
 	}
 	
-	protected void prepareSearch() {
-		listReferanceLanguage = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
+	public void prepareList() {
+		listReferanceLang = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
+	}
+	
+	protected void prepareNewn(){
+		prepareList();
 	}
 	
 	protected void prepareEdit(){
-		prepareSearch();
+		prepareList();
 	}
 	
 	protected List<MailTemplateView> formatList(List<MailTemplate> list){
@@ -134,12 +136,12 @@ public class MailTemplateAction extends PageSupportActionSupport{
 		this.mailTemplateService = mailTemplateService;
 	}
 
-	public List<Item> getListReferanceLanguage() {
-		return listReferanceLanguage;
+	public List<Item> getListReferanceLang() {
+		return listReferanceLang;
 	}
 
-	public void setListReferanceLanguage(List<Item> listReferanceLanguage) {
-		this.listReferanceLanguage = listReferanceLanguage;
+	public void setListReferanceLang(List<Item> listReferanceLang) {
+		this.listReferanceLang = listReferanceLang;
 	}
 
 	public void setReferanceService(ReferanceService referanceService) {

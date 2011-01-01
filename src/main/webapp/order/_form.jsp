@@ -16,17 +16,17 @@
     <tr>
         <td class="page-form-label"><s:text name="order.name"/></td>
         <td class="page-form-value"><s:textfield key="order.name"/></td>
-        <td/>
-        <td/>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td class="page-form-label"><s:text name="order.note"/></td>
         <td class="page-form-value" colspan="3"><s:textarea name="order.note"  rows="4" cols="50"></s:textarea></td>
     </tr>
     <tr>
-        <td width="20%"/>
-        <td width="30%"/>
-        <td width="20%"/>
-        <td width="30%"/>
+        <td width="20%"></td>
+        <td width="30%"></td>
+        <td width="20%"></td>
+        <td width="30%"></td>
     </tr>
 </table> 

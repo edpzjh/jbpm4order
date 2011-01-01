@@ -49,3 +49,9 @@ person.lastName=名
 group.model=用户组
 group.name=组名
 group.note=备注
+
+mailTemplate.model=邮件模板
+mailTemplate.name=名称
+mailTemplate.lang=语言
+mailTemplate.subject=标题
+mailTemplate.body=内容

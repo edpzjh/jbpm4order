@@ -18,9 +18,9 @@
 		<td class="page-form-value"><s:property value="login.enabledName"/></td>
     </tr>
     <tr>
-        <td width="20%"/>
-        <td width="30%"/>
-        <td width="20%"/>
-        <td width="30%"/>
+        <td width="20%"></td>
+        <td width="30%"></td>
+        <td width="20%"></td>
+        <td width="30%"></td>
     </tr>
 </table> 
