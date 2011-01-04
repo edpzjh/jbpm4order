@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	 <bean id="xaDataSource" class="${jdbc.dataSource}">
+		<property name="url" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<bean id="dataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close">
+		<property name="xaDataSource" ref="xaDataSource" />
+		<property name="uniqueResourceName" value="${jdbc.uniqueResourceName}" />
+      	<property name="maxPoolSize" value="${jdbc.maxPoolSize}" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"> 
+		<property name="dataSource" ref="dataSource" /> 
+		<property name="configLocation"  value="classpath:mybatis/mybatis-config.xml"/>
+		<property name="mapperLocations">
+			<list>
+				<value>classpath*:mybatis/xml/Common.xml</value>
+				<value>classpath*:mybatis/xml/*Mapper.xml</value>
+			</list>
+		</property>  
+	</bean> 
+</beans>

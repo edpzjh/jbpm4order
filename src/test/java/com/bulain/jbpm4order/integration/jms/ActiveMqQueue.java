@@ -29,22 +29,29 @@ public final class ActiveMqQueue {
     
     public static void main(String[] args) throws Exception {
         setUp();
-        createProducerAndSendAMessage();
-		logger.debug("main(String[]) - Simulating a huge network delay :)");
-        Thread.sleep(4000);
         createConsumerAndReceiveAMessage();
-        Thread.sleep(4000);
+        createProducerAndSendAMessage();
+        try{
+        	Thread.sleep(1000);
+        }catch (InterruptedException e) {
+		}
+        tearDown();
     }
 
     private static void setUp() throws JMSException {
         connectionFactory = new ActiveMQConnectionFactory(
                 ActiveMQConnection.DEFAULT_USER,
                 ActiveMQConnection.DEFAULT_PASSWORD,
-                "tcp://localhost:61616");
+                "vm://localhost:61616");
         connection = connectionFactory.createConnection();
         connection.start();
         session = connection.createSession(transacted, Session.AUTO_ACKNOWLEDGE);
         destination = session.createQueue("Demo.A");
+    }
+    
+    private static void tearDown() throws JMSException{
+    	connection.stop();
+    	connection.close();
     }
 
     private static void createProducerAndSendAMessage() throws JMSException {
@@ -56,8 +63,6 @@ public final class ActiveMqQueue {
     }
 
     private static void createConsumerAndReceiveAMessage() throws JMSException {
-        connection = connectionFactory.createConnection();
-        connection.start();
         MessageConsumer consumer = session.createConsumer(destination);
         MyConsumer myConsumer = new MyConsumer();
         connection.setExceptionListener(myConsumer);

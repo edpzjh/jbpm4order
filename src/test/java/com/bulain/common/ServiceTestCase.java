@@ -32,10 +32,12 @@ public abstract class ServiceTestCase extends TestCase {
 	}
 	
 	protected void setupBeforeInitDispatcher() throws Exception {
-		if(applicationContext==null){
+		applicationContext = ContextUtil.getApplicationContext();
+        if (applicationContext == null) {
 	        GenericXmlContextLoader xmlContextLoader = new GenericXmlContextLoader();
 	        String[] contextLocations = StringUtils.tokenizeToStringArray(getContextLocations(), CONFIG_LOCATION_DELIMITERS);
 	        applicationContext = xmlContextLoader.loadContext(contextLocations);
+	        ContextUtil.setApplicationContext(applicationContext);
 		}
     }
 	

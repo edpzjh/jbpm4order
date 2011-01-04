@@ -18,6 +18,7 @@
 	<mybatis.version>3.0.3</mybatis.version>
 	<mybatis-spring.version>1.0.0-RC3</mybatis-spring.version>
 	<spring.version>3.0.5.RELEASE</spring.version>
+	<cglib.version>2.2</cglib.version>
 	<dbcp.version>1.2.2</dbcp.version>
 	<jbpm.version>4.4</jbpm.version>
 	<mail.version>1.4.1</mail.version>
@@ -35,6 +36,10 @@
 	<servlet.version>2.4</servlet.version>
 	<jsp.version>2.0</jsp.version>
 	<mysql.version>5.0.8</mysql.version>
+	<jotm.version>2.1.9</jotm.version>
+	<xapool.version>1.5.0</xapool.version>
+	<atomikos.version>3.6.4</atomikos.version>
+	<c3p0.version>0.9.1</c3p0.version>	
 	<!-- maven plugin -->
 	<cobertura.version>2.4</cobertura.version>
 	<surefire.version>2.4.3</surefire.version>
@@ -79,6 +84,11 @@
 	    <version>${slf4j.version}</version>
 	</dependency>
 	<dependency>
+		<groupId>cglib</groupId>
+  		<artifactId>cglib-nodep</artifactId>
+  		<version>${cglib.version}</version>
+	</dependency>
+	<dependency>
 	  <groupId>org.springframework</groupId>
 	  <artifactId>spring-core</artifactId>
 	  <version>${spring.version}</version>
@@ -115,6 +125,11 @@
 	</dependency>
 	<dependency>
 	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
 	    <version>${spring.version}</version>
 	</dependency>
@@ -130,6 +145,21 @@
 	    <version>${spring.version}</version>
 	    <scope>test</scope>
 	</dependency>
+	<dependency>
+	  <groupId>com.atomikos</groupId>
+	  <artifactId>transactions-jta</artifactId>
+	  <version>${atomikos.version}</version>
+	  <exclusions>
+	  	<exclusion>
+	  		<groupId>com.atomikos</groupId>
+	  		<artifactId>transactions-jms-deprecated</artifactId>
+	  	</exclusion>
+	  	<exclusion>
+	  		<groupId>com.atomikos</groupId>
+	  		<artifactId>transactions-jdbc-deprecated</artifactId>
+	  	</exclusion>
+	  </exclusions>
+	</dependency>
   	<dependency>
 	    <groupId>org.mybatis</groupId>
 	    <artifactId>mybatis</artifactId>
@@ -140,11 +170,13 @@
 	    <artifactId>mybatis-spring</artifactId>
 	    <version>${mybatis-spring.version}</version>
 	</dependency>
+	<!-- 
 	<dependency>
 	    <groupId>commons-dbcp</groupId>
 	    <artifactId>commons-dbcp</artifactId>
 	    <version>${dbcp.version}</version>
 	</dependency>
+	 -->
 	<dependency>
 	     <groupId>org.jbpm.jbpm4</groupId>
 	     <artifactId>jbpm-pvm</artifactId>
@@ -204,10 +236,17 @@
 	  <artifactId>slf4j-log4j12</artifactId>
 	  <version>${slf4j.version}</version>
 	</dependency>
+	<!-- 
 	<dependency>
 	    <groupId>org.jbpm.jbpm4</groupId>
 	    <artifactId>jbpm-db</artifactId>
 	    <version>${jbpm.version}</version>
+	</dependency>
+	 -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${mysql.version}</version>
 	</dependency>
     <dependency>
 	  <groupId>org.apache.struts</groupId>
@@ -383,6 +422,13 @@
 	    <artifactId>javassist</artifactId>
 	    <version>${javassist.version}</version>
 	</dependency>
+	<!-- 
+	<dependency>
+    	<groupId>c3p0</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>${c3p0.version}</version>
+	</dependency>
+	 -->
   </dependencies>
   
   <build>

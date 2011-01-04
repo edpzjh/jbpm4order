@@ -25,7 +25,6 @@ public class OrderServiceImplTest extends ServiceTestCase {
 		junit.textui.TestRunner.run(OrderServiceImplTest.class);
 	}
 
-
 	public void testGetByWfId() {
 		Order byWfId = orderService.getByWfId("wf_id_wf");
 		assertNotNull(byWfId);

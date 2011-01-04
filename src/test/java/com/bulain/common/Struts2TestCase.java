@@ -44,10 +44,12 @@ public abstract class Struts2TestCase extends StrutsTestCase {
 	}
 	
 	protected void setupBeforeInitDispatcher() throws Exception {
+		applicationContext = ContextUtil.getApplicationContext();
         if (applicationContext == null) {
         	 GenericXmlContextLoader xmlContextLoader = new GenericXmlContextLoader();
              String[] contextLocations = StringUtils.tokenizeToStringArray(getContextLocations(), CONFIG_LOCATION_DELIMITERS);
              applicationContext = xmlContextLoader.loadContext(contextLocations);
+             ContextUtil.setApplicationContext(applicationContext);
         }
 
         servletContext.setAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE, applicationContext);

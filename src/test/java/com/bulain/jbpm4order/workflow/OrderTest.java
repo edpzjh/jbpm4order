@@ -10,7 +10,7 @@ import org.jbpm.api.task.Task;
 import com.bulain.common.JbpmTestCase;
 
 public class OrderTest extends JbpmTestCase {
-	String deploymentId;
+	private String deploymentId;
 	
 	public static void main(String[] args){
 		junit.textui.TestRunner.run(OrderTest.class);

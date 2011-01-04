@@ -5,8 +5,8 @@
 		<property name="locations">
 			<list>
 				<value>classpath:jdbc-test.properties</value>
-				<value>classpath:jms.properties</value>
-				<value>classpath:mail.properties</value>
+				<value>classpath:jms-test.properties</value>
+				<value>classpath:mail-test.properties</value>
 			</list>
 		</property>
 	</bean>

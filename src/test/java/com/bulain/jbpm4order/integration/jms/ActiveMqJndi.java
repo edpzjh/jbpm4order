@@ -25,7 +25,7 @@ public final class ActiveMqJndi {
 	private static final String NAME_QUEUE = "queue.Demo.A";
 	
 	private static final String FACTORY = "org.apache.activemq.jndi.ActiveMQInitialContextFactory";
-	private static final String PROVIDER = "tcp://localhost:61616";
+	private static final String PROVIDER = "vm://localhost:61616";
 	private static final String QUEUE = "Demo.A";
 	private static final String CONNECTION_FACTORY = "ConnectionFactory";	
 	
