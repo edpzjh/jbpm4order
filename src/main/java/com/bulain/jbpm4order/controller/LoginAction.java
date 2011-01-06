@@ -94,15 +94,15 @@ public class LoginAction extends PageSupportActionSupport{
     		prepareEdit();
     	}
     }
-	protected void prepareList() {
+	public void prepareList() {
 		listReferanceBoolean = referanceService.findItem(ItemConst.NAME_BOOLEAN, getLanguage());
 		listMasterGroup = masterService.findMaster4Group();
 		listMasterPerson = masterService.findMaster4Person();
 	}
-	protected void prepareNewn() {
+	public void prepareNewn() {
 		prepareList();
 	}
-	protected void prepareEdit() {
+	public void prepareEdit() {
 		prepareList();
 	}
 

@@ -75,15 +75,15 @@ public class ReferanceAction extends PageSupportActionSupport{
     		prepareEdit();
     	}
     }
-	protected void prepareList() {
+    public void prepareList() {
 		listReferanceName = referanceService.findItem(ItemConst.NAME_REFERANCE, getLanguage());
 		listReferanceLang = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 		listReferanceCatagory = referanceService.findItem(ItemConst.NAME_CATAGORY, getLanguage());
 	}
-	protected void prepareNewn(){
+    public void prepareNewn(){
 		prepareList();
 	}
-	protected void prepareEdit(){
+    public void prepareEdit(){
 		prepareList();
 	}
 	
