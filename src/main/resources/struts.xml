@@ -32,10 +32,10 @@
 		<default-interceptor-ref name="orderDefaultStack"/>
 		
 		<global-results>
-			<result name="error" type="redirect">/error/422.html</result>
-			<result name="invalid.token" type="redirect">/error/423.html</result>
+			<result name="error">/error/422.html</result>
+			<result name="invalid.token">/error/423.html</result>
 			<result name="invalid.authenticate" type="redirect">/authenticate/login.action</result>
-			<result name="invalid.authorize" type="redirect">/error/424.html</result>
+			<result name="invalid.authorize">/error/424.html</result>
 		</global-results>
 		<global-exception-mappings>
 			<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
