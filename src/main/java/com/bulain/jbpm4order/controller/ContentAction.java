@@ -129,13 +129,13 @@ public class ContentAction extends PageSupportActionSupport{
     	}
     }
 	
-	protected void prepareList() {
+    public void prepareList() {
 		listReferanceLang = referanceService.findItem(ItemConst.NAME_LANGUAGE, getLanguage());
 	}
-	protected void prepareNewn(){
+    public void prepareNewn(){
 		prepareList();
 	}
-	protected void prepareEdit(){
+    public void prepareEdit(){
 		prepareList();
 	}
 	
