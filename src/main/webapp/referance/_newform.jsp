@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -43,3 +44,52 @@
         <td width="30%"/>
     </tr>
 </table> 
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"referanceBean.name": {
+				required: true,
+				maxlength: 50
+			},
+			"referanceBean.code": {
+				required: true,
+				maxlength: 50
+			},
+			"referanceBean.textEN": {
+				maxlength: 250
+			},
+			"referanceBean.textCN": {
+				maxlength: 250
+			},
+			"referanceBean.catagory": {
+				maxlength: 20
+			}
+		},
+		messages: {
+			"referanceBean.name": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='referanceBean.name'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referanceBean.name'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"referanceBean.code": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='referanceBean.code'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referanceBean.code'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"referanceBean.textEN": {
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referanceBean.textEN'/></s:param><s:param>250</s:param></s:text>"
+			},
+			"referanceBean.textCN": {
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referanceBean.textCN'/></s:param><s:param>250</s:param></s:text>"
+			},
+			"referanceBean.catagory": {
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referanceBean.catagory'/></s:param><s:param>20</s:param></s:text>"
+			}
+		}
+	});
+});
+</script>

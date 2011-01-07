@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -32,3 +33,35 @@
         <td width="30%"/>
     </tr>
 </table> 
+
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"person.firstName": {
+				required: true,
+				maxlength: 20
+			},
+			"person.lastName": {
+				required: true,
+				maxlength: 20
+			}
+		},
+		messages: {
+			"person.firstName": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='person.firstName'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='person.firstName'/></s:param><s:param>20</s:param></s:text>"
+			},
+			"person.lastName": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='person.lastName'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='person.lastName'/></s:param><s:param>20</s:param></s:text>"
+			}
+		}
+	});
+});
+</script>

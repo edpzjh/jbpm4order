@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -46,3 +47,41 @@
         <td width="30%"></td>
     </tr>
 </table> 
+
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"content.fileName": {
+				required: true,
+				maxlength: 50
+			},
+			"content.contentType": {
+				required: true,
+				maxlength: 255
+			},
+			"blob": {
+				required: true,
+			}
+		},
+		messages: {
+			"content.fileName": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='content.fileName'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='content.fileName'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"content.contentType": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='content.contentType'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='content.contentType'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"blob": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='blob'/></s:param></s:text>",
+			}
+		}
+	});
+});
+</script>

@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -40,3 +41,43 @@
         <td width="30%"></td>
     </tr>
 </table> 
+
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"mailTemplate.name": {
+				required: true,
+				maxlength: 255
+			},
+			"mailTemplate.lang": {
+				required: true,
+				maxlength: 20
+			},
+			"mailTemplate.subject": {
+				required: true,
+				maxlength: 255
+			}
+		},
+		messages: {
+			"mailTemplate.name": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='mailTemplate.name'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='mailTemplate.name'/></s:param><s:param>255</s:param></s:text>"
+			},
+			"mailTemplate.lang": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='mailTemplate.lang'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='mailTemplate.lang'/></s:param><s:param>20</s:param></s:text>"
+			},
+			"mailTemplate.subject": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='mailTemplate.subject'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='mailTemplate.subject'/></s:param><s:param>255</s:param></s:text>"
+			}
+		}
+	});
+});
+</script>

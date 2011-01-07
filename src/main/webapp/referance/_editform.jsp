@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -42,3 +43,56 @@
         <td width="30%"/>
     </tr>
 </table> 
+
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"referance.name": {
+				required: true,
+				maxlength: 50
+			},
+			"referance.code": {
+				required: true,
+				maxlength: 50
+			},
+			"referance.text": {
+				maxlength: 250
+			},
+			"referance.lang": {
+				required: true,
+				maxlength: 20
+			},
+			"referance.catagory": {
+				maxlength: 20
+			}
+		},
+		messages: {
+			"referance.name": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='referance.name'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referance.name'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"referance.code": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='referance.code'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referance.code'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"referance.text": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='referance.text'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referance.text'/></s:param><s:param>250</s:param></s:text>"
+			},
+			"referance.lang": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='referance.lang'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referance.lang'/></s:param><s:param>20</s:param></s:text>"
+			},
+			"referance.catagory": {
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='referance.catagory'/></s:param><s:param>20</s:param></s:text>"
+			}
+		}
+	});
+});
+</script>

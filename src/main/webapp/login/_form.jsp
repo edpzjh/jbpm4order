@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -54,3 +55,49 @@
         <td width="30%"></td>
     </tr>
 </table> 
+
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"login.loginName": {
+				required: true,
+				maxlength: 20
+			},
+			"login.email": {
+				required: true,
+				email: true,
+				maxlength: 50
+			},
+			"login.hashedPassword": {
+				maxlength: 50
+			},
+			"login.enabled": {
+				maxlength: 20
+			}
+		},
+		messages: {
+			"login.loginName": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='login.loginName'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='login.loginName'/></s:param><s:param>20</s:param></s:text>"
+			},
+			"login.email": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='login.email'/></s:param></s:text>",
+				email: "<s:text name='js.validate.email'><s:param><s:text name='login.email'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='login.email'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"login.hashedPassword": {
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='login.hashedPassword'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"login.enabled": {
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='login.enabled'/></s:param><s:param>20</s:param></s:text>"
+			}
+		}
+	});
+});
+</script>

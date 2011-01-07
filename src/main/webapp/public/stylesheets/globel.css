@@ -379,3 +379,15 @@ div.list-page-size{
 	height:20px;
 	background:#F1FF4D;
 }
+
+/*jquery validate error*/
+div.error {
+	display: block;
+	margin-bottom: 1em;
+}
+label.error { 
+	display: block;
+	color: red;
+	margin-left: 1em;
+	width: auto; 
+}

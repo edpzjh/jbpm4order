@@ -6,6 +6,7 @@
 	<s:actionmessage/>
 	<s:actionerror/>
 </div>
+<div class="error"></div>
 
 <table class="page-form" cellspacing="0" width="100%">
     <tr>
@@ -38,3 +39,43 @@
         <td width="30%"/>
     </tr>
 </table> 
+
+
+<script type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function(form) {form.submit();}
+});
+$(document).ready(function() {
+	$("form").validate({
+		errorLabelContainer: $("div.error"),
+		rules: {
+			"authorize.controller": {
+				required: true,
+				maxlength: 50
+			},
+			"authorize.action": {
+				required: true,
+				maxlength: 50
+			},
+			"authorize.permission": {
+				required: true,
+				maxlength: 50
+			}
+		},
+		messages: {
+			"authorize.controller": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='authorize.controller'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='authorize.controller'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"authorize.action": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='authorize.action'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='authorize.action'/></s:param><s:param>50</s:param></s:text>"
+			},
+			"authorize.permission": {
+				required: "<s:text name='js.validate.required'><s:param><s:text name='authorize.permission'/></s:param></s:text>",
+				maxlength: "<s:text name='js.validate.maxlength'><s:param><s:text name='authorize.permission'/></s:param><s:param>50</s:param></s:text>"
+			}
+		}
+	});
+});
+</script>
