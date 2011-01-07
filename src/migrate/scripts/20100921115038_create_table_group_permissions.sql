@@ -11,7 +11,7 @@ create table group_permissions(
 	updated_at datetime,
 	PRIMARY KEY  (id),
 	FOREIGN KEY (group_id) REFERENCES groups(id)
-);
+)ENGINE=InnoDB default charset=utf8;
 
 
 --//@UNDO

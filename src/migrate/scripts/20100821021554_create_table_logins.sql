@@ -14,7 +14,7 @@ create table logins(
 	updated_at datetime,
 	PRIMARY KEY  (id),
 	FOREIGN KEY (person_id) REFERENCES persons(id)
-);
+)ENGINE=InnoDB default charset=utf8;
 
 
 --//@UNDO

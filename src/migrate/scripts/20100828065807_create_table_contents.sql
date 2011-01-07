@@ -16,7 +16,7 @@ create table contents(
 	updated_by varchar(20),
 	updated_at datetime,
 	PRIMARY KEY  (id)
-);
+)ENGINE=InnoDB default charset=utf8;
 
 
 --//@UNDO
