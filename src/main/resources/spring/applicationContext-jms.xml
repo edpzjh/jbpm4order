@@ -2,6 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
+	<!-- 
 	 <bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
 		<property name="environment">
 			<props>
@@ -61,12 +62,13 @@
 		</property>
 	</bean>	
 	
-	<!-- 
 	<bean id="queueContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-	    <property name="connectionFactory" ref="xaConnectionFactory"/>
+	    <property name="connectionFactory" ref="connectionFactory"/>
+	    <property name="transactionManager" ref="transactionManager"/>
 	    <property name="destination" ref="destinationA"/>
 	    <property name="messageListener" ref="queueListenerAdapter" />
 	    <property name="sessionTransacted" value="${jms.sessionTransacted}" />
+	    <property name="maxConcurrentConsumers" value="${jms.maxConcurrentConsumers}" />
 	</bean>
 	<bean id="queueListenerAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
 	    <property name="delegate" ref="p2pServer"/>
@@ -75,16 +77,14 @@
 	<bean id="p2pServer" class="com.bulain.jbpm4order.jms.P2pServer">
 		<property name="jmsTemplate" ref="jmsTemplateB"/>
 	</bean>
-	 -->
 	 
-	 <!-- 
 	 <bean id="topicContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-	    <property name="connectionFactory" ref="xaConnectionFactory"/>
+	    <property name="connectionFactory" ref="connectionFactory"/>
+	    <property name="transactionManager" ref="transactionManager"/>
 	    <property name="destination" ref="destinationC"/>
 	    <property name="messageListener" ref="topicListenerAdapter" />
 	    <property name="sessionTransacted" value="${jms.sessionTransacted}" />
-	    <property name="concurrentConsumers" value="10" />
-	    <property name="maxConcurrentConsumers" value="10" />
+	    <property name="maxConcurrentConsumers" value="${jms.maxConcurrentConsumers}" />
 	</bean>
 	<bean id="topicListenerAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
 	    <property name="delegate" ref="topicListener"/>

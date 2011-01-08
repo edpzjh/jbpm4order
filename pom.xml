@@ -40,6 +40,7 @@
 	<xapool.version>1.5.0</xapool.version>
 	<atomikos.version>3.6.4</atomikos.version>
 	<c3p0.version>0.9.1</c3p0.version>	
+	<quartz.version>1.8.4</quartz.version>
 	<!-- maven plugin -->
 	<cobertura.version>2.4</cobertura.version>
 	<surefire.version>2.4.3</surefire.version>
@@ -429,6 +430,11 @@
 	    <version>${c3p0.version}</version>
 	</dependency>
 	 -->
+	 <dependency>
+        <groupId>org.quartz-scheduler</groupId>
+        <artifactId>quartz</artifactId>
+        <version>${quartz.version}</version>
+    </dependency>
   </dependencies>
   
   <build>
