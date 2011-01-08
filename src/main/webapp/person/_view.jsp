@@ -16,6 +16,31 @@
         <td/>
         <td/>
 	</tr>
+	<tr><td colspan="4"><div class="line"></div></td></tr>
+	<tr>
+        <td class="page-form-label"><s:text name="common.createdBy"/></td>
+        <td class="page-form-value"><s:property value="person.createdBy"/></td>
+        <td/>
+        <td/>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.createdAt"/></td>
+        <td class="page-form-value"><s:property value="person.createdAt"/></td>
+        <td/>
+        <td/>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.updatedBy"/></td>
+        <td class="page-form-value"><s:property value="person.updatedBy"/></td>
+        <td/>
+        <td/>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.updatedAt"/></td>
+        <td class="page-form-value"><s:property value="person.updatedAt"/></td>
+        <td/>
+        <td/>
+    </tr>
     <tr>
         <td width="20%"/>
         <td width="30%"/>

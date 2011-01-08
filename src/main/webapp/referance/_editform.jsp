@@ -36,6 +36,19 @@
         <td class="page-form-label"><s:text name="referance.text"/></td>
         <td class="page-form-value" colspan="3"><s:textarea name="referance.text"  rows="4" cols="50"></s:textarea></td>
     </tr>
+    <tr><td colspan="4"><div class="line"></div></td></tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.createdBy"/></td>
+        <td class="page-form-value"><s:property value="referance.createdBy"/></td>
+        <td class="page-form-label"><s:text name="common.createdAt"/></td>
+        <td class="page-form-value"><s:property value="referance.createdAt"/></td>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.updatedBy"/></td>
+        <td class="page-form-value"><s:property value="referance.updatedBy"/></td>
+        <td class="page-form-label"><s:text name="common.updatedAt"/></td>
+        <td class="page-form-value"><s:property value="referance.updatedAt"/></td>
+    </tr>
     <tr>
         <td width="20%"/>
         <td width="30%"/>

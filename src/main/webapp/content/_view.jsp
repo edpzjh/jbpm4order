@@ -23,6 +23,19 @@
     	<td class="page-form-label"><s:text name="content.lang"/></td>
         <td class="page-form-value"><s:property value="content.lang"/></td>
     </tr>
+    <tr><td colspan="4"><div class="line"></div></td></tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.createdBy"/></td>
+        <td class="page-form-value"><s:property value="content.createdBy"/></td>
+        <td class="page-form-label"><s:text name="common.createdAt"/></td>
+        <td class="page-form-value"><s:property value="content.createdAt"/></td>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.updatedBy"/></td>
+        <td class="page-form-value"><s:property value="content.updatedBy"/></td>
+        <td class="page-form-label"><s:text name="common.updatedAt"/></td>
+        <td class="page-form-value"><s:property value="content.updatedAt"/></td>
+    </tr>
     <tr>
         <td width="20%"/>
         <td width="30%"/>

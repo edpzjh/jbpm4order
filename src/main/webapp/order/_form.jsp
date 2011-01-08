@@ -24,6 +24,31 @@
         <td class="page-form-label"><s:text name="order.note"/></td>
         <td class="page-form-value" colspan="3"><s:textarea name="order.note"  rows="4" cols="50"></s:textarea></td>
     </tr>
+    <tr><td colspan="4"><div class="line"></div></td></tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.createdBy"/></td>
+        <td class="page-form-value"><s:property value="order.createdBy"/></td>
+        <td/>
+        <td/>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.createdAt"/></td>
+        <td class="page-form-value"><s:property value="order.createdAt"/></td>
+        <td/>
+        <td/>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.updatedBy"/></td>
+        <td class="page-form-value"><s:property value="order.updatedBy"/></td>
+        <td/>
+        <td/>
+    </tr>
+    <tr>
+        <td class="page-form-label"><s:text name="common.updatedAt"/></td>
+        <td class="page-form-value"><s:property value="order.updatedAt"/></td>
+        <td/>
+        <td/>
+    </tr>
     <tr>
         <td width="20%"></td>
         <td width="30%"></td>
