@@ -2,8 +2,8 @@ package com.bulain.jbpm4order.dao;
 
 import java.util.List;
 
-import com.bulain.common.ServiceTestCase;
 import com.bulain.common.page.Page;
+import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.model.Permission;
 import com.bulain.jbpm4order.pojo.PermissionSearch;
 

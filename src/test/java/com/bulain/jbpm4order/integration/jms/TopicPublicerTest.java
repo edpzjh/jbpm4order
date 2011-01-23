@@ -2,7 +2,7 @@ package com.bulain.jbpm4order.integration.jms;
 
 import org.springframework.jms.core.JmsTemplate;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 
 public class TopicPublicerTest extends ServiceTestCase {
 	private JmsTemplate jmsTemplateC;

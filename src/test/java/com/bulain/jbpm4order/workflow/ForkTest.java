@@ -3,7 +3,7 @@ package com.bulain.jbpm4order.workflow;
 import org.jbpm.api.Execution;
 import org.jbpm.api.ProcessInstance;
 
-import com.bulain.common.JbpmTestCase;
+import com.bulain.common.test.JbpmTestCase;
 
 public class ForkTest extends JbpmTestCase {
 	String deploymentId;

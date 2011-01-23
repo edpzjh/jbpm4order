@@ -2,7 +2,7 @@ package com.bulain.jbpm4order.dao;
 
 import java.util.Arrays;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.model.GroupLogin;
 import com.bulain.jbpm4order.pojo.GroupSearch;
 import com.bulain.jbpm4order.pojo.LoginSearch;

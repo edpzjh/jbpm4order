@@ -8,7 +8,7 @@ import java.util.Map;
 import org.jbpm.api.ProcessInstance;
 import org.jbpm.api.task.Task;
 
-import com.bulain.common.JbpmTestCase;
+import com.bulain.common.test.JbpmTestCase;
 
 public class EventTest extends JbpmTestCase {
 	private String deploymentId;

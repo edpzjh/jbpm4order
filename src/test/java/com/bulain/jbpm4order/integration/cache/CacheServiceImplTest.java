@@ -1,8 +1,8 @@
 package com.bulain.jbpm4order.integration.cache;
 
-import com.bulain.common.ServiceTestCase;
 import com.bulain.common.cache.CacheService;
 import com.bulain.common.page.Page;
+import com.bulain.common.test.ServiceTestCase;
 
 public class CacheServiceImplTest extends ServiceTestCase {
 	private CacheService cacheService;

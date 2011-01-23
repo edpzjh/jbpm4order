@@ -2,7 +2,7 @@ package com.bulain.jbpm4order.identity;
 
 import java.util.List;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 
 public class IdentityServiceImplTest extends ServiceTestCase {
 	private IdentityService identityService;

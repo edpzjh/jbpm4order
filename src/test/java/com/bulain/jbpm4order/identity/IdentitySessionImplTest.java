@@ -6,7 +6,7 @@ import org.jbpm.api.identity.Group;
 import org.jbpm.api.identity.User;
 import org.jbpm.pvm.internal.identity.spi.IdentitySession;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 
 public class IdentitySessionImplTest extends ServiceTestCase {
 	private IdentitySession identitySession;

@@ -2,7 +2,7 @@ package com.bulain.jbpm4order.service;
 
 import java.util.List;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.pojo.Master;
 
 public class MasterServiceImplTest extends ServiceTestCase {

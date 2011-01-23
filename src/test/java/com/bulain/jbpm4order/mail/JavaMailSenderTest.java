@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.mail.Address;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.Message.RecipientType;
+import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import org.springframework.mail.SimpleMailMessage;
@@ -15,7 +15,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 
 public class JavaMailSenderTest extends ServiceTestCase {
 	private JavaMailSender mailSender;

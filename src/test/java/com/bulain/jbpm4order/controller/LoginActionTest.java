@@ -2,8 +2,8 @@ package com.bulain.jbpm4order.controller;
 
 import java.util.List;
 
-import com.bulain.common.JbpmTestCase;
 import com.bulain.common.page.Page;
+import com.bulain.common.test.JbpmTestCase;
 import com.bulain.jbpm4order.model.Group;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.GroupSearch;

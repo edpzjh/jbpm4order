@@ -4,7 +4,7 @@ import javax.jms.JMSException;
 
 import org.springframework.jms.JmsException;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.jms.P2pClient;
 
 public class P2pClientTest extends ServiceTestCase {

@@ -40,6 +40,10 @@
             <value>last_name_page</value>
         </row>
 	</table>
+	<table name="logins"></table>
+	<table name="groups"></table>
+	<table name="group_logins"></table>
+	<table name="group_permissions"></table>
 	<table name="profiles">
 		<column>id</column>
 		<column>person_id</column>

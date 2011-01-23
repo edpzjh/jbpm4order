@@ -11,7 +11,7 @@ import org.quartz.Trigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 
 public class QuartzTest extends ServiceTestCase {
 	private static final Logger LOG = LoggerFactory.getLogger(QuartzTest.class);

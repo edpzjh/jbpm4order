@@ -3,8 +3,8 @@ package com.bulain.jbpm4order.service;
 import java.util.Arrays;
 import java.util.List;
 
-import com.bulain.common.ServiceTestCase;
 import com.bulain.common.page.Page;
+import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 

@@ -2,7 +2,7 @@ package com.bulain.jbpm4order.dao;
 
 import java.util.List;
 
-import com.bulain.common.ServiceTestCase;
+import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.model.Order;
 import com.bulain.jbpm4order.pojo.OrderSearch;
 
