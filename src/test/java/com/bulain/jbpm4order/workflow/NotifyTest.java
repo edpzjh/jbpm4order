@@ -8,14 +8,14 @@ import java.util.Map;
 
 import javax.mail.Address;
 import javax.mail.Message;
-import javax.mail.Message.RecipientType;
 import javax.mail.MessagingException;
+import javax.mail.Message.RecipientType;
 import javax.mail.internet.InternetAddress;
 
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
 
-import com.bulain.common.test.JbpmTestCase;
+import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class NotifyTest extends JbpmTestCase {
 	private String deploymentId;

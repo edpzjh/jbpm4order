@@ -10,10 +10,9 @@ create table group_logins(
 	updated_by varchar(20),
 	updated_at datetime,
 	PRIMARY KEY  (id),
-	FOREIGN KEY (group_id) REFERENCES groups(id),
-	FOREIGN KEY (login_id) REFERENCES logins(id)
+	FOREIGN KEY (group_id) REFERENCES groups(id)
+--	FOREIGN KEY (login_id) REFERENCES logins(id)
 )ENGINE=InnoDB default charset=utf8;
-
 
 --//@UNDO
 -- SQL to undo the change goes here.

@@ -7,8 +7,8 @@ import java.util.Map;
 import org.jbpm.api.Execution;
 import org.jbpm.api.ProcessInstance;
 
-import com.bulain.common.test.JbpmTestCase;
 import com.bulain.jbpm4order.pojo.Item;
+import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class SpringTest extends JbpmTestCase {
 	private String deploymentId;

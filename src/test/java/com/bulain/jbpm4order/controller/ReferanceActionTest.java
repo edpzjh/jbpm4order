@@ -3,13 +3,13 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 
 import com.bulain.common.page.Page;
-import com.bulain.common.test.JbpmTestCase;
+import com.bulain.common.test.Struts2TestCase;
 import com.bulain.jbpm4order.model.Referance;
 import com.bulain.jbpm4order.pojo.ReferanceView;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class ReferanceActionTest extends JbpmTestCase {
+public class ReferanceActionTest extends Struts2TestCase {
 	public static void main(String[] args) {
 		junit.textui.TestRunner.run(ReferanceActionTest.class);
 	}

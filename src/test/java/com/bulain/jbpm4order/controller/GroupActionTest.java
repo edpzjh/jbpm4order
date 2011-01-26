@@ -3,7 +3,7 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 
 import com.bulain.common.page.Page;
-import com.bulain.common.test.JbpmTestCase;
+import com.bulain.common.test.Struts2TestCase;
 import com.bulain.jbpm4order.model.Group;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.model.Permission;
@@ -15,7 +15,7 @@ import com.bulain.jbpm4order.service.LoginService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class GroupActionTest extends JbpmTestCase {
+public class GroupActionTest extends Struts2TestCase {
 	private LoginService loginService;
 	private GroupService groupService;
 	

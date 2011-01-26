@@ -4,13 +4,13 @@ import java.io.File;
 import java.util.List;
 
 import com.bulain.common.page.Page;
-import com.bulain.common.test.JbpmTestCase;
+import com.bulain.common.test.Struts2TestCase;
 import com.bulain.jbpm4order.model.Content;
 import com.bulain.jbpm4order.pojo.ContentView;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class ContentActionTest extends JbpmTestCase {
+public class ContentActionTest extends Struts2TestCase {
 	public static void main(String[] args) {
 		junit.textui.TestRunner.run(ContentActionTest.class);
 	}

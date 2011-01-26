@@ -3,11 +3,11 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 import java.util.Map;
 
-import com.bulain.common.test.JbpmTestCase;
 import com.bulain.jbpm4order.model.Constants;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 import com.bulain.jbpm4order.service.LoginService;
+import com.bulain.jbpm4order.test.JbpmTestCase;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionProxy;

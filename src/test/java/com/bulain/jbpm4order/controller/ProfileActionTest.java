@@ -3,13 +3,13 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 
 import com.bulain.common.page.Page;
-import com.bulain.common.test.JbpmTestCase;
+import com.bulain.common.test.Struts2TestCase;
 import com.bulain.jbpm4order.model.Profile;
 import com.bulain.jbpm4order.pojo.ProfileView;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class ProfileActionTest extends JbpmTestCase {
+public class ProfileActionTest extends Struts2TestCase {
 	public static void main(String[] args) {
 		junit.textui.TestRunner.run(ProfileActionTest.class);
 	}

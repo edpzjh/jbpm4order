@@ -6,7 +6,7 @@ import java.util.Map;
 import org.jbpm.api.Execution;
 import org.jbpm.api.ProcessInstance;
 
-import com.bulain.common.test.JbpmTestCase;
+import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class JavaTest extends JbpmTestCase {
 	private String deploymentId;
