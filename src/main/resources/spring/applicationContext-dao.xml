@@ -1,117 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-	<bean id="baseMapper" class="org.springframework.aop.framework.ProxyFactoryBean" abstract="true">
-		<property name="interceptorNames">
-			<list>
-				<value>insert.advisor</value>
-				<value>update.advisor</value>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="authorizeMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="authorizeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.AuthorizeMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="authorizeMapper" parent="baseMapper">
-		<property name="target" ref="authorizeMapperImpl"/>
-	</bean>
 	
-	<bean id="contentMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="contentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.ContentMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="contentMapper" parent="baseMapper">
-		<property name="target" ref="contentMapperImpl"/>
-	</bean>
 	
-	<bean id="groupMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="groupMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.GroupMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="groupMapper" parent="baseMapper">
-		<property name="target" ref="groupMapperImpl"/>
-	</bean>
 	
-	<bean id="loginMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="loginMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.LoginMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="loginMapper" parent="baseMapper">
-		<property name="target" ref="loginMapperImpl"/>
-	</bean>
 	
-	<bean id="groupLoginMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="groupLoginMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.GroupLoginMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="groupLoginMapper" parent="baseMapper">
-		<property name="target" ref="groupLoginMapperImpl"/>
-	</bean>
 	
-	<bean id="groupPermissionMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="groupPermissionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.GroupPermissionMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="groupPermissionMapper" parent="baseMapper">
-		<property name="target" ref="groupPermissionMapperImpl"/>
-	</bean>
 	
-	<bean id="mailTemplateMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="mailTemplateMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.MailTemplateMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="mailTemplateMapper" parent="baseMapper">
-		<property name="target" ref="mailTemplateMapperImpl"/>
-	</bean>
 	
-	<bean id="masterMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="masterMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.MasterMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="masterMapper" parent="baseMapper">
-		<property name="target" ref="masterMapperImpl"/>
-	</bean>
 	
-	<bean id="orderMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="orderMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.OrderMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="orderMapper" parent="baseMapper">
-		<property name="target" ref="orderMapperImpl"/>
-	</bean>
 	
-	<bean id="permissionMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="permissionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.PermissionMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="permissionMapper" parent="baseMapper">
-		<property name="target" ref="permissionMapperImpl"/>
-	</bean>
 	
-	<bean id="personMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="personMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.PersonMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="personMapper" parent="baseMapper">
-		<property name="target" ref="personMapperImpl"/>
-	</bean>
 	
-	<bean id="profileMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="profileMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.ProfileMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
-	<bean id="profileMapper" parent="baseMapper">
-		<property name="target" ref="profileMapperImpl"/>
-	</bean>
 	
-	<bean id="referanceMapperImpl" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
+	<bean id="referanceMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
 		<property  name="mapperInterface"  value="com.bulain.jbpm4order.dao.ReferanceMapper"  />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory" /> 
-	</bean>
-	<bean id="referanceMapper" parent="baseMapper">
-		<property name="target" ref="referanceMapperImpl"/>
 	</bean>
 	
 </beans>
