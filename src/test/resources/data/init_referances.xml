@@ -1,4 +1,15 @@
-<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<table name="referances"></table>
+  <authorizes />
+  <contents />
+  <groups/>
+  <persons/>
+  <logins/>
+  <group_logins/>
+  <group_permissions/>
+  <mail_templates/>
+  <orders/>
+  <permissions />
+  <profiles/>
+  <referances/>
 </dataset>

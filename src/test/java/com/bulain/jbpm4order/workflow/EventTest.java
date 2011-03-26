@@ -1,5 +1,8 @@
 package com.bulain.jbpm4order.workflow;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -7,32 +10,30 @@ import java.util.Map;
 
 import org.jbpm.api.ProcessInstance;
 import org.jbpm.api.task.Task;
+import org.junit.Test;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class EventTest extends JbpmTestCase {
 	private String deploymentId;
 
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(EventTest.class);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-		setUpJbpm();
+	@BeforeTransaction
+	public void setUp() throws Exception {
 		deploymentId = repositoryService.createDeployment()
 				.addResourceFromClasspath("com/bulain/jbpm4order/workflow/event.jpdl.xml")
 				.deploy();
 		identityService.createUser("user1", "user1", "user1");
 	}
 
-	protected void tearDown() throws Exception {
+	@AfterTransaction
+	public void tearDown() throws Exception {
 		repositoryService.deleteDeploymentCascade(deploymentId);
 		identityService.deleteUser("user1");
-		tearDownJbpm();
-		super.tearDown();
 	}
 
+	@Test
 	public void testEvent(){
 		String userId = "user1";
 		

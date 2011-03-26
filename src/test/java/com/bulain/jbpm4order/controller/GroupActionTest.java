@@ -2,8 +2,13 @@ package com.bulain.jbpm4order.controller;
 
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.bulain.common.page.Page;
-import com.bulain.common.test.Struts2TestCase;
+import com.bulain.common.test.ActionTestCase;
 import com.bulain.jbpm4order.model.Group;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.model.Permission;
@@ -15,28 +20,27 @@ import com.bulain.jbpm4order.service.LoginService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class GroupActionTest extends Struts2TestCase {
+public class GroupActionTest extends ActionTestCase {
+    @Autowired
 	private LoginService loginService;
+    @Autowired
 	private GroupService groupService;
 	
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(GroupActionTest.class);
-	}
-	
-	protected void setUp() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		super.setUpDB("data/init_action.xml");
 		super.setUpAction("admin", "admin");
-		loginService = (LoginService) applicationContext.getBean("loginService");
-		groupService = (GroupService) applicationContext.getBean("groupService");
 	}
 
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDownAction();
 		super.tearDownDB();
 		super.tearDown();
 	}
 
+	@Test
 	public void testCURD() throws Exception {
 		initServletMockObjects();
 		ActionProxy proxy = getActionProxy("/group/new");
@@ -102,6 +106,7 @@ public class GroupActionTest extends Struts2TestCase {
 		assertEquals(Action.SUCCESS, result);
 	}
 	
+	@Test
 	public void testUser() throws Exception{
 		Login login = new Login();
 		login.setLoginName("loginName");
@@ -178,6 +183,7 @@ public class GroupActionTest extends Struts2TestCase {
 		groupService.delete(groupId);
 	}
 	
+	@Test
 	public void testPermission() throws Exception{
 		Group group = new Group();
 		group.setName("name");

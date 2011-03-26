@@ -1,7 +1,13 @@
 package com.bulain.jbpm4order.service;
 
+import static org.junit.Assert.*;
 import java.util.Arrays;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -9,45 +15,45 @@ import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 
 public class LoginServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private LoginService loginService;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_logins.xml");
-		loginService = (LoginService) applicationContext.getBean("loginService");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
-	}
-	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(LoginServiceImplTest.class);
 	}
 
-
+    @Test
 	public void testCountLoginByGroupId() {
 		Long countLoginByGroupId = loginService.countLoginByGroupId(Integer.valueOf(105));
 		assertEquals(Long.valueOf(3), countLoginByGroupId);
 	}
 
+    @Test
 	public void testFindLoginByGroupId() {
 		List<Login> findLoginByGroupId = loginService.findLoginByGroupId(Integer.valueOf(105));
 		assertEquals(3, findLoginByGroupId.size());
 	}
 
+    @Test
 	public void testFindLoginByNoInGroupId() {
 		List<Login> findLoginByNoInGroupId = loginService.findLoginByNoInGroupId(Integer.valueOf(105));
 		assertEquals(4, findLoginByNoInGroupId.size());
 	}
 
+    @Test
 	public void testUpdateGroupLogin() {
 		Integer loginId = Integer.valueOf(102);
 		List<Integer> listGroupId = Arrays.asList(new Integer[]{102, 105});
 		loginService.updateGroupLogin(loginId, listGroupId);
 	}
 
+    @Test
 	public void testGetLogin() {
 		Login login = loginService.getLogin("login_name_102", "hashed_password_102");
 		assertEquals("login_name_102", login.getLoginName());
@@ -56,11 +62,13 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		assertEquals("enabled_102", login.getEnabled());
 	}
 
+    @Test
 	public void testFindPermission() {
 		List<String> findPermission = loginService.findPermission(Integer.valueOf(102));
 		assertEquals(1, findPermission.size());
 	}
 
+    @Test
 	public void testFind() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginName("login_name_page");
@@ -70,6 +78,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginName("login_name_page");
@@ -79,6 +88,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginName("login_name_page");
@@ -89,7 +99,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		assertEquals(3, page2.size());
 	}
 
-
+    @Test
 	public void testGet() {
 		Login login = loginService.get(Integer.valueOf(102));
 		assertEquals("login_name_102", login.getLoginName());
@@ -98,6 +108,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		assertEquals("enabled_102", login.getEnabled());
 	}
 
+    @Test
 	public void testInsert() {
 		Login record = new Login();
 		record.setLoginName("loginName");
@@ -107,6 +118,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		loginService.insert(record);
 	}
 
+    @Test
 	public void testUpdate() {
 		Login record = new Login();
 		record.setId(Integer.valueOf(103));
@@ -117,6 +129,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 		loginService.update(record, true);
 	}
 
+    @Test
 	public void testDelete() {
 		loginService.delete(Integer.valueOf(101));
 	}

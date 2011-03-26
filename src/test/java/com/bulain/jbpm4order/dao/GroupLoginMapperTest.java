@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.*;
 import java.util.Arrays;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.model.GroupLogin;
@@ -8,28 +14,26 @@ import com.bulain.jbpm4order.pojo.GroupSearch;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 
 public class GroupLoginMapperTest extends ServiceTestCase {
-	private GroupLoginMapper groupLoginMapper;
+	@Autowired
+    private GroupLoginMapper groupLoginMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+	@BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_group_logins.xml");
-		groupLoginMapper = (GroupLoginMapper) applicationContext.getBean("groupLoginMapper");
 	}
 
-	protected void tearDown() throws Exception {
+	@AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(GroupLoginMapperTest.class);
-	}
-
+	@Test
 	public void testDeleteGroupLoginByLoginId() {
 		int deleteGroupLoginByLoginId = groupLoginMapper.deleteGroupLoginByLoginId(Integer.valueOf(101));
 		assertEquals(3, deleteGroupLoginByLoginId);
 	}
 
+	@Test
 	public void testDeleteGroupLoginByNotInLoginId() {
 		GroupSearch search = new GroupSearch();
 		search.setGroupId(Integer.valueOf(101));
@@ -38,11 +42,13 @@ public class GroupLoginMapperTest extends ServiceTestCase {
 		assertEquals(1, deleteGroupLoginByNotInLoginId);
 	}
 
+	@Test
 	public void testDeleteGroupLoginByGroupId() {
 		int deleteGroupLoginByGroupId = groupLoginMapper.deleteGroupLoginByGroupId(Integer.valueOf(101));
 		assertEquals(2, deleteGroupLoginByGroupId);
 	}
 
+	@Test
 	public void testDeleteGroupLoginByNotInGroupId() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginId(Integer.valueOf(101));
@@ -51,6 +57,7 @@ public class GroupLoginMapperTest extends ServiceTestCase {
 		assertEquals(1, deleteGroupLoginByNotInGroupId);
 	}
 
+	@Test
 	public void testDeleteGroupLogin() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginId(Integer.valueOf(101));
@@ -59,11 +66,13 @@ public class GroupLoginMapperTest extends ServiceTestCase {
 		assertEquals(1, deleteGroupLogin);
 	}
 
+	@Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = groupLoginMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+	@Test
 	public void testInsert() {
 		GroupLogin record = new GroupLogin();
 		record.setLoginId(Integer.valueOf(105));
@@ -72,6 +81,7 @@ public class GroupLoginMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+	@Test
 	public void testInsertSelective() {
 		GroupLogin record = new GroupLogin();
 		record.setLoginId(Integer.valueOf(105));
@@ -80,12 +90,14 @@ public class GroupLoginMapperTest extends ServiceTestCase {
 		assertEquals(1, insertSelective);
 	}
 
+	@Test
 	public void testSelectByPrimaryKey() {
 		GroupLogin select = groupLoginMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertEquals(Integer.valueOf(102), select.getLoginId());
 		assertEquals(Integer.valueOf(102), select.getGroupId());
 	}
 
+	@Test
 	public void testUpdateByPrimaryKeySelective() {
 		GroupLogin record = new GroupLogin();
 		record.setId(Integer.valueOf(103));
@@ -95,6 +107,7 @@ public class GroupLoginMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+	@Test
 	public void testUpdateByPrimaryKey() {
 		GroupLogin record = new GroupLogin();
 		record.setId(Integer.valueOf(104));

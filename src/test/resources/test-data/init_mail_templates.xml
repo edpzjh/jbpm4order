@@ -1,70 +1,12 @@
-<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<table name="mail_templates">
-		<column>id</column>
-        <column>name</column>
-        <column>lang</column>
-        <column>subject</column>
-        <!-- deleteByPrimaryKey -->
-        <row>
-            <value>101</value>
-            <value>name_101</value>
-            <value>lang_101</value>
-            <value>subject_101</value>
-        </row>
-        <!-- selectByPrimaryKey -->
-        <row>
-            <value>102</value>
-            <value>name_102</value>
-            <value>lang_102</value>
-            <value>subject_102</value>
-        </row>
-        <!-- updateByPrimaryKeySelective -->
-        <row>
-            <value>103</value>
-            <value>name_103</value>
-            <value>lang_103</value>
-            <value>subject_103</value>
-        </row>
-        <!-- updateByPrimaryKey -->
-        <row>
-            <value>104</value>
-            <value>name_104</value>
-            <value>lang_104</value>
-            <value>subject_104</value>
-        </row>
-        <!-- page -->
-        <row>
-            <value>105</value>
-            <value>name_page</value>
-            <value>lang_page</value>
-            <value>subject_page</value>
-        </row>
-        <row>
-            <value>106</value>
-            <value>name_page</value>
-            <value>lang_page</value>
-            <value>subject_page</value>
-        </row>
-        <row>
-            <value>107</value>
-            <value>name_page</value>
-            <value>lang_page</value>
-            <value>subject_page</value>
-        </row>
-        <!-- updateByPrimaryKeyWithBLOBs -->
-        <row>
-            <value>108</value>
-            <value>name_108</value>
-            <value>lang_108</value>
-            <value>subject_108</value>
-        </row>
-        <!-- selectByPrimaryKeyWithoutBLOBs -->
-        <row>
-            <value>109</value>
-            <value>name_109</value>
-            <value>lang_109</value>
-            <value>subject_109</value>
-        </row>
-	</table>
+  <mail_templates id="101" name="name_101" lang="lang_101" subject="subject_101"/>
+  <mail_templates id="102" name="name_102" lang="lang_102" subject="subject_102"/>
+  <mail_templates id="103" name="name_103" lang="lang_103" subject="subject_103"/>
+  <mail_templates id="104" name="name_104" lang="lang_104" subject="subject_104"/>
+  <mail_templates id="105" name="name_page" lang="lang_page" subject="subject_page"/>
+  <mail_templates id="106" name="name_page" lang="lang_page" subject="subject_page"/>
+  <mail_templates id="107" name="name_page" lang="lang_page" subject="subject_page"/>
+  <mail_templates id="108" name="name_108" lang="lang_108" subject="subject_108"/>
+  <mail_templates id="109" name="name_109" lang="lang_109" subject="subject_109"/>
 </dataset>

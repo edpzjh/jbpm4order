@@ -1,31 +1,32 @@
 package com.bulain.jbpm4order.workflow;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.jbpm.api.Execution;
 import org.jbpm.api.ProcessInstance;
+import org.junit.Test;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class ForkTest extends JbpmTestCase {
 	String deploymentId;
 
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(ForkTest.class);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-		setUpJbpm();
+	@BeforeTransaction
+	public void setUp() throws Exception {
 		deploymentId = repositoryService.createDeployment()
 				.addResourceFromClasspath("com/bulain/jbpm4order/workflow/fork.jpdl.xml")
 				.deploy();
 	}
 
-	protected void tearDown() throws Exception {
+	@AfterTransaction
+	public void tearDown() throws Exception {
 		repositoryService.deleteDeploymentCascade(deploymentId);
-		tearDownJbpm();
-		super.tearDown();
 	}
 	
+	@Test
 	public void testFork(){
 		ProcessInstance processInstance = executionService.startProcessInstanceByKey("fork");
 		String pid = processInstance.getId();

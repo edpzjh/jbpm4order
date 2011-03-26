@@ -1,26 +1,30 @@
 package com.bulain.jbpm4order.identity;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.test.ServiceTestCase;
 
 public class IdentityServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private IdentityService identityService;
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(IdentityServiceImplTest.class);
-	}
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("data/init_identity.xml");
-		identityService = (IdentityService) applicationContext.getBean("identityServiceImpl");
 	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
 	}
 
+    @Test
 	public void testUser(){
 		UserImpl user = new UserImpl("id", "givenName", "familyName");
 		user.setBusinessEmail("businessEmail");
@@ -47,6 +51,7 @@ public class IdentityServiceImplTest extends ServiceTestCase {
 		assertNull(findUserById);
 	}
 	
+    @Test
 	public void testGroup(){
 		GroupImpl group = new GroupImpl();
 		group.setId("id");
@@ -70,6 +75,7 @@ public class IdentityServiceImplTest extends ServiceTestCase {
 		assertNull(findGroupById);
 	}
 	
+    @Test
 	public void testMembership(){
 		UserImpl user = new UserImpl("id", "givenName", "familyName");
 		user.setBusinessEmail("businessEmail");

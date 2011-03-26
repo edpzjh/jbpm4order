@@ -1,5 +1,6 @@
 package com.bulain.jbpm4order.mail;
 
+import static org.junit.Assert.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +11,10 @@ import javax.mail.Message.RecipientType;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
@@ -17,28 +22,23 @@ import org.subethamail.wiser.WiserMessage;
 import com.bulain.common.test.ServiceTestCase;
 
 public class MailServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private MailService mailService;
+    
 	private Wiser wiser = new Wiser();
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(MailServiceImplTest.class);
-	}
-	
-	protected void setUp() throws Exception {
-		super.setUp();
-		
+	@Before
+	public void setUp() throws Exception {
 		wiser.setPort(2525);
 	    wiser.start();
-		
-		mailService = (MailService) applicationContext.getBean("mailService");
 	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
-		
+	@After
+	public void tearDown() throws Exception {
 		wiser.stop();
 	}
 
+	@Test
 	public void testSendSimpleMailMessage() throws MessagingException, IOException {
 		SimpleMailMessage mail = new SimpleMailMessage();  
         mail.setTo("test-to@wiser.com");  
@@ -66,6 +66,7 @@ public class MailServiceImplTest extends ServiceTestCase {
         }
 	}
 
+	@Test
 	public void testSendArraySimpleMailMessage() throws MessagingException, IOException {
 		SimpleMailMessage mail1 = new SimpleMailMessage();  
         mail1.setTo("test-to@wiser.com");  

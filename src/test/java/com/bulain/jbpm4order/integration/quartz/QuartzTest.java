@@ -3,6 +3,7 @@ package com.bulain.jbpm4order.integration.quartz;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.junit.Test;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -10,28 +11,18 @@ import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bulain.common.test.ServiceTestCase;
 
 public class QuartzTest extends ServiceTestCase {
 	private static final Logger LOG = LoggerFactory.getLogger(QuartzTest.class);
 
+	@Autowired
 	private Scheduler scheduler; 
 	
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(QuartzTest.class);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-		scheduler = (Scheduler) applicationContext.getBean("scheduler");
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
-
 	@SuppressWarnings("unchecked")
+	@Test
 	public void testQuartz() throws SchedulerException{
 		LOG.debug("testQuartz() - start");
 

@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.service;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,24 +14,20 @@ import com.bulain.jbpm4order.model.MailTemplate;
 import com.bulain.jbpm4order.pojo.MailTemplateSearch;
 
 public class MailTemplateServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private MailTemplateService mailTemplateService;
-	
-	protected void setUp() throws Exception {
-		super.setUp();
+
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_mail_templates.xml");
-		mailTemplateService = (MailTemplateService) applicationContext.getBean("mailTemplateService");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(MailTemplateServiceImplTest.class);
-	}
-
-
+    @Test
 	public void testGetWithoutBLOBs() {
 		MailTemplate select = mailTemplateService.getWithoutBLOBs(Integer.valueOf(109));
 		assertEquals("name_109", select.getName());
@@ -34,6 +36,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		assertNull(select.getBody());
 	}
 
+    @Test
 	public void testFind() {
 		MailTemplateSearch search = new MailTemplateSearch();
 		search.setName("name_page");
@@ -42,6 +45,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		MailTemplateSearch search = new MailTemplateSearch();
 		search.setName("name_page");
@@ -50,6 +54,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		MailTemplateSearch search = new MailTemplateSearch();
 		search.setName("name_page");
@@ -59,6 +64,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		assertEquals(3, page2.size());
 	}
 
+    @Test
 	public void testGet() {
 		MailTemplate mailTemplate = mailTemplateService.get(Integer.valueOf(109));
 		assertNotNull(mailTemplate);
@@ -68,6 +74,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		assertNull(mailTemplate.getBody());
 	}
 
+    @Test
 	public void testInsert() {
 		MailTemplate record = new MailTemplate();
 		record.setName("name");
@@ -77,6 +84,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		mailTemplateService.insert(record);
 	}
 
+    @Test
 	public void testUpdate() {
 		MailTemplate record = new MailTemplate();
 		record.setId(Integer.valueOf(103));
@@ -87,6 +95,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 		mailTemplateService.update(record, true);
 	}
 
+    @Test
 	public void testDelete() {
 		mailTemplateService.delete(Integer.valueOf(101));
 	}

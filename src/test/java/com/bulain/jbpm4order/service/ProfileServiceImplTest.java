@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.service;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,24 +14,20 @@ import com.bulain.jbpm4order.model.Profile;
 import com.bulain.jbpm4order.pojo.ProfileSearch;
 
 public class ProfileServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private ProfileService profileService;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_profiles.xml");
-		profileService = (ProfileService) applicationContext.getBean("profileService");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(ProfileServiceImplTest.class);
-	}
-
-
+    @Test
 	public void testFind() {
 		ProfileSearch search = new ProfileSearch();
 		search.setPersonId(Integer.valueOf(105));
@@ -35,6 +37,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		ProfileSearch search = new ProfileSearch();
 		search.setPersonId(Integer.valueOf(105));
@@ -44,6 +47,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		ProfileSearch search = new ProfileSearch();
 		search.setPersonId(Integer.valueOf(105));
@@ -54,6 +58,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 		assertEquals(3, page2.size());
 	}
 
+    @Test
 	public void testGet() {
 		Profile profile = profileService.get(Integer.valueOf(102));
 		assertNotNull(profile);
@@ -62,6 +67,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 		assertEquals("country_102", profile.getCountry());
 	}
 
+    @Test
 	public void testInsert() {
 		Profile record = new Profile();
 		record.setPersonId(Integer.valueOf(108));
@@ -70,6 +76,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 		profileService.insert(record);
 	}
 
+    @Test
 	public void testUpdate() {
 		Profile record = new Profile();
 		record.setId(Integer.valueOf(103));
@@ -79,6 +86,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 		profileService.update(record, true);
 	}
 
+    @Test
 	public void testDelete() {
 		profileService.delete(Integer.valueOf(101));
 	}

@@ -1,84 +1,17 @@
-<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<table name="permissions">
-		<column>id</column>
-        <column>permission</column>
-        <row>
-            <value>101</value>
-            <value>permission_101</value>
-        </row>
-        <row>
-            <value>102</value>
-            <value>permission_102</value>
-        </row>
-        <row>
-            <value>103</value>
-            <value>permission_103</value>
-        </row>
-        <row>
-            <value>104</value>
-            <value>permission_104</value>
-        </row>
-	</table>
-	<table name="groups">
-		<column>id</column>
-        <column>name</column>
-        <column>note</column>
-        <row>
-            <value>101</value>
-            <value>name_101</value>
-            <value>note_101</value>
-        </row>
-        <row>
-            <value>102</value>
-            <value>name_102</value>
-            <value>note_102</value>
-        </row>
-        <row>
-            <value>103</value>
-            <value>name_103</value>
-            <value>note_103</value>
-        </row>
-        <row>
-            <value>104</value>
-            <value>name_104</value>
-            <value>note_104</value>
-        </row>
-	</table>
-	<table name="group_logins"/>
-	<table name="group_permissions">
-		<column>id</column>
-        <column>group_id</column>
-        <column>permission</column>
-        <!-- deleteByPrimaryKey -->
-        <row>
-            <value>101</value>
-            <value>101</value>
-            <value>permission_101</value>
-        </row>
-        <!-- selectByPrimaryKey -->
-        <row>
-            <value>102</value>
-            <value>102</value>
-            <value>permission_102</value>
-        </row>
-        <!-- updateByPrimaryKeySelective -->
-        <row>
-            <value>103</value>
-            <value>103</value>
-            <value>permission_103</value>
-        </row>
-        <!-- updateByPrimaryKey -->
-        <row>
-            <value>104</value>
-            <value>104</value>
-            <value>permission_104</value>
-        </row>
-        <!-- deleteGroupPermissionByGroupId -->
-        <row>
-            <value>105</value>
-            <value>101</value>
-            <value>permission_105</value>
-        </row>
-    </table>
+  <permissions id="101" permission="permission_101"/>
+  <permissions id="102" permission="permission_102"/>
+  <permissions id="103" permission="permission_103"/>
+  <permissions id="104" permission="permission_104"/>
+  <groups id="101" name="name_101" note="note_101"/>
+  <groups id="102" name="name_102" note="note_102"/>
+  <groups id="103" name="name_103" note="note_103"/>
+  <groups id="104" name="name_104" note="note_104"/>
+  <group_logins/>
+  <group_permissions id="101" group_id="101" permission="permission_101"/>
+  <group_permissions id="102" group_id="102" permission="permission_102"/>
+  <group_permissions id="103" group_id="103" permission="permission_103"/>
+  <group_permissions id="104" group_id="104" permission="permission_104"/>
+  <group_permissions id="105" group_id="101" permission="permission_105"/>
 </dataset>

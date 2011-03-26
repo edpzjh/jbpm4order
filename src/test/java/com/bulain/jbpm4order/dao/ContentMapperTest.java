@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,23 +14,20 @@ import com.bulain.jbpm4order.model.Content;
 import com.bulain.jbpm4order.pojo.ContentSearch;
 
 public class ContentMapperTest extends ServiceTestCase {
+    @Autowired
 	private ContentMapper contentMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUp() throws Exception {
 		super.setUpDB("test-data/init_contents.xml");
-		contentMapper = (ContentMapper) applicationContext.getBean("contentMapper");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDown() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(ContentMapperTest.class);
-	}
-
+    @Test
 	public void testUpdateByPrimaryKeyWithBLOBs() {
 		Content record = new Content();
 		record.setId(Integer.valueOf(108));
@@ -39,6 +42,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKey);
 	}
 
+    @Test
 	public void testSelectByPrimaryKeyWithoutBLOBs() {
 		Content select = contentMapper.selectByPrimaryKeyWithoutBLOBs(Integer.valueOf(109));
 		assertEquals("file_name_109", select.getFileName());
@@ -50,11 +54,13 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertNull(select.getBytes());
 	}
 
+    @Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = contentMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+    @Test
 	public void testInsert() {
 		Content record = new Content();
 		record.setFileName("fileName");
@@ -68,6 +74,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testInsertSelective() {
 		Content record = new Content();
 		record.setFileName("fileName");
@@ -81,6 +88,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(1, insertSelective);
 	}
 
+    @Test
 	public void testSelectByPrimaryKey() {
 		Content select = contentMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertEquals("file_name_102", select.getFileName());
@@ -92,6 +100,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertNull(select.getBytes());
 	}
 
+    @Test
 	public void testUpdateByPrimaryKeySelective() {
 		Content record = new Content();
 		record.setId(Integer.valueOf(103));
@@ -106,6 +115,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+    @Test
 	public void testUpdateByPrimaryKey() {
 		Content record = new Content();
 		record.setId(Integer.valueOf(103));
@@ -120,6 +130,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKey);
 	}
 
+    @Test
 	public void testFind() {
 		ContentSearch search = new ContentSearch();
 		search.setFileName("file_name_page");
@@ -132,6 +143,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		ContentSearch search = new ContentSearch();
 		search.setFileName("file_name_page");
@@ -144,6 +156,7 @@ public class ContentMapperTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		ContentSearch search = new ContentSearch();
 		search.setFileName("file_name_page");

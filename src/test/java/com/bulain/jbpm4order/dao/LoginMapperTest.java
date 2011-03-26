@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,49 +14,51 @@ import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 
 public class LoginMapperTest extends ServiceTestCase {
+    @Autowired
 	private LoginMapper loginMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_logins.xml");
-		loginMapper = (LoginMapper) applicationContext.getBean("loginMapper");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(LoginMapperTest.class);
-	}
-
+    @Test
 	public void testCountLoginByGroupId() {
 		Long countLoginByGroupId = loginMapper.countLoginByGroupId(Integer.valueOf(105));
 		assertEquals(Long.valueOf(3), countLoginByGroupId);
 	}
 
+    @Test
 	public void testFindLoginByGroupId() {
 		List<Login> findLoginByGroupId = loginMapper.findLoginByGroupId(Integer.valueOf(105));
 		assertEquals(3, findLoginByGroupId.size());
 	}
 
+    @Test
 	public void testFindLoginByNoGroupId() {
 		List<Login> findLoginByNoGroupId = loginMapper.findLoginByNoGroupId(Integer.valueOf(105));
 		assertEquals(4, findLoginByNoGroupId.size());
 	}
 
+    @Test
 	public void testFindLoginByLoginNames() {
 		String[] loginNames = new String[]{"login_name_page"};
 		List<Login> findLoginByLoginNames = loginMapper.findLoginByLoginNames(loginNames);
 		assertEquals(3, findLoginByLoginNames.size());
 	}
 
+    @Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = loginMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+    @Test
 	public void testInsert() {
 		Login record = new Login();
 		record.setLoginName("loginName");
@@ -61,6 +69,7 @@ public class LoginMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testInsertSelective() {
 		Login record = new Login();
 		record.setLoginName("loginName");
@@ -70,7 +79,8 @@ public class LoginMapperTest extends ServiceTestCase {
 		int insertSelective = loginMapper.insertSelective(record);
 		assertEquals(1, insertSelective);
 	}
-
+    
+    @Test
 	public void testSelectByPrimaryKey() {
 		Login select = loginMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertEquals("login_name_102", select.getLoginName());
@@ -79,6 +89,7 @@ public class LoginMapperTest extends ServiceTestCase {
 		assertEquals("enabled_102", select.getEnabled());
 	}
 
+    @Test
 	public void testUpdateByPrimaryKeySelective() {
 		Login record = new Login();
 		record.setId(Integer.valueOf(103));
@@ -90,6 +101,7 @@ public class LoginMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+    @Test
 	public void testUpdateByPrimaryKey() {
 		Login record = new Login();
 		record.setId(Integer.valueOf(103));
@@ -101,6 +113,7 @@ public class LoginMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKey);
 	}
 
+    @Test
 	public void testFind() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginName("login_name_page");
@@ -110,6 +123,7 @@ public class LoginMapperTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginName("login_name_page");
@@ -119,6 +133,7 @@ public class LoginMapperTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		LoginSearch search = new LoginSearch();
 		search.setLoginName("login_name_page");

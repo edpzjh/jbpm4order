@@ -3,6 +3,7 @@ package com.bulain.jbpm4order.integration.quartz;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import org.junit.Ignore;
 import org.quartz.Job;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
@@ -11,6 +12,7 @@ import org.quartz.Trigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Ignore
 public class TestJob implements Job {
 	private static Logger LOG = LoggerFactory.getLogger(TestJob.class);
 

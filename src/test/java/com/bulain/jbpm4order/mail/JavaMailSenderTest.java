@@ -1,5 +1,8 @@
 package com.bulain.jbpm4order.mail;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +13,10 @@ import javax.mail.Message.RecipientType;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.subethamail.wiser.Wiser;
@@ -18,28 +25,23 @@ import org.subethamail.wiser.WiserMessage;
 import com.bulain.common.test.ServiceTestCase;
 
 public class JavaMailSenderTest extends ServiceTestCase {
+    @Autowired
 	private JavaMailSender mailSender;
+    
 	private Wiser wiser = new Wiser();
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(JavaMailSenderTest.class);
-	}
-	
-	protected void setUp() throws Exception {
-		super.setUp();
-		
+	@Before
+	public void setUp() throws Exception {
 	    wiser.setPort(2525);
 	    wiser.start();
-	    
-		mailSender = (JavaMailSender) applicationContext.getBean("mailSender");
 	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
-		
+	@After
+	public void tearDown() throws Exception {
 		wiser.stop();
 	}
 
+	@Test
 	public void testSendMail() throws MessagingException, IOException{
 		SimpleMailMessage mail = new SimpleMailMessage();  
         mail.setFrom("noreply@wiser.com");  

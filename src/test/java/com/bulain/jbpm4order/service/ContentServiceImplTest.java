@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.service;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,23 +14,20 @@ import com.bulain.jbpm4order.model.Content;
 import com.bulain.jbpm4order.pojo.ContentSearch;
 
 public class ContentServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private ContentService contentService;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_contents.xml");
-		contentService = (ContentService) applicationContext.getBean("contentService");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(ContentServiceImplTest.class);
-	}
-
+    @Test
 	public void testGetWithoutBLOBs() {
 		Content select = contentService.getWithoutBLOBs(Integer.valueOf(109));
 		assertEquals("file_name_109", select.getFileName());
@@ -36,6 +39,7 @@ public class ContentServiceImplTest extends ServiceTestCase {
 		assertNull(select.getBytes());
 	}
 
+    @Test
 	public void testGet() {
 		Content select = contentService.get(Integer.valueOf(102));
 		assertEquals("file_name_102", select.getFileName());
@@ -46,7 +50,8 @@ public class ContentServiceImplTest extends ServiceTestCase {
 		assertEquals("ref_name_102", select.getRefName());
 		assertNull(select.getBytes());
 	}
-
+    
+    @Test
 	public void testInsert() {
 		Content record = new Content();
 		record.setFileName("fileName");
@@ -59,6 +64,7 @@ public class ContentServiceImplTest extends ServiceTestCase {
 		contentService.insert(record);
 	}
 
+    @Test
 	public void testUpdate() {
 		Content record = new Content();
 		record.setId(Integer.valueOf(103));
@@ -72,10 +78,12 @@ public class ContentServiceImplTest extends ServiceTestCase {
 		contentService.update(record, true);
 	}
 
+    @Test
 	public void testDelete() {
 		contentService.delete(Integer.valueOf(101));
 	}
 
+    @Test
 	public void testFind() {
 		ContentSearch search = new ContentSearch();
 		search.setFileName("file_name_page");
@@ -88,6 +96,7 @@ public class ContentServiceImplTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		ContentSearch search = new ContentSearch();
 		search.setFileName("file_name_page");
@@ -100,6 +109,7 @@ public class ContentServiceImplTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		ContentSearch search = new ContentSearch();
 		search.setFileName("file_name_page");

@@ -1,28 +1,21 @@
 package com.bulain.jbpm4order.integration.jms;
 
+import static org.junit.Assert.assertEquals;
+
 import javax.jms.JMSException;
 
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.JmsException;
 
 import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.jms.P2pClient;
 
 public class P2pClientTest extends ServiceTestCase {
+    @Autowired
 	private P2pClient p2pClient;
 	
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(P2pClientTest.class);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-		p2pClient = (P2pClient) applicationContext.getBean("p2pClient");
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
-
+    @Test
 	public void testSendMessage() throws JmsException, JMSException {
 		for (int i = 0; i < 20; i++) {
 			String body = "This is a test message." + i;

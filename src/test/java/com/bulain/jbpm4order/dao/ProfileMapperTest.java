@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,23 +14,20 @@ import com.bulain.jbpm4order.model.Profile;
 import com.bulain.jbpm4order.pojo.ProfileSearch;
 
 public class ProfileMapperTest extends ServiceTestCase {
+    @Autowired
 	private ProfileMapper profileMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_profiles.xml");
-		profileMapper = (ProfileMapper) applicationContext.getBean("profileMapper");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(ProfileMapperTest.class);
-	}
-
+    @Test
 	public void testFind() {
 		ProfileSearch search = new ProfileSearch();
 		search.setPersonId(Integer.valueOf(105));
@@ -34,6 +37,7 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		ProfileSearch search = new ProfileSearch();
 		search.setPersonId(Integer.valueOf(105));
@@ -43,6 +47,7 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		ProfileSearch search = new ProfileSearch();
 		search.setPersonId(Integer.valueOf(105));
@@ -56,11 +61,13 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals(3, page2.size());
 	}
 
+    @Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = profileMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+    @Test
 	public void testInsert() {
 		Profile record = new Profile();
 		record.setPersonId(Integer.valueOf(108));
@@ -70,6 +77,7 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testInsertSelective() {
 		Profile record = new Profile();
 		record.setPersonId(Integer.valueOf(108));
@@ -79,6 +87,7 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals(1, insertSelective);
 	}
 
+    @Test
 	public void testSelectByPrimaryKey() {
 		Profile selectByPrimaryKey = profileMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertNotNull(selectByPrimaryKey);
@@ -87,6 +96,7 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals("country_102", selectByPrimaryKey.getCountry());
 	}
 
+    @Test
 	public void testUpdateByPrimaryKeySelective() {
 		Profile record = new Profile();
 		record.setId(Integer.valueOf(103));
@@ -97,6 +107,7 @@ public class ProfileMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+    @Test
 	public void testUpdateByPrimaryKey() {
 		Profile record = new Profile();
 		record.setId(Integer.valueOf(104));

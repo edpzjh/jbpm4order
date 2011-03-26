@@ -1,34 +1,40 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.test.ServiceTestCase;
 import com.bulain.jbpm4order.model.Order;
 import com.bulain.jbpm4order.pojo.OrderSearch;
 
 public class OrderMapperTest extends ServiceTestCase {
+    @Autowired
 	private OrderMapper orderMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_orders.xml");
-		orderMapper = (OrderMapper) applicationContext.getBean("orderMapper");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction    
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(OrderMapperTest.class);
-	}
-
+    @Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = orderMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+    @Test
 	public void testInsert() {
 		Order record = new Order();
 		record.setName("name");
@@ -37,6 +43,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testInsertSelective() {
 		Order record = new Order();
 		record.setName("name");
@@ -45,6 +52,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testSelectByPrimaryKey() {
 		Order selectByPrimaryKey = orderMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertNotNull(selectByPrimaryKey);
@@ -52,6 +60,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals("note_102", selectByPrimaryKey.getNote());
 	}
 
+    @Test
 	public void testUpdateByPrimaryKeySelective() {
 		Order record = new Order();
 		record.setId(Integer.valueOf(103));
@@ -61,6 +70,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+    @Test
 	public void testUpdateByPrimaryKey() {
 		Order record = new Order();
 		record.setId(Integer.valueOf(104));
@@ -70,6 +80,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKey);
 	}
 
+    @Test
 	public void testFind(){
 		OrderSearch search = new OrderSearch();
 		search.setName("name_page");
@@ -77,13 +88,14 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 	
+    @Test
 	public void testShoudExecuteWhenNoParam(){
 		OrderSearch search = new OrderSearch();
 		List<Order> find = orderMapper.find(search);
 		assertEquals(8, find.size());
 	}
 	
-	
+    @Test
 	public void testShoudExecuteWhenFirstNameIsNullStr(){
 		OrderSearch search = new OrderSearch();
 		search.setName("");
@@ -91,6 +103,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(8, find.size());
 	}
 	
+    @Test
 	public void testCount(){
 		OrderSearch search = new OrderSearch();
 		search.setName("name_page");
@@ -98,6 +111,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 	
+    @Test
 	public void testPage(){
 		OrderSearch search = new OrderSearch();
 		search.setName("name_page");
@@ -107,6 +121,7 @@ public class OrderMapperTest extends ServiceTestCase {
 		assertEquals(3, listOrder.size());
 	}
 
+    @Test
 	public void testSelectByWfId(){
 		Order byWfId = orderMapper.selectByWfId("wf_id_wf");
 		assertNotNull(byWfId);

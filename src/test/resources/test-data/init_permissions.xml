@@ -1,81 +1,17 @@
-<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<table name="permissions">
-		<column>id</column>
-        <column>permission</column>
-        <!-- deleteByPrimaryKey -->
-        <row>
-            <value>101</value>
-            <value>permission_101</value>
-        </row>
-        <!-- selectByPrimaryKey -->
-        <row>
-            <value>102</value>
-            <value>permission_102</value>
-        </row>
-        <!-- updateByPrimaryKeySelective -->
-        <row>
-            <value>103</value>
-            <value>permission_103</value>
-        </row>
-        <!-- updateByPrimaryKey -->
-        <row>
-            <value>104</value>
-            <value>permission_104</value>
-        </row>
-        <!-- page -->
-        <row>
-            <value>105</value>
-            <value>permission_page</value>
-        </row>
-        <row>
-            <value>106</value>
-            <value>permission_page</value>
-        </row>
-        <row>
-            <value>107</value>
-            <value>permission_page</value>
-        </row>
-	</table>
-	<table name="groups">
-		<column>id</column>
-        <column>name</column>
-        <column>note</column>
-        <row>
-            <value>105</value>
-            <value>name_page</value>
-            <value>note_page</value>
-        </row>
-        <row>
-            <value>106</value>
-            <value>name_page</value>
-            <value>note_page</value>
-        </row>
-        <row>
-            <value>107</value>
-            <value>name_page</value>
-            <value>note_page</value>
-        </row>
-	</table>
-	<table name="group_permissions">
-		<column>id</column>
-        <column>group_id</column>
-        <column>permission</column>
-        <row>
-            <value>105</value>
-            <value>105</value>
-            <value>permission_page</value>
-        </row>
-        <row>
-            <value>106</value>
-            <value>105</value>
-            <value>permission_page</value>
-        </row>
-        <row>
-            <value>107</value>
-            <value>105</value>
-            <value>permission_page</value>
-        </row>
-     </table>
-     <table name="group_logins"/>
+  <permissions id="101" permission="permission_101"/>
+  <permissions id="102" permission="permission_102"/>
+  <permissions id="103" permission="permission_103"/>
+  <permissions id="104" permission="permission_104"/>
+  <permissions id="105" permission="permission_page"/>
+  <permissions id="106" permission="permission_page"/>
+  <permissions id="107" permission="permission_page"/>
+  <groups id="105" name="name_page" note="note_page"/>
+  <groups id="106" name="name_page" note="note_page"/>
+  <groups id="107" name="name_page" note="note_page"/>
+  <group_logins/>
+  <group_permissions id="105" group_id="105" permission="permission_page"/>
+  <group_permissions id="106" group_id="105" permission="permission_page"/>
+  <group_permissions id="107" group_id="105" permission="permission_page"/>
 </dataset>

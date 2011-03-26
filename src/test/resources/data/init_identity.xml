@@ -1,16 +1,15 @@
-<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<table name="persons"></table>
-	<table name="logins"></table>
-	<table name="groups"></table>
-	<table name="permissions">
-		<column>id</column>
-        <column>permission</column>
-        <row>
-            <value>101</value>
-            <value>Admin</value>
-        </row>
-	</table>
-	<table name="group_permissions"></table>
-	<table name="group_logins"></table>
+  <authorizes />
+  <contents />
+  <groups/>
+  <persons/>
+  <logins/>
+  <group_logins/>
+  <group_permissions/>
+  <mail_templates/>
+  <orders/>
+  <permissions id="101" permission="Admin"/>
+  <profiles/>
+  <referances/>
 </dataset>

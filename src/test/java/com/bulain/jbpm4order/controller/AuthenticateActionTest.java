@@ -3,30 +3,34 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.bulain.common.test.ActionTestCase;
 import com.bulain.jbpm4order.model.Constants;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 import com.bulain.jbpm4order.service.LoginService;
-import com.bulain.jbpm4order.test.JbpmTestCase;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class AuthenticateActionTest extends JbpmTestCase {
+public class AuthenticateActionTest extends ActionTestCase {
+    @Autowired
 	private LoginService loginService;
+    
 	private Integer loginId;
-	
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(AuthenticateActionTest.class);
-	}
-	
-	protected void setUp() throws Exception {
-		super.setUp();
-		loginService = (LoginService) applicationContext.getBean("loginService");
+
+	@Before
+	public void setUp() throws Exception {
+	    super.setUp();
 		setUpLogin();
 	}
 
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		tearDownLogin();
 		super.tearDown();
 	}
@@ -50,6 +54,7 @@ public class AuthenticateActionTest extends JbpmTestCase {
 		loginService.delete(loginId);
 	}
 	
+	@Test
 	public void testLogonAndLogout() throws Exception{
 		initServletMockObjects();
 		ActionProxy proxy = getActionProxy("/authenticate/login");

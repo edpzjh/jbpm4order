@@ -1,26 +1,18 @@
 package com.bulain.jbpm4order.integration.cache;
 
+import static org.junit.Assert.*;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.bulain.common.cache.CacheService;
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
 
 public class CacheServiceImplTest extends ServiceTestCase {
+    @Autowired
 	private CacheService cacheService;
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(CacheServiceImplTest.class);
-	}
-	
-	protected void setUp() throws Exception {
-		super.setUp();
-		cacheService = (CacheService) applicationContext.getBean("cacheService");
-	}
-
-	protected void tearDown() throws Exception {
-		super.tearDown();
-		//cacheService.shutdown();
-	}
-
+    @Test
 	public void testCacheId(){
 		Page page = new Page();
 		page.setPage(10);
@@ -62,8 +54,8 @@ public class CacheServiceImplTest extends ServiceTestCase {
 		assertTrue(delete);
 	}
 	
+    @Test
 	public void testCacheKey(){
-
 		Page page = new Page();
 		page.setPage(10);
 		page.setCount(100);

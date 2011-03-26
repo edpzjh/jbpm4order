@@ -1,122 +1,21 @@
-<!DOCTYPE dataset SYSTEM "my-dataset.dtd">
+<?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<table name="groups">
-		<column>id</column>
-        <column>name</column>
-        <column>note</column>
-        <row>
-            <value>101</value>
-            <value>name_101</value>
-            <value>note_101</value>
-        </row>
-        <row>
-            <value>102</value>
-            <value>name_102</value>
-            <value>note_102</value>
-        </row>
-        <row>
-            <value>103</value>
-            <value>name_103</value>
-            <value>note_103</value>
-        </row>
-        <row>
-            <value>104</value>
-            <value>name_104</value>
-            <value>note_104</value>
-        </row>
-        <row>
-            <value>105</value>
-            <value>name_105</value>
-            <value>note_105</value>
-        </row>
-	</table>
-	<table name="logins">
-		<column>id</column>
-        <column>login_name</column>
-        <column>email</column>
-        <column>hashed_password</column>
-        <column>enabled</column>
-        <row>
-            <value>101</value>
-            <value>login_name_101</value>
-            <value>email_101</value>
-            <value>hashed_password_101</value>
-            <value>enabled_101</value>
-        </row>
-        <row>
-            <value>102</value>
-            <value>login_name_102</value>
-            <value>email_102</value>
-            <value>hashed_password_102</value>
-            <value>enabled_102</value>
-        </row>
-        <row>
-            <value>103</value>
-            <value>login_name_103</value>
-            <value>email_103</value>
-            <value>hashed_password_103</value>
-            <value>enabled_103</value>
-        </row>
-        <row>
-            <value>104</value>
-            <value>login_name_104</value>
-            <value>email_104</value>
-            <value>hashed_password_104</value>
-            <value>enabled_104</value>
-        </row>
-        <row>
-            <value>105</value>
-            <value>login_name_105</value>
-            <value>email_105</value>
-            <value>hashed_password_105</value>
-            <value>enabled_105</value>
-        </row>
-	</table>
-	<table name="group_logins">
-		<column>id</column>
-        <column>group_id</column>
-        <column>login_id</column>
-        <!-- deleteByPrimaryKey -->
-        <row>
-        	<value>101</value>
-            <value>101</value>
-            <value>101</value>
-        </row>
-        <!-- selectByPrimaryKey -->
-        <row>
-        	<value>102</value>
-            <value>102</value>
-            <value>102</value>
-        </row>
-        <!-- updateByPrimaryKeySelective -->
-        <row>
-        	<value>103</value>
-            <value>103</value>
-            <value>103</value>
-        </row>
-        <!-- updateByPrimaryKey -->
-        <row>
-        	<value>104</value>
-            <value>104</value>
-            <value>104</value>
-        </row>
-        <!-- deleteGroupLoginByLoginId -->
-        <row>
-        	<value>105</value>
-            <value>102</value>
-            <value>101</value>
-        </row>
-        <row>
-        	<value>106</value>
-            <value>103</value>
-            <value>101</value>
-        </row>
-        <!-- testDeleteGroupLoginByNotInLoginId -->
-        <row>
-        	<value>107</value>
-            <value>101</value>
-            <value>103</value>
-        </row>
-	</table>
-	<table name="group_permissions"/>
+  <groups id="101" name="name_101" note="note_101"/>
+  <groups id="102" name="name_102" note="note_102"/>
+  <groups id="103" name="name_103" note="note_103"/>
+  <groups id="104" name="name_104" note="note_104"/>
+  <groups id="105" name="name_105" note="note_105"/>
+  <logins id="101" login_name="login_name_101" email="email_101" hashed_password="hashed_password_101" enabled="enabled_101"/>
+  <logins id="102" login_name="login_name_102" email="email_102" hashed_password="hashed_password_102" enabled="enabled_102"/>
+  <logins id="103" login_name="login_name_103" email="email_103" hashed_password="hashed_password_103" enabled="enabled_103"/>
+  <logins id="104" login_name="login_name_104" email="email_104" hashed_password="hashed_password_104" enabled="enabled_104"/>
+  <logins id="105" login_name="login_name_105" email="email_105" hashed_password="hashed_password_105" enabled="enabled_105"/>
+  <group_logins id="101" group_id="101" login_id="101"/>
+  <group_logins id="102" group_id="102" login_id="102"/>
+  <group_logins id="103" group_id="103" login_id="103"/>
+  <group_logins id="104" group_id="104" login_id="104"/>
+  <group_logins id="105" group_id="102" login_id="101"/>
+  <group_logins id="106" group_id="103" login_id="101"/>
+  <group_logins id="107" group_id="101" login_id="103"/>
+  <group_permissions/>
 </dataset>

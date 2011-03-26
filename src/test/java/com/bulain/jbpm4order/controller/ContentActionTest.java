@@ -3,30 +3,33 @@ package com.bulain.jbpm4order.controller;
 import java.io.File;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import com.bulain.common.page.Page;
-import com.bulain.common.test.Struts2TestCase;
+import com.bulain.common.test.ActionTestCase;
 import com.bulain.jbpm4order.model.Content;
 import com.bulain.jbpm4order.pojo.ContentView;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class ContentActionTest extends Struts2TestCase {
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(ContentActionTest.class);
-	}
-	
-	protected void setUp() throws Exception {
+public class ContentActionTest extends ActionTestCase {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
 		super.setUpDB("data/init_action.xml");
 		super.setUpAction("admin", "admin");
 	}
 
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDownAction();
 		super.tearDownDB();
 		super.tearDown();
 	}
 
+	@Test
 	public void testCURD() throws Exception {
 		initServletMockObjects();
 		ActionProxy proxy = getActionProxy("/content/new");

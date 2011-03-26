@@ -2,30 +2,33 @@ package com.bulain.jbpm4order.controller;
 
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 import com.bulain.common.page.Page;
-import com.bulain.common.test.Struts2TestCase;
+import com.bulain.common.test.ActionTestCase;
 import com.bulain.jbpm4order.model.Authorize;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class AuthorizeActionTest extends Struts2TestCase {
-	protected void setUp() throws Exception {
+public class AuthorizeActionTest extends ActionTestCase {
+    @Before
+	public void setUp() throws Exception {
 		super.setUp();
 		super.setUpDB("data/init_action.xml");
 		super.setUpDB("test-data/init_authorizes.xml");
 		super.setUpAction("admin", "admin");
 	}
 
-	protected void tearDown() throws Exception {
+    @After
+	public void tearDown() throws Exception {
 		super.tearDownAction();
 		super.tearDownDB();
 		super.tearDown();
 	}
 	
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(AuthorizeActionTest.class);
-	}
-
+    @Test
 	public void testList() throws Exception {
 		initServletMockObjects();
 		request.setParameter("search.controller", "controller_page");
@@ -42,6 +45,7 @@ public class AuthorizeActionTest extends Struts2TestCase {
 		assertEquals(1, page.getPage());
 	}
 
+    @Test
 	public void testNewn() throws Exception {
 		initServletMockObjects();
 		
@@ -51,6 +55,7 @@ public class AuthorizeActionTest extends Struts2TestCase {
 		assertEquals(Action.SUCCESS, result);
 	}
 
+    @Test
 	public void testCreate() throws Exception {
 		initServletMockObjects();
 		request.setParameter("authorize.controller", "controller");
@@ -63,6 +68,7 @@ public class AuthorizeActionTest extends Struts2TestCase {
 		assertEquals(Action.SUCCESS, result);
 	}
 
+    @Test
 	public void testShow() throws Exception {
 		initServletMockObjects();
 		request.setParameter("id", "102");
@@ -77,7 +83,8 @@ public class AuthorizeActionTest extends Struts2TestCase {
 		assertEquals("action_102", authorize.getAction());
 		assertEquals("permission_102", authorize.getPermission());
 	}
-
+    
+    @Test
 	public void testEdit() throws Exception {
 		initServletMockObjects();
 		request.setParameter("id", "103");
@@ -93,6 +100,7 @@ public class AuthorizeActionTest extends Struts2TestCase {
 		assertEquals("permission_103", authorize.getPermission());
 	}
 
+    @Test
 	public void testUpdate() throws Exception {
 		initServletMockObjects();
 		request.setParameter("authorize.id", "104");
@@ -106,6 +114,7 @@ public class AuthorizeActionTest extends Struts2TestCase {
 		assertEquals(Action.SUCCESS, result);
 	}
 
+    @Test
 	public void testDestroy() throws Exception {
 		initServletMockObjects();
 		request.setParameter("id", "101");

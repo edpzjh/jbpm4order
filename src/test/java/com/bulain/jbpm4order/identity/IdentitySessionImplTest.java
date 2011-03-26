@@ -1,30 +1,33 @@
 package com.bulain.jbpm4order.identity;
 
+import static org.junit.Assert.*;
 import java.util.List;
 
 import org.jbpm.api.identity.Group;
 import org.jbpm.api.identity.User;
 import org.jbpm.pvm.internal.identity.spi.IdentitySession;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.test.ServiceTestCase;
 
 public class IdentitySessionImplTest extends ServiceTestCase {
+    @Autowired
 	private IdentitySession identitySession;
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(IdentitySessionImplTest.class);
-	}
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUp() throws Exception {
 		super.setUpDB("data/init_identity.xml");
-		identitySession = (IdentitySession) applicationContext.getBean("identitySession");
 	}
 
-	protected void tearDown() throws Exception {
-		super.tearDown();
+    @AfterTransaction
+	public void tearDown() throws Exception {
 		super.tearDownDB();
 	}
 
+    @Test
 	public void testUser(){
 		String userId = "id";
 		String givenName = "givenName";
@@ -51,6 +54,7 @@ public class IdentitySessionImplTest extends ServiceTestCase {
 		assertNull(findUserById);
 	}
 	
+    @Test
 	public void testGroup(){
 		String groupId = "id";
 		String groupName = "id";
@@ -70,6 +74,7 @@ public class IdentitySessionImplTest extends ServiceTestCase {
 		assertNull(findGroupById);
 	}
 	
+    @Test
 	public void testMembership(){
 		String userId = "id";
 		String givenName = "givenName";

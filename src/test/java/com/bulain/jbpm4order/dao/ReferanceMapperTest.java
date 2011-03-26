@@ -1,6 +1,12 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.*;
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -9,23 +15,20 @@ import com.bulain.jbpm4order.pojo.Item;
 import com.bulain.jbpm4order.pojo.ReferanceSearch;
 
 public class ReferanceMapperTest extends ServiceTestCase {
+    @Autowired
 	private ReferanceMapper referanceMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_referances.xml");
-		referanceMapper = (ReferanceMapper) applicationContext.getBean("referanceMapper");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(ReferanceMapperTest.class);
-	}
-
+    @Test
 	public void testSelectListByExample() {
 		ReferanceSearch search = new ReferanceSearch();
 		search.setName("name_page");
@@ -35,6 +38,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(3, selectListByExample.size());
 	}
 
+    @Test
 	public void testSelectItemByExample() {
 		ReferanceSearch search = new ReferanceSearch();
 		search.setName("name_102");
@@ -45,6 +49,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertNotNull(selectItemByExample);
 	}
 
+    @Test
 	public void testFind() {
 		ReferanceSearch search = new ReferanceSearch();
 		search.setName("name_page");
@@ -55,6 +60,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		ReferanceSearch search = new ReferanceSearch();
 		search.setName("name_page");
@@ -65,6 +71,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		ReferanceSearch search = new ReferanceSearch();
 		search.setName("name_page");
@@ -79,11 +86,13 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(3, page2.size());
 	}
 
+    @Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = referanceMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+    @Test
 	public void testInsert() {
 		Referance record = new Referance();
 		record.setName("name");
@@ -95,6 +104,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testInsertSelective() {
 		Referance record = new Referance();
 		record.setName("name");
@@ -106,6 +116,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(1, insertSelective);
 	}
 
+    @Test
 	public void testSelectByPrimaryKey() {
 		Referance selectByPrimaryKey = referanceMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertNotNull(selectByPrimaryKey);
@@ -116,6 +127,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals("catagory_102", selectByPrimaryKey.getCatagory());
 	}
 
+    @Test
 	public void testUpdateByPrimaryKeySelective() {
 		Referance record = new Referance();
 		record.setId(Integer.valueOf(103));
@@ -128,6 +140,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+    @Test
 	public void testUpdateByPrimaryKey() {
 		Referance record = new Referance();
 		record.setId(Integer.valueOf(104));

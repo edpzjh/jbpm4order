@@ -5,29 +5,30 @@ import java.util.List;
 import org.jbpm.api.ProcessDefinition;
 import org.jbpm.api.ProcessInstance;
 import org.jbpm.api.task.Task;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import com.bulain.jbpm4order.test.JbpmTestCase;
+import com.bulain.common.test.ActionTestCase;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 
-public class WorkflowActionTest extends JbpmTestCase {
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(WorkflowActionTest.class);
-	}
-	
-	protected void setUp() throws Exception {
+public class WorkflowActionTest extends ActionTestCase {
+	@Before
+	public void setUp() throws Exception {
 		super.setUp();
-		super.setUpCleanJbpm();
 		super.setUpDB("data/init_action.xml");
 		super.setUpAction("admin", "admin");
 	}
 
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		super.tearDownAction();
 		super.tearDownDB();
 		super.tearDown();
 	}
 
+	@Test
 	public void testWorkflow() throws Exception {
 		initServletMockObjects();
 		ActionProxy proxy = getActionProxy("/workflow/deploy");

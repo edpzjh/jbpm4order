@@ -1,6 +1,14 @@
 package com.bulain.jbpm4order.dao;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ServiceTestCase;
@@ -8,28 +16,26 @@ import com.bulain.jbpm4order.model.Authorize;
 import com.bulain.jbpm4order.pojo.AuthorizeSearch;
 
 public class AuthorizeMapperTest extends ServiceTestCase {
+    @Autowired
 	private AuthorizeMapper authorizeMapper;
 	
-	protected void setUp() throws Exception {
-		super.setUp();
+    @BeforeTransaction
+	public void setUpDB() throws Exception {
 		super.setUpDB("test-data/init_authorizes.xml");
-		authorizeMapper = (AuthorizeMapper) applicationContext.getBean("authorizeMapper");
 	}
 
-	protected void tearDown() throws Exception {
+    @AfterTransaction
+	public void tearDownDB() throws Exception {
 		super.tearDownDB();
-		super.tearDown();
 	}
 	
-	public static void main(String[] args){
-		junit.textui.TestRunner.run(AuthorizeMapperTest.class);
-	}
-
+    @Test
 	public void testDeleteByPrimaryKey() {
 		int deleteByPrimaryKey = authorizeMapper.deleteByPrimaryKey(Integer.valueOf(101));
 		assertEquals(1, deleteByPrimaryKey);
 	}
 
+    @Test
 	public void testInsert() {
 		Authorize record = new Authorize();
 		record.setController("controller");
@@ -39,6 +45,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testInsertSelective() {
 		Authorize record = new Authorize();
 		record.setController("controller");
@@ -48,6 +55,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals(1, insert);
 	}
 
+    @Test
 	public void testSelectByPrimaryKey() {
 		Authorize selectByPrimaryKey = authorizeMapper.selectByPrimaryKey(Integer.valueOf(102));
 		assertNotNull(selectByPrimaryKey);
@@ -56,7 +64,8 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals("action_102", selectByPrimaryKey.getAction());
 		assertEquals("permission_102", selectByPrimaryKey.getPermission());
 	}
-
+    
+    @Test
 	public void testUpdateByPrimaryKeySelective() {
 		Authorize record = new Authorize();
 		record.setId(Integer.valueOf(103));
@@ -67,6 +76,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKeySelective);
 	}
 
+    @Test
 	public void testUpdateByPrimaryKey() {
 		Authorize record = new Authorize();
 		record.setId(Integer.valueOf(104));
@@ -77,6 +87,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals(1, updateByPrimaryKey);
 	}
 
+    @Test
 	public void testFind(){
 		AuthorizeSearch search = new AuthorizeSearch();
 		search.setController("controller_page");
@@ -85,6 +96,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals(3, find.size());
 	}
 
+    @Test
 	public void testCount() {
 		AuthorizeSearch search = new AuthorizeSearch();
 		search.setController("controller_page");
@@ -93,6 +105,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 		assertEquals(Long.valueOf(3), count);
 	}
 
+    @Test
 	public void testPage() {
 		AuthorizeSearch search = new AuthorizeSearch();
 		search.setController("controller_page");

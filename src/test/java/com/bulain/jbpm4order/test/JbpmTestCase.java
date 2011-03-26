@@ -1,42 +1,26 @@
 package com.bulain.jbpm4order.test;
 
-import java.util.List;
-
-import org.jbpm.api.Deployment;
 import org.jbpm.api.ExecutionService;
 import org.jbpm.api.HistoryService;
 import org.jbpm.api.IdentityService;
 import org.jbpm.api.ManagementService;
 import org.jbpm.api.RepositoryService;
 import org.jbpm.api.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bulain.common.test.Struts2TestCase;
+import com.bulain.common.test.ServiceTestCase;
 
-public abstract class JbpmTestCase extends Struts2TestCase {
-	
+public abstract class JbpmTestCase extends ServiceTestCase {
+    @Autowired
 	protected RepositoryService repositoryService;
+    @Autowired
 	protected ExecutionService executionService;
+    @Autowired
 	protected TaskService taskService;
+    @Autowired
 	protected HistoryService historyService;
+    @Autowired
 	protected IdentityService identityService;
+    @Autowired
 	protected ManagementService managementService;
-	
-	protected void setUpJbpm() throws Exception {
-		repositoryService = (RepositoryService) applicationContext.getBean("repositoryService");
-	    executionService = (ExecutionService) applicationContext.getBean("executionService");
-	    taskService = (TaskService) applicationContext.getBean("taskService");
-	    historyService = (HistoryService) applicationContext.getBean("historyService");
-	    identityService = (IdentityService) applicationContext.getBean("identityService");
-	    managementService = (ManagementService) applicationContext.getBean("managementService");
-	}
-	
-	protected void setUpCleanJbpm() throws Exception {
-		if(repositoryService==null) setUpJbpm();
-		List<Deployment> listDeployment = repositoryService.createDeploymentQuery().list();
-	    for(Deployment deployment : listDeployment){
-	    	repositoryService.deleteDeploymentCascade(deployment.getId());
-	    }
-	}
-	
-	protected void tearDownJbpm() throws Exception {}
 }

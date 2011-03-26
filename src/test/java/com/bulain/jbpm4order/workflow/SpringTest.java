@@ -1,11 +1,16 @@
 package com.bulain.jbpm4order.workflow;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.jbpm.api.Execution;
 import org.jbpm.api.ProcessInstance;
+import org.junit.Test;
+import org.springframework.test.context.transaction.AfterTransaction;
+import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.jbpm4order.pojo.Item;
 import com.bulain.jbpm4order.test.JbpmTestCase;
@@ -13,27 +18,30 @@ import com.bulain.jbpm4order.test.JbpmTestCase;
 public class SpringTest extends JbpmTestCase {
 	private String deploymentId;
 
-	public static void main(String[] args) {
-		junit.textui.TestRunner.run(SpringTest.class);
-	}
-
-	protected void setUp() throws Exception {
-		super.setUp();
-		setUpDB("data/init_referances.xml");
-		setUpJbpm();
+	@BeforeTransaction
+	public void setUp() throws Exception {
 		deploymentId = repositoryService.createDeployment()
 				.addResourceFromClasspath("com/bulain/jbpm4order/workflow/spring.jpdl.xml")
 				.deploy();
 	}
 
-	protected void tearDown() throws Exception {
+	@AfterTransaction
+	public void tearDown() throws Exception {
 		repositoryService.deleteDeploymentCascade(deploymentId);
-		tearDownDB();
-		tearDownJbpm();
-		super.tearDown();
+	}
+
+	@BeforeTransaction
+	public void setUpDB() throws Exception {
+	    super.setUpDB("data/init_referances.xml");
+	}
+	
+	@AfterTransaction
+	public void tearDownDB() throws Exception {
+	    super.tearDownDB();
 	}
 	
 	@SuppressWarnings("unchecked")
+	@Test
 	public void testSpring(){
 		Map<String, Object> variables = new HashMap<String, Object>(); 
 		variables.put("name", "name");
