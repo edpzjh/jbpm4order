@@ -11,9 +11,15 @@
 	<groupId>com.bulain</groupId>
 	<artifactId>jbpm4order</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.1</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>jbpm4order</name>
-	<url>http://maven.apache.org</url>
+    <url>https://github.com/bulain/jbpm4order</url>
+  
+    <scm>
+		<connection>scm:git:git@github.com:bulain/jbpm4order.git</connection>
+		<developerConnection>scm:git:git@github.com:bulain/jbpm4order.git</developerConnection>
+		<url>git@github.com:bulain/jbpm4order.git</url>
+    </scm>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
