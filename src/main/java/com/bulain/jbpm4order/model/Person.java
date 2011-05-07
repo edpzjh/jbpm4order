@@ -2,9 +2,9 @@ package com.bulain.jbpm4order.model;
 
 import java.util.Date;
 
-import com.bulain.common.model.Entity;
+import com.bulain.common.model.Trackable;
 
-public class Person implements Entity{
+public class Person implements Trackable{
 	private static final long serialVersionUID = -8633560005045157581L;
 
 	private Integer id;
