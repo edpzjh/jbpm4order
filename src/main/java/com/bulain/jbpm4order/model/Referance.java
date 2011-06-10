@@ -1,10 +1,11 @@
 package com.bulain.jbpm4order.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.bulain.common.model.Trackable;
 
-public class Referance implements Trackable{
+public class Referance implements Trackable, Serializable{
 	private static final long serialVersionUID = -4031103519069387934L;
 
 	private Integer id;
