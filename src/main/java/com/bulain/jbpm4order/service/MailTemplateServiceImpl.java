@@ -7,22 +7,26 @@ import com.bulain.jbpm4order.dao.MailTemplateMapper;
 import com.bulain.jbpm4order.model.MailTemplate;
 import com.bulain.jbpm4order.pojo.MailTemplateSearch;
 
-public class MailTemplateServiceImpl extends PagedServiceImpl<MailTemplateSearch, MailTemplate> implements MailTemplateService{
-	private MailTemplateMapper mailTemplateMapper;
+public class MailTemplateServiceImpl extends PagedServiceImpl<MailTemplateSearch, MailTemplate>
+        implements
+            MailTemplateService {
+    private MailTemplateMapper mailTemplateMapper;
 
-	@Override
-	protected PagedMapper<MailTemplateSearch, MailTemplate> getPagedMapper() {
-		return mailTemplateMapper;
-	}
+    @Override
+    protected PagedMapper<MailTemplateSearch, MailTemplate> getPagedMapper() {
+        return mailTemplateMapper;
+    }
 
-	public MailTemplate getWithoutBLOBs(Integer id) {
-		MailTemplate selectByPrimaryKeyWithoutBLOBs = mailTemplateMapper.selectByPrimaryKeyWithoutBLOBs(id);
-		if(selectByPrimaryKeyWithoutBLOBs==null) throw new NotFoundException();
-		return selectByPrimaryKeyWithoutBLOBs;
-	}
+    public MailTemplate getWithoutBLOBs(Integer id) {
+        MailTemplate selectByPrimaryKeyWithoutBLOBs = mailTemplateMapper.selectByPrimaryKeyWithoutBLOBs(id);
+        if (selectByPrimaryKeyWithoutBLOBs == null) {
+            throw new NotFoundException();
+        }
+        return selectByPrimaryKeyWithoutBLOBs;
+    }
 
-	public void setMailTemplateMapper(MailTemplateMapper mailTemplateMapper) {
-		this.mailTemplateMapper = mailTemplateMapper;
-	}
-	
+    public void setMailTemplateMapper(MailTemplateMapper mailTemplateMapper) {
+        this.mailTemplateMapper = mailTemplateMapper;
+    }
+
 }

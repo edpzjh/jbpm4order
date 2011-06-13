@@ -6,20 +6,19 @@ import com.bulain.jbpm4order.dao.OrderMapper;
 import com.bulain.jbpm4order.model.Order;
 import com.bulain.jbpm4order.pojo.OrderSearch;
 
-
 public class OrderServiceImpl extends PagedServiceImpl<OrderSearch, Order> implements OrderService {
-	private OrderMapper orderMapper;
-	
-	@Override
-	protected PagedMapper<OrderSearch, Order> getPagedMapper() {
-		return orderMapper;
-	}
+    private OrderMapper orderMapper;
 
-	public Order getByWfId(String wfId) {
-		return orderMapper.selectByWfId(wfId);
-	}
+    @Override
+    protected PagedMapper<OrderSearch, Order> getPagedMapper() {
+        return orderMapper;
+    }
 
-	public void setOrderMapper(OrderMapper orderMapper) {
-		this.orderMapper = orderMapper;
-	}
+    public Order getByWfId(String wfId) {
+        return orderMapper.selectByWfId(wfId);
+    }
+
+    public void setOrderMapper(OrderMapper orderMapper) {
+        this.orderMapper = orderMapper;
+    }
 }

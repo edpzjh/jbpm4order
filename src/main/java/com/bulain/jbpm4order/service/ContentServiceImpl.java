@@ -7,21 +7,23 @@ import com.bulain.jbpm4order.dao.ContentMapper;
 import com.bulain.jbpm4order.model.Content;
 import com.bulain.jbpm4order.pojo.ContentSearch;
 
-public class ContentServiceImpl extends PagedServiceImpl<ContentSearch, Content> implements ContentService{
-	private ContentMapper contentMapper;
+public class ContentServiceImpl extends PagedServiceImpl<ContentSearch, Content> implements ContentService {
+    private ContentMapper contentMapper;
 
-	@Override
-	protected PagedMapper<ContentSearch, Content> getPagedMapper() {
-		return contentMapper;
-	}
+    @Override
+    protected PagedMapper<ContentSearch, Content> getPagedMapper() {
+        return contentMapper;
+    }
 
-	public Content getWithoutBLOBs(Integer id) {
-		Content selectByPrimaryKeyWithoutBLOBs = contentMapper.selectByPrimaryKeyWithoutBLOBs(id);
-		if(selectByPrimaryKeyWithoutBLOBs==null) throw new NotFoundException();
-		return selectByPrimaryKeyWithoutBLOBs;
-	}
+    public Content getWithoutBLOBs(Integer id) {
+        Content selectByPrimaryKeyWithoutBLOBs = contentMapper.selectByPrimaryKeyWithoutBLOBs(id);
+        if (selectByPrimaryKeyWithoutBLOBs == null) {
+            throw new NotFoundException();
+        }
+        return selectByPrimaryKeyWithoutBLOBs;
+    }
 
-	public void setContentMapper(ContentMapper contentMapper) {
-		this.contentMapper = contentMapper;
-	}
+    public void setContentMapper(ContentMapper contentMapper) {
+        this.contentMapper = contentMapper;
+    }
 }

@@ -4,6 +4,6 @@ import com.bulain.common.dao.PagedMapper;
 import com.bulain.jbpm4order.model.Person;
 import com.bulain.jbpm4order.pojo.PersonSearch;
 
-public interface PersonMapper extends PagedMapper<PersonSearch, Person>{
-	
+public interface PersonMapper extends PagedMapper<PersonSearch, Person> {
+
 }

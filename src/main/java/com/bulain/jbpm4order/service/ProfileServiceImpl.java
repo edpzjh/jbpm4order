@@ -7,14 +7,14 @@ import com.bulain.jbpm4order.model.Profile;
 import com.bulain.jbpm4order.pojo.ProfileSearch;
 
 public class ProfileServiceImpl extends PagedServiceImpl<ProfileSearch, Profile> implements ProfileService {
-	private ProfileMapper profileMapper;
-	
-	@Override
-	protected PagedMapper<ProfileSearch, Profile> getPagedMapper() {
-		return profileMapper;
-	}
+    private ProfileMapper profileMapper;
 
-	public void setProfileMapper(ProfileMapper profileMapper) {
-		this.profileMapper = profileMapper;
-	}
+    @Override
+    protected PagedMapper<ProfileSearch, Profile> getPagedMapper() {
+        return profileMapper;
+    }
+
+    public void setProfileMapper(ProfileMapper profileMapper) {
+        this.profileMapper = profileMapper;
+    }
 }

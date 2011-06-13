@@ -5,10 +5,10 @@ import java.util.Date;
 
 import com.bulain.common.model.Trackable;
 
-public class GroupPermission implements Trackable, Serializable{
-	private static final long serialVersionUID = -1223644841068158612L;
+public class GroupPermission implements Trackable, Serializable {
+    private static final long serialVersionUID = -1223644841068158612L;
 
-	private Integer id;
+    private Integer id;
 
     private Integer groupId;
 

@@ -22,71 +22,72 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import com.bulain.jbpm4order.model.Constants;
 import com.bulain.jbpm4order.service.AuthorizeService;
 
-public class AuthorizeFilter implements Filter{
-	private static final Logger LOG = LoggerFactory.getLogger(AuthorizeFilter.class);
-	private static final String AUTHENTICATE = "/authenticate/";
-	private static final String LOGIN = "login.action";
-	private static final String AUTHORIZE_SERVICE_NAME = "authorizeService";
+public class AuthorizeFilter implements Filter {
+    private static final Logger LOG = LoggerFactory.getLogger(AuthorizeFilter.class);
+    private static final String AUTHENTICATE = "/authenticate/";
+    private static final String LOGIN = "login.action";
+    private static final String AUTHORIZE_SERVICE_NAME = "authorizeService";
 
-	private ServletContext servletContext;
-	
-	public void init(FilterConfig config) throws ServletException {
-		servletContext = config.getServletContext();
-	}
-	
-	public void destroy() {
-	}
+    private ServletContext servletContext;
 
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException {
-		LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - start");
-		
-		HttpServletRequest httpRequest = (HttpServletRequest)request;
-		HttpServletResponse httpResponse= (HttpServletResponse)response;
+    public void init(FilterConfig config) throws ServletException {
+        servletContext = config.getServletContext();
+    }
 
-		String requestURI = httpRequest.getRequestURI();
-		String contextPath = httpRequest.getContextPath();
-		if(requestURI.startsWith(contextPath + AUTHENTICATE)){
-			chain.doFilter(request, response);
+    public void destroy() {
+    }
 
-			LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
-			return;
-		}
-		
-		WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-		AuthorizeService authorizeService = (AuthorizeService) webApplicationContext.getBean(AUTHORIZE_SERVICE_NAME);
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
+            ServletException {
+        LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - start");
 
-		String[] split = requestURI.split("/");
-		
-		if(split.length<4){
-			httpResponse.sendRedirect(contextPath + AUTHENTICATE + LOGIN);
-			
-			LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
-			return;
-		}
-		
-		String controller = split[2];
-		String action = split[3].split("\\.")[0];
-		String permission = authorizeService.getPermission(controller, action);
-		if(permission == null){
-			chain.doFilter(request, response);
-			
-			LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
-			return;
-		}
-		
-		HttpSession session = httpRequest.getSession(true);
-		@SuppressWarnings("unchecked")
-		List<String> listPermission = (List<String>) session.getAttribute(Constants.SESSION_KEY_AUTHORIZE);
-		if(!listPermission.contains(permission)){
-			httpResponse.sendRedirect(contextPath + AUTHENTICATE + LOGIN);
-			
-			LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
-			return;
-		}
-		
-		chain.doFilter(request, response);
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-		LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
-	}
+        String requestURI = httpRequest.getRequestURI();
+        String contextPath = httpRequest.getContextPath();
+        if (requestURI.startsWith(contextPath + AUTHENTICATE)) {
+            chain.doFilter(request, response);
+
+            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            return;
+        }
+
+        WebApplicationContext webApplicationContext = WebApplicationContextUtils
+                .getWebApplicationContext(servletContext);
+        AuthorizeService authorizeService = (AuthorizeService) webApplicationContext.getBean(AUTHORIZE_SERVICE_NAME);
+
+        String[] split = requestURI.split("/");
+
+        if (split.length < 4) {
+            httpResponse.sendRedirect(contextPath + AUTHENTICATE + LOGIN);
+
+            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            return;
+        }
+
+        String controller = split[2];
+        String action = split[3].split("\\.")[0];
+        String permission = authorizeService.getPermission(controller, action);
+        if (permission == null) {
+            chain.doFilter(request, response);
+
+            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            return;
+        }
+
+        HttpSession session = httpRequest.getSession(true);
+        @SuppressWarnings("unchecked")
+        List<String> listPermission = (List<String>) session.getAttribute(Constants.SESSION_KEY_AUTHORIZE);
+        if (!listPermission.contains(permission)) {
+            httpResponse.sendRedirect(contextPath + AUTHENTICATE + LOGIN);
+
+            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            return;
+        }
+
+        chain.doFilter(request, response);
+
+        LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+    }
 }

@@ -7,87 +7,87 @@ import com.bulain.jbpm4order.model.Person;
 import com.bulain.jbpm4order.pojo.PersonSearch;
 import com.bulain.jbpm4order.service.PersonService;
 
-public class PersonAction extends PageSupportActionSupport{
-	private static final long serialVersionUID = 4764266080241908757L;
+public class PersonAction extends PageSupportActionSupport {
+    private static final long serialVersionUID = 4764266080241908757L;
 
-	private Integer id;
-	
-	private PersonSearch search;
-	private Person person;
-	private List<Person> listPerson;
-	
-	private transient PersonService personService;
-	
-	public String list(){
-		search = (PersonSearch) getSearchFromSession(PersonSearch.class, search);
-		page = getPageFromSession();
-		
-		listPerson = personService.page(search, page);
-		
-		putSearchToSession(PersonSearch.class, search);
-	    putPageToSession();
-		
-		return SUCCESS;
-	}
-	
-	public String newn(){
-		person = new Person();
-		return SUCCESS;
-	}
-	public String create(){
-		personService.insert(person);
-		return SUCCESS;
-	}
-	public String show(){
-		person = personService.get(id);
-		return SUCCESS;
-	}
-	public String edit(){
-		person = personService.get(id);
-		return SUCCESS;
-	}
-	public String update(){
-		personService.update(person, false);
-		return SUCCESS;
-	}
-	public String destroy(){
-		personService.delete(id);
-		return SUCCESS;
-	}
+    private Integer id;
 
-	public Integer getId() {
-		return id;
-	}
+    private PersonSearch search;
+    private Person person;
+    private List<Person> listPerson;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    private transient PersonService personService;
 
-	public PersonSearch getSearch() {
-		return search;
-	}
+    public String list() {
+        search = (PersonSearch) getSearchFromSession(PersonSearch.class, search);
+        page = getPageFromSession();
 
-	public void setSearch(PersonSearch search) {
-		this.search = search;
-	}
+        listPerson = personService.page(search, page);
 
-	public Person getPerson() {
-		return person;
-	}
+        putSearchToSession(PersonSearch.class, search);
+        putPageToSession();
 
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+        return SUCCESS;
+    }
 
-	public List<Person> getListPerson() {
-		return listPerson;
-	}
+    public String newn() {
+        person = new Person();
+        return SUCCESS;
+    }
+    public String create() {
+        personService.insert(person);
+        return SUCCESS;
+    }
+    public String show() {
+        person = personService.get(id);
+        return SUCCESS;
+    }
+    public String edit() {
+        person = personService.get(id);
+        return SUCCESS;
+    }
+    public String update() {
+        personService.update(person, false);
+        return SUCCESS;
+    }
+    public String destroy() {
+        personService.delete(id);
+        return SUCCESS;
+    }
 
-	public void setListPerson(List<Person> listPerson) {
-		this.listPerson = listPerson;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setPersonService(PersonService personService) {
-		this.personService = personService;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public PersonSearch getSearch() {
+        return search;
+    }
+
+    public void setSearch(PersonSearch search) {
+        this.search = search;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public List<Person> getListPerson() {
+        return listPerson;
+    }
+
+    public void setListPerson(List<Person> listPerson) {
+        this.listPerson = listPerson;
+    }
+
+    public void setPersonService(PersonService personService) {
+        this.personService = personService;
+    }
 }

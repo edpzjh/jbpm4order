@@ -5,10 +5,10 @@ import java.util.Date;
 
 import com.bulain.common.model.Trackable;
 
-public class MailTemplate implements Trackable, Serializable{
-	private static final long serialVersionUID = -3962768244528214287L;
+public class MailTemplate implements Trackable, Serializable {
+    private static final long serialVersionUID = -3962768244528214287L;
 
-	private Integer id;
+    private Integer id;
 
     private String name;
 
@@ -27,7 +27,7 @@ public class MailTemplate implements Trackable, Serializable{
     private byte[] body;
 
     private String bodyName;
-    
+
     public Integer getId() {
         return id;
     }
@@ -100,12 +100,12 @@ public class MailTemplate implements Trackable, Serializable{
         this.body = body;
     }
 
-	public String getBodyName() {
-		return bodyName;
-	}
+    public String getBodyName() {
+        return bodyName;
+    }
 
-	public void setBodyName(String bodyName) {
-		this.bodyName = bodyName;
-	}
-    
+    public void setBodyName(String bodyName) {
+        this.bodyName = bodyName;
+    }
+
 }

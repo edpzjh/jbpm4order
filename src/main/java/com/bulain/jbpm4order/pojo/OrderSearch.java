@@ -2,16 +2,16 @@ package com.bulain.jbpm4order.pojo;
 
 import com.bulain.common.page.Search;
 
-public class OrderSearch extends Search{
-	private static final long serialVersionUID = -6151913955772666948L;
-	
-	private String name;
+public class OrderSearch extends Search {
+    private static final long serialVersionUID = -6151913955772666948L;
 
-	public String getName() {
-		return name;
-	}
+    private String name;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

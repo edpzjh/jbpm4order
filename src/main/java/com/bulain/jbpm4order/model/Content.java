@@ -5,10 +5,10 @@ import java.util.Date;
 
 import com.bulain.common.model.Trackable;
 
-public class Content implements Trackable, Serializable{
-	private static final long serialVersionUID = -3212752477980635381L;
+public class Content implements Trackable, Serializable {
+    private static final long serialVersionUID = -3212752477980635381L;
 
-	private Integer id;
+    private Integer id;
 
     private String fileName;
 

@@ -5,10 +5,10 @@ import java.util.Date;
 
 import com.bulain.common.model.Trackable;
 
-public class Group implements Trackable, Serializable{
-	private static final long serialVersionUID = -6570362473155585829L;
+public class Group implements Trackable, Serializable {
+    private static final long serialVersionUID = -6570362473155585829L;
 
-	private Integer id;
+    private Integer id;
 
     private String name;
 

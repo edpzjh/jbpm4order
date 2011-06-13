@@ -5,10 +5,10 @@ import java.util.Date;
 
 import com.bulain.common.model.Trackable;
 
-public class Authorize implements Trackable, Serializable{
-	private static final long serialVersionUID = 3573163251876912505L;
+public class Authorize implements Trackable, Serializable {
+    private static final long serialVersionUID = 3573163251876912505L;
 
-	private Integer id;
+    private Integer id;
 
     private String controller;
 
