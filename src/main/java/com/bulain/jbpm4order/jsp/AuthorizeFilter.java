@@ -39,7 +39,9 @@ public class AuthorizeFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
             ServletException {
-        LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - start");
+        String method = "doFilter(ServletRequest, ServletResponse, FilterChain)";
+        
+        LOG.debug(method + " - start");
 
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -49,7 +51,7 @@ public class AuthorizeFilter implements Filter {
         if (requestURI.startsWith(contextPath + AUTHENTICATE)) {
             chain.doFilter(request, response);
 
-            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            LOG.debug(method + " - end");
             return;
         }
 
@@ -62,7 +64,7 @@ public class AuthorizeFilter implements Filter {
         if (split.length < 4) {
             httpResponse.sendRedirect(contextPath + AUTHENTICATE + LOGIN);
 
-            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            LOG.debug(method + " - end");
             return;
         }
 
@@ -72,7 +74,7 @@ public class AuthorizeFilter implements Filter {
         if (permission == null) {
             chain.doFilter(request, response);
 
-            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            LOG.debug(method + " - end");
             return;
         }
 
@@ -82,12 +84,12 @@ public class AuthorizeFilter implements Filter {
         if (!listPermission.contains(permission)) {
             httpResponse.sendRedirect(contextPath + AUTHENTICATE + LOGIN);
 
-            LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+            LOG.debug(method + " - end");
             return;
         }
 
         chain.doFilter(request, response);
 
-        LOG.debug("doFilter(ServletRequest, ServletResponse, FilterChain) - end");
+        LOG.debug(method + " - end");
     }
 }

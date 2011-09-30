@@ -8,7 +8,6 @@ import javax.jms.Message;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
-import org.springframework.jms.JmsException;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 
@@ -16,7 +15,7 @@ public class P2pClient {
     private JmsTemplate jmsTemplateA;
     private JmsTemplate jmsTemplateB;
 
-    public String sendMessage(final String body) throws JmsException, JMSException {
+    public String sendMessage(final String body) throws JMSException {
         final List<Message> listMessage = new ArrayList<Message>();
         jmsTemplateA.send(new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {

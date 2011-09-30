@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.bulain.common.controller.PageSupportActionSupport;
 import com.bulain.jbpm4order.model.Content;
@@ -20,6 +22,7 @@ import com.bulain.jbpm4order.service.ReferanceService;
 
 public class ContentAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 2135996981420911925L;
+    private static final Logger LOG = LoggerFactory.getLogger(ContentAction.class);
 
     private Integer id;
 
@@ -59,7 +62,7 @@ public class ContentAction extends PageSupportActionSupport {
             byte[] bytes = FileUtils.readFileToByteArray(blob);
             content.setBytes(bytes);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("create()", e);
         }
         contentService.insert(content);
         return SUCCESS;
@@ -80,7 +83,7 @@ public class ContentAction extends PageSupportActionSupport {
                 byte[] bytes = FileUtils.readFileToByteArray(blob);
                 content.setBytes(bytes);
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.error("update()", e);
             }
         }
         contentService.update(content, false);
@@ -109,7 +112,7 @@ public class ContentAction extends PageSupportActionSupport {
             byte[] bytes = FileUtils.readFileToByteArray(blob);
             content.setBytes(bytes);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("ajaxUpload()", e);
         }
         contentService.insert(content);
         return SUCCESS;
@@ -143,8 +146,8 @@ public class ContentAction extends PageSupportActionSupport {
 
     protected List<ContentView> formatList(List<Content> list) {
         List<ContentView> listView = new ArrayList<ContentView>();
-        for (Content content : list) {
-            listView.add(formatItem(content));
+        for (Content item : list) {
+            listView.add(formatItem(item));
         }
         return listView;
     }

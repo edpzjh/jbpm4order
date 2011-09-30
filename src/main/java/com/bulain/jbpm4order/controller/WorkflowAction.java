@@ -17,10 +17,13 @@ import org.jbpm.api.history.HistoryActivityInstance;
 import org.jbpm.api.history.HistoryProcessInstance;
 import org.jbpm.api.history.HistoryTask;
 import org.jbpm.api.task.Task;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 
 public class WorkflowAction extends DefaultActionSupport {
     private static final long serialVersionUID = 2150996113887310905L;
+    private static final Logger LOG = LoggerFactory.getLogger(WorkflowAction.class);
 
     private List<ProcessDefinition> listProcessDefinition;
     private List<ProcessInstance> listProcessInstance;
@@ -55,7 +58,7 @@ public class WorkflowAction extends DefaultActionSupport {
         try {
             zis = new ZipInputStream(classPathResource.getInputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("deploy()", e);
         }
         repositoryService.createDeployment().addResourcesFromZipInputStream(zis).deploy();
 
