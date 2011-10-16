@@ -24,59 +24,58 @@ import org.subethamail.wiser.WiserMessage;
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class NotifyTest extends JbpmTestCase {
-	private String deploymentId;
-	private String groupId;
-	private Wiser wiser = new Wiser();
+    private String deploymentId;
+    private String groupId;
+    private Wiser wiser = new Wiser();
 
-	@BeforeTransaction
-	public void setUp() throws Exception {
-		deploymentId = repositoryService.createDeployment()
-				.addResourceFromClasspath("com/bulain/jbpm4order/workflow/notify.jpdl.xml")
-				.deploy();
-		
-		groupId = identityService.createGroup("group1");
-		identityService.createUser("user1", "user1", "user1", "user1@wiser.com");
-		identityService.createUser("user2", "user2", "user2", "user2@wiser.com");
-		identityService.createMembership("user1", groupId);
-		identityService.createMembership("user2", groupId);
-		
-		wiser.setPort(2525);
-	    wiser.start();
-	}
+    @BeforeTransaction
+    public void setUp() throws Exception {
+        deploymentId = repositoryService.createDeployment()
+                .addResourceFromClasspath("com/bulain/jbpm4order/workflow/notify.jpdl.xml").deploy();
 
-	@AfterTransaction
-	public void tearDown() throws Exception {
-		repositoryService.deleteDeploymentCascade(deploymentId);
-		
-		identityService.deleteGroup(groupId);
-		identityService.deleteUser("user1");
-		identityService.deleteUser("user2");
-		
-		wiser.stop();
-	}
+        groupId = identityService.createGroup("group1");
+        identityService.createUser("user1", "user1", "user1", "user1@wiser.com");
+        identityService.createUser("user2", "user2", "user2", "user2@wiser.com");
+        identityService.createMembership("user1", groupId);
+        identityService.createMembership("user2", groupId);
 
-	@Test
-	public void testCandidate() throws MessagingException, IOException{
-		Map<String, Object> variables = new HashMap<String, Object>(); 
-		variables.put("groups", groupId);
-		executionService.startProcessInstanceByKey("notify", variables);
-	
-		List<WiserMessage> wisMessages = wiser.getMessages();
+        wiser.setPort(2525);
+        wiser.start();
+    }
+
+    @AfterTransaction
+    public void tearDown() throws Exception {
+        repositoryService.deleteDeploymentCascade(deploymentId);
+
+        identityService.deleteGroup(groupId);
+        identityService.deleteUser("user1");
+        identityService.deleteUser("user2");
+
+        wiser.stop();
+    }
+
+    @Test
+    public void testCandidate() throws MessagingException, IOException {
+        Map<String, Object> variables = new HashMap<String, Object>();
+        variables.put("groups", groupId);
+        executionService.startProcessInstanceByKey("notify", variables);
+
+        List<WiserMessage> wisMessages = wiser.getMessages();
         assertEquals(2, wisMessages.size());
 
         for (WiserMessage wisMessage : wisMessages) {
-          Message message = wisMessage.getMimeMessage();
-          
-          Address[] from = message.getFrom();
-          assertEquals(1, from.length);
-          assertEquals("noreply@wiser.com", from[0].toString());
+            Message message = wisMessage.getMimeMessage();
 
-          Address[] expectedTo = InternetAddress.parse("user1@wiser.com,user2@wiser.com");
-          Address[] to = message.getRecipients(RecipientType.TO);
-          assertTrue(Arrays.equals(expectedTo, to));
+            Address[] from = message.getFrom();
+            assertEquals(1, from.length);
+            assertEquals("noreply@wiser.com", from[0].toString());
 
-          assertEquals("task1", message.getSubject());
-          assertTrue(((String) message.getContent()).contains("task1"));
+            Address[] expectedTo = InternetAddress.parse("user1@wiser.com,user2@wiser.com");
+            Address[] to = message.getRecipients(RecipientType.TO);
+            assertTrue(Arrays.equals(expectedTo, to));
+
+            assertEquals("task1", message.getSubject());
+            assertTrue(((String) message.getContent()).contains("task1"));
         }
-	}
+    }
 }

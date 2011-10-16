@@ -16,99 +16,98 @@ import org.springframework.test.context.transaction.BeforeTransaction;
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class OrderTest extends JbpmTestCase {
-	private String deploymentId;
-	
-	@BeforeTransaction
-	public void setUp() throws Exception {
-	    deploymentId = repositoryService.createDeployment()
-	        .addResourceFromClasspath("com/bulain/jbpm4order/workflow/order.jpdl.xml")
-	        .deploy();
-	}
-	
-	@AfterTransaction
-	public void tearDown() throws Exception {
-	    repositoryService.deleteDeploymentCascade(deploymentId);
-	}
-	
-	@Test
-	public void testOrderApprove() {
-	    Map<String, Object> variables = new HashMap<String, Object>(); 
-	    variables.put("owner", "johndoe");
-	    ProcessInstance processInstance = executionService.startProcessInstanceByKey("order", variables);
-	    String pid = processInstance.getId();
+    private String deploymentId;
 
-	    List<Task> taskList = taskService.findPersonalTasks("johndoe");
-	    assertEquals(1, taskList.size());
-	    Task task = taskList.get(0);
-	    assertEquals("request", task.getName());
-	    assertEquals("johndoe", task.getAssignee());
+    @BeforeTransaction
+    public void setUp() throws Exception {
+        deploymentId = repositoryService.createDeployment()
+                .addResourceFromClasspath("com/bulain/jbpm4order/workflow/order.jpdl.xml").deploy();
+    }
 
-	    taskService.completeTask(task.getId());
-	    
-	    taskList = taskService.findPersonalTasks("johndoe");
-	    assertEquals(0, taskList.size());
-	    
-	    taskList = taskService.findPersonalTasks("bulain");
-	    assertEquals(1, taskList.size());
+    @AfterTransaction
+    public void tearDown() throws Exception {
+        repositoryService.deleteDeploymentCascade(deploymentId);
+    }
 
-	    task = taskList.get(0);
-	    assertEquals("approval", task.getName());
-	    assertEquals("bulain", task.getAssignee());
+    @Test
+    public void testOrderApprove() {
+        Map<String, Object> variables = new HashMap<String, Object>();
+        variables.put("owner", "johndoe");
+        ProcessInstance processInstance = executionService.startProcessInstanceByKey("order", variables);
+        String pid = processInstance.getId();
 
-	    taskService.completeTask(task.getId(), "approve");
-	    
-	    processInstance = executionService.findProcessInstanceById(pid);
-	    assertNull(processInstance);
-	}
-	
-	@Test
-	public void testOrderReject() {
-	    Map<String, Object> variables = new HashMap<String, Object>(); 
-	    variables.put("owner", "johndoe");
-	    ProcessInstance processInstance = executionService.startProcessInstanceByKey("order", variables);
-	    String pid = processInstance.getId();
+        List<Task> taskList = taskService.findPersonalTasks("johndoe");
+        assertEquals(1, taskList.size());
+        Task task = taskList.get(0);
+        assertEquals("request", task.getName());
+        assertEquals("johndoe", task.getAssignee());
 
-	    List<Task> taskList = taskService.findPersonalTasks("johndoe");
-	    assertEquals(1, taskList.size());
-	    Task task = taskList.get(0);
-	    assertEquals("request", task.getName());
-	    assertEquals("johndoe", task.getAssignee());
+        taskService.completeTask(task.getId());
 
-	    taskService.completeTask(task.getId());
-	    
-	    taskList = taskService.findPersonalTasks("johndoe");
-	    assertEquals(0, taskList.size());
-	    
-	    taskList = taskService.findPersonalTasks("bulain");
-	    assertEquals(1, taskList.size());
+        taskList = taskService.findPersonalTasks("johndoe");
+        assertEquals(0, taskList.size());
 
-	    task = taskList.get(0);
-	    assertEquals("approval", task.getName());
-	    assertEquals("bulain", task.getAssignee());
+        taskList = taskService.findPersonalTasks("bulain");
+        assertEquals(1, taskList.size());
 
-	    taskService.completeTask(task.getId(), "reject");
-	    
-	    taskList = taskService.findPersonalTasks("johndoe");
-	    assertEquals(1, taskList.size());
-	    task = taskList.get(0);
-	    assertEquals("request", task.getName());
-	    assertEquals("johndoe", task.getAssignee());
-	    
-	    taskService.completeTask(task.getId());
-	    
-	    taskList = taskService.findPersonalTasks("johndoe");
-	    assertEquals(0, taskList.size());
-	    
-	    taskList = taskService.findPersonalTasks("bulain");
-	    assertEquals(1, taskList.size());
+        task = taskList.get(0);
+        assertEquals("approval", task.getName());
+        assertEquals("bulain", task.getAssignee());
 
-	    task = taskList.get(0);
-	    assertEquals("approval", task.getName());
-	    assertEquals("bulain", task.getAssignee());
+        taskService.completeTask(task.getId(), "approve");
 
-	    taskService.completeTask(task.getId(), "approve");
-	    
-	    processInstance = executionService.findProcessInstanceById(pid);
-	    assertNull(processInstance);
-	  }
+        processInstance = executionService.findProcessInstanceById(pid);
+        assertNull(processInstance);
+    }
+
+    @Test
+    public void testOrderReject() {
+        Map<String, Object> variables = new HashMap<String, Object>();
+        variables.put("owner", "johndoe");
+        ProcessInstance processInstance = executionService.startProcessInstanceByKey("order", variables);
+        String pid = processInstance.getId();
+
+        List<Task> taskList = taskService.findPersonalTasks("johndoe");
+        assertEquals(1, taskList.size());
+        Task task = taskList.get(0);
+        assertEquals("request", task.getName());
+        assertEquals("johndoe", task.getAssignee());
+
+        taskService.completeTask(task.getId());
+
+        taskList = taskService.findPersonalTasks("johndoe");
+        assertEquals(0, taskList.size());
+
+        taskList = taskService.findPersonalTasks("bulain");
+        assertEquals(1, taskList.size());
+
+        task = taskList.get(0);
+        assertEquals("approval", task.getName());
+        assertEquals("bulain", task.getAssignee());
+
+        taskService.completeTask(task.getId(), "reject");
+
+        taskList = taskService.findPersonalTasks("johndoe");
+        assertEquals(1, taskList.size());
+        task = taskList.get(0);
+        assertEquals("request", task.getName());
+        assertEquals("johndoe", task.getAssignee());
+
+        taskService.completeTask(task.getId());
+
+        taskList = taskService.findPersonalTasks("johndoe");
+        assertEquals(0, taskList.size());
+
+        taskList = taskService.findPersonalTasks("bulain");
+        assertEquals(1, taskList.size());
+
+        task = taskList.get(0);
+        assertEquals("approval", task.getName());
+        assertEquals("bulain", task.getAssignee());
+
+        taskService.completeTask(task.getId(), "approve");
+
+        processInstance = executionService.findProcessInstanceById(pid);
+        assertNull(processInstance);
+    }
 }

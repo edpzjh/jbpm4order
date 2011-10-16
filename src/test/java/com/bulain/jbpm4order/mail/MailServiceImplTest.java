@@ -1,6 +1,8 @@
 package com.bulain.jbpm4order.mail;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -23,81 +25,81 @@ import com.bulain.common.test.ServiceTestCase;
 
 public class MailServiceImplTest extends ServiceTestCase {
     @Autowired
-	private MailService mailService;
-    
-	private Wiser wiser = new Wiser();
-	
-	@Before
-	public void setUp() throws Exception {
-		wiser.setPort(2525);
-	    wiser.start();
-	}
+    private MailService mailService;
 
-	@After
-	public void tearDown() throws Exception {
-		wiser.stop();
-	}
+    private Wiser wiser = new Wiser();
 
-	@Test
-	public void testSendSimpleMailMessage() throws MessagingException, IOException {
-		SimpleMailMessage mail = new SimpleMailMessage();  
-        mail.setTo("test-to@wiser.com");  
-        mail.setSubject("Test email from wiser.com");  
-        mail.setText("send from bulain to test-to");  
-        mailService.send(mail);  
-        
+    @Before
+    public void setUp() throws Exception {
+        wiser.setPort(2525);
+        wiser.start();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        wiser.stop();
+    }
+
+    @Test
+    public void testSendSimpleMailMessage() throws MessagingException, IOException {
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo("test-to@wiser.com");
+        mail.setSubject("Test email from wiser.com");
+        mail.setText("send from bulain to test-to");
+        mailService.send(mail);
+
         List<WiserMessage> wisMessages = wiser.getMessages();
         assertEquals(1, wisMessages.size());
 
         for (WiserMessage wisMessage : wisMessages) {
-          Message message = wisMessage.getMimeMessage();
-          
-          Address[] from = message.getFrom();
-          assertEquals(1, from.length);
-          assertEquals("noreply@wiser.com", from[0].toString());
+            Message message = wisMessage.getMimeMessage();
 
-          Address[] expectedTo = InternetAddress.parse("test-to@wiser.com");
-          Address[] to = message.getRecipients(RecipientType.TO);
-          assertTrue(Arrays.equals(expectedTo, to));
+            Address[] from = message.getFrom();
+            assertEquals(1, from.length);
+            assertEquals("noreply@wiser.com", from[0].toString());
 
-          assertEquals("Test email from wiser.com", message.getSubject());
+            Address[] expectedTo = InternetAddress.parse("test-to@wiser.com");
+            Address[] to = message.getRecipients(RecipientType.TO);
+            assertTrue(Arrays.equals(expectedTo, to));
 
-          assertEquals("send from bulain to test-to", (String) message.getContent());
+            assertEquals("Test email from wiser.com", message.getSubject());
+
+            assertEquals("send from bulain to test-to", (String) message.getContent());
         }
-	}
+    }
 
-	@Test
-	public void testSendArraySimpleMailMessage() throws MessagingException, IOException {
-		SimpleMailMessage mail1 = new SimpleMailMessage();  
-        mail1.setTo("test-to@wiser.com");  
-        mail1.setSubject("Test email from wiser.com");  
-        mail1.setText("send from bulain to test-to");  
-        
-        SimpleMailMessage mail2 = new SimpleMailMessage();  
-        mail2.setTo("test-to@wiser.com");  
-        mail2.setSubject("Test email from wiser.com");  
-        mail2.setText("send from bulain to test-to");  
-        
-        mailService.send(new SimpleMailMessage[]{mail1, mail2});  
-        
+    @Test
+    public void testSendArraySimpleMailMessage() throws MessagingException, IOException {
+        SimpleMailMessage mail1 = new SimpleMailMessage();
+        mail1.setTo("test-to@wiser.com");
+        mail1.setSubject("Test email from wiser.com");
+        mail1.setText("send from bulain to test-to");
+
+        SimpleMailMessage mail2 = new SimpleMailMessage();
+        mail2.setTo("test-to@wiser.com");
+        mail2.setSubject("Test email from wiser.com");
+        mail2.setText("send from bulain to test-to");
+
+        mailService.send(new SimpleMailMessage[]{mail1, mail2});
+
         List<WiserMessage> wisMessages = wiser.getMessages();
         assertEquals(3, wisMessages.size());
 
         for (WiserMessage wisMessage : wisMessages) {
-          Message message = wisMessage.getMimeMessage();
-          
-          Address[] from = message.getFrom();
-          assertEquals(1, from.length);
-          assertEquals("noreply@wiser.com", from[0].toString());
+            Message message = wisMessage.getMimeMessage();
 
-          Address[] expectedTo = InternetAddress.parse("test-to@wiser.com");
-          Address[] to = message.getRecipients(RecipientType.TO);
-          assertTrue(Arrays.equals(expectedTo, to));
+            Address[] from = message.getFrom();
+            assertEquals(1, from.length);
+            assertEquals("noreply@wiser.com", from[0].toString());
 
-          assertEquals("Test email from wiser.com", message.getSubject());
+            Address[] expectedTo = InternetAddress.parse("test-to@wiser.com");
+            Address[] to = message.getRecipients(RecipientType.TO);
+            assertTrue(Arrays.equals(expectedTo, to));
 
-          assertEquals("send from bulain to test-to", (String) message.getContent());
+            assertEquals("Test email from wiser.com", message.getSubject());
+
+            assertEquals("send from bulain to test-to", (String) message.getContent());
         }
-	}
+    }
 
 }

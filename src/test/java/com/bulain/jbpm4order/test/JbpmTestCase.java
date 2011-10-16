@@ -12,15 +12,15 @@ import com.bulain.common.test.ServiceTestCase;
 
 public abstract class JbpmTestCase extends ServiceTestCase {
     @Autowired
-	protected RepositoryService repositoryService;
+    protected RepositoryService repositoryService;
     @Autowired
-	protected ExecutionService executionService;
+    protected ExecutionService executionService;
     @Autowired
-	protected TaskService taskService;
+    protected TaskService taskService;
     @Autowired
-	protected HistoryService historyService;
+    protected HistoryService historyService;
     @Autowired
-	protected IdentityService identityService;
+    protected IdentityService identityService;
     @Autowired
-	protected ManagementService managementService;
+    protected ManagementService managementService;
 }

@@ -12,50 +12,41 @@ import org.junit.Test;
 import org.springframework.test.context.transaction.AfterTransaction;
 import org.springframework.test.context.transaction.BeforeTransaction;
 
+import com.bulain.common.dataset.DataSet;
 import com.bulain.jbpm4order.pojo.Item;
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
+@DataSet(file = "data/init_referances.xml")
 public class SpringTest extends JbpmTestCase {
-	private String deploymentId;
+    private String deploymentId;
 
-	@BeforeTransaction
-	public void setUp() throws Exception {
-		deploymentId = repositoryService.createDeployment()
-				.addResourceFromClasspath("com/bulain/jbpm4order/workflow/spring.jpdl.xml")
-				.deploy();
-	}
+    @BeforeTransaction
+    public void setUp() throws Exception {
+        deploymentId = repositoryService.createDeployment()
+                .addResourceFromClasspath("com/bulain/jbpm4order/workflow/spring.jpdl.xml").deploy();
+    }
 
-	@AfterTransaction
-	public void tearDown() throws Exception {
-		repositoryService.deleteDeploymentCascade(deploymentId);
-	}
+    @AfterTransaction
+    public void tearDown() throws Exception {
+        repositoryService.deleteDeploymentCascade(deploymentId);
+    }
 
-	@BeforeTransaction
-	public void setUpDB() throws Exception {
-	    super.setUpDB("data/init_referances.xml");
-	}
-	
-	@AfterTransaction
-	public void tearDownDB() throws Exception {
-	    super.tearDownDB();
-	}
-	
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testSpring(){
-		Map<String, Object> variables = new HashMap<String, Object>(); 
-		variables.put("name", "name");
-		variables.put("lang", "lang");
-		ProcessInstance processInstance = executionService.startProcessInstanceByKey("spring", variables);
-		String pid = processInstance.getId();
-		
-		List<Item> listItem = (List<Item>) executionService.getVariable(pid, "answer");
-	    assertEquals(1, listItem.size());
-	    
-	    Execution execution = executionService.findExecutionById(pid);
-	    assertEquals(true, execution.isActive("state1"));
-	    
-	    processInstance = executionService.signalExecutionById(pid);
-	    assertEquals(true, processInstance.isEnded());
-	}
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testSpring() {
+        Map<String, Object> variables = new HashMap<String, Object>();
+        variables.put("name", "name");
+        variables.put("lang", "lang");
+        ProcessInstance processInstance = executionService.startProcessInstanceByKey("spring", variables);
+        String pid = processInstance.getId();
+
+        List<Item> listItem = (List<Item>) executionService.getVariable(pid, "answer");
+        assertEquals(1, listItem.size());
+
+        Execution execution = executionService.findExecutionById(pid);
+        assertEquals(true, execution.isActive("state1"));
+
+        processInstance = executionService.signalExecutionById(pid);
+        assertEquals(true, processInstance.isEnded());
+    }
 }
