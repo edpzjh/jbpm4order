@@ -10,23 +10,23 @@ import java.util.Map;
 
 import org.jbpm.api.ProcessInstance;
 import org.jbpm.api.task.Task;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
 public class EventTest extends JbpmTestCase {
     private String deploymentId;
 
-    @BeforeTransaction
+    @Before
     public void setUp() throws Exception {
         deploymentId = repositoryService.createDeployment()
                 .addResourceFromClasspath("com/bulain/jbpm4order/workflow/event.jpdl.xml").deploy();
         identityService.createUser("user1", "user1", "user1");
     }
 
-    @AfterTransaction
+    @After
     public void tearDown() throws Exception {
         repositoryService.deleteDeploymentCascade(deploymentId);
         identityService.deleteUser("user1");

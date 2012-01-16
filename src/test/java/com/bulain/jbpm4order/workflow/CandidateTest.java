@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.jbpm.api.task.Task;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
@@ -17,7 +17,7 @@ public class CandidateTest extends JbpmTestCase {
     private String deploymentId;
     private String groupId;
 
-    @BeforeTransaction
+    @Before
     public void setUp() throws Exception {
         deploymentId = repositoryService.createDeployment()
                 .addResourceFromClasspath("com/bulain/jbpm4order/workflow/candidate.jpdl.xml").deploy();
@@ -33,7 +33,7 @@ public class CandidateTest extends JbpmTestCase {
         identityService.createMembership("user4", groupId);
     }
 
-    @AfterTransaction
+    @After
     public void tearDown() throws Exception {
         repositoryService.deleteDeploymentCascade(deploymentId);
 

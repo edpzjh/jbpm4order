@@ -16,9 +16,9 @@ import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
 
 import org.jbpm.api.ProcessInstance;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.context.transaction.BeforeTransaction;
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
 
@@ -28,7 +28,7 @@ public class MailTest extends JbpmTestCase {
     private String deploymentId;
     private Wiser wiser = new Wiser();
 
-    @BeforeTransaction
+    @Before
     public void setUp() throws Exception {
         deploymentId = repositoryService.createDeployment()
                 .addResourceFromClasspath("com/bulain/jbpm4order/workflow/mail.jpdl.xml").deploy();
@@ -36,7 +36,7 @@ public class MailTest extends JbpmTestCase {
         wiser.start();
     }
 
-    @AfterTransaction
+    @After
     public void tearDown() throws Exception {
         repositoryService.deleteDeploymentCascade(deploymentId);
         wiser.stop();
