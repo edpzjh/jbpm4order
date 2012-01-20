@@ -8,7 +8,7 @@ import com.bulain.jbpm4order.model.ReferanceBean;
 import com.bulain.jbpm4order.pojo.Item;
 import com.bulain.jbpm4order.pojo.ReferanceSearch;
 
-public interface ReferanceService extends PagedService<ReferanceSearch, Referance> {
+public interface ReferanceService extends PagedService<Referance, ReferanceSearch> {
     void insert(ReferanceBean referanceBean);
 
     String getText(String name, String code, String lang);

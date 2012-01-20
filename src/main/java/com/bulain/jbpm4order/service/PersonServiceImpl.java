@@ -6,11 +6,11 @@ import com.bulain.jbpm4order.dao.PersonMapper;
 import com.bulain.jbpm4order.model.Person;
 import com.bulain.jbpm4order.pojo.PersonSearch;
 
-public class PersonServiceImpl extends PagedServiceImpl<PersonSearch, Person> implements PersonService {
+public class PersonServiceImpl extends PagedServiceImpl<Person, PersonSearch> implements PersonService {
     private PersonMapper personMapper;
 
     @Override
-    protected PagedMapper<PersonSearch, Person> getPagedMapper() {
+    protected PagedMapper<Person, PersonSearch> getPagedMapper() {
         return personMapper;
     }
 

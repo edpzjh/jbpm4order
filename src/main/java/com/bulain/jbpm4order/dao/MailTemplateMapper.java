@@ -4,7 +4,7 @@ import com.bulain.common.dao.PagedMapper;
 import com.bulain.jbpm4order.model.MailTemplate;
 import com.bulain.jbpm4order.pojo.MailTemplateSearch;
 
-public interface MailTemplateMapper extends PagedMapper<MailTemplateSearch, MailTemplate> {
+public interface MailTemplateMapper extends PagedMapper<MailTemplate, MailTemplateSearch> {
     int updateByPrimaryKeyWithBLOBs(MailTemplate record);
     MailTemplate selectByPrimaryKeyWithoutBLOBs(Integer id);
 }

@@ -12,7 +12,7 @@ import com.bulain.jbpm4order.model.ReferanceBean;
 import com.bulain.jbpm4order.pojo.Item;
 import com.bulain.jbpm4order.pojo.ReferanceSearch;
 
-public class ReferanceServiceImpl extends PagedServiceImpl<ReferanceSearch, Referance> implements ReferanceService {
+public class ReferanceServiceImpl extends PagedServiceImpl<Referance, ReferanceSearch> implements ReferanceService {
     private static final String COMA = "__";
 
     private static final String DEFAULT_CATAGORY = "";
@@ -22,7 +22,7 @@ public class ReferanceServiceImpl extends PagedServiceImpl<ReferanceSearch, Refe
     private CacheService cacheService;
 
     @Override
-    protected PagedMapper<ReferanceSearch, Referance> getPagedMapper() {
+    protected PagedMapper<Referance, ReferanceSearch> getPagedMapper() {
         return referanceMapper;
     }
 

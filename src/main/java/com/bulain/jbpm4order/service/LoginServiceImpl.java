@@ -17,14 +17,14 @@ import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.model.Permission;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 
-public class LoginServiceImpl extends PagedServiceImpl<LoginSearch, Login> implements LoginService {
+public class LoginServiceImpl extends PagedServiceImpl<Login, LoginSearch> implements LoginService {
     private LoginMapper loginMapper;
     private GroupLoginMapper groupLoginMapper;
     private PermissionMapper permissionMapper;
     private GroupMapper groupMapper;
 
     @Override
-    protected PagedMapper<LoginSearch, Login> getPagedMapper() {
+    protected PagedMapper<Login, LoginSearch> getPagedMapper() {
         return loginMapper;
     }
 

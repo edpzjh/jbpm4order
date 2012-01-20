@@ -6,11 +6,11 @@ import com.bulain.jbpm4order.dao.ProfileMapper;
 import com.bulain.jbpm4order.model.Profile;
 import com.bulain.jbpm4order.pojo.ProfileSearch;
 
-public class ProfileServiceImpl extends PagedServiceImpl<ProfileSearch, Profile> implements ProfileService {
+public class ProfileServiceImpl extends PagedServiceImpl<Profile, ProfileSearch> implements ProfileService {
     private ProfileMapper profileMapper;
 
     @Override
-    protected PagedMapper<ProfileSearch, Profile> getPagedMapper() {
+    protected PagedMapper<Profile, ProfileSearch> getPagedMapper() {
         return profileMapper;
     }
 

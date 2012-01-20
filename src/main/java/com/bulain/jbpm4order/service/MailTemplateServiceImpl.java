@@ -7,13 +7,13 @@ import com.bulain.jbpm4order.dao.MailTemplateMapper;
 import com.bulain.jbpm4order.model.MailTemplate;
 import com.bulain.jbpm4order.pojo.MailTemplateSearch;
 
-public class MailTemplateServiceImpl extends PagedServiceImpl<MailTemplateSearch, MailTemplate>
+public class MailTemplateServiceImpl extends PagedServiceImpl<MailTemplate, MailTemplateSearch>
         implements
             MailTemplateService {
     private MailTemplateMapper mailTemplateMapper;
 
     @Override
-    protected PagedMapper<MailTemplateSearch, MailTemplate> getPagedMapper() {
+    protected PagedMapper<MailTemplate, MailTemplateSearch> getPagedMapper() {
         return mailTemplateMapper;
     }
 

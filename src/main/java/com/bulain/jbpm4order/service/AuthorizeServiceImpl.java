@@ -9,7 +9,7 @@ import com.bulain.jbpm4order.dao.AuthorizeMapper;
 import com.bulain.jbpm4order.model.Authorize;
 import com.bulain.jbpm4order.pojo.AuthorizeSearch;
 
-public class AuthorizeServiceImpl extends PagedServiceImpl<AuthorizeSearch, Authorize> implements AuthorizeService {
+public class AuthorizeServiceImpl extends PagedServiceImpl<Authorize, AuthorizeSearch> implements AuthorizeService {
     private static final String DEFAULT_ACTION = "*";
     private static final String COMA = "__";
 
@@ -17,7 +17,7 @@ public class AuthorizeServiceImpl extends PagedServiceImpl<AuthorizeSearch, Auth
     private CacheService cacheService;
 
     @Override
-    protected PagedMapper<AuthorizeSearch, Authorize> getPagedMapper() {
+    protected PagedMapper<Authorize, AuthorizeSearch> getPagedMapper() {
         return authorizeMapper;
     }
 

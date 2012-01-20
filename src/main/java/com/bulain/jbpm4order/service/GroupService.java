@@ -7,7 +7,7 @@ import com.bulain.jbpm4order.model.Group;
 import com.bulain.jbpm4order.model.Permission;
 import com.bulain.jbpm4order.pojo.GroupSearch;
 
-public interface GroupService extends PagedService<GroupSearch, Group> {
+public interface GroupService extends PagedService<Group, GroupSearch> {
     // GroupLogin
     List<Group> findGroupByLoginId(Integer loginId);
     List<Group> findGroupByNoLoginId(Integer loginId);

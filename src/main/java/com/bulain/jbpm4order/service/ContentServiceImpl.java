@@ -7,11 +7,11 @@ import com.bulain.jbpm4order.dao.ContentMapper;
 import com.bulain.jbpm4order.model.Content;
 import com.bulain.jbpm4order.pojo.ContentSearch;
 
-public class ContentServiceImpl extends PagedServiceImpl<ContentSearch, Content> implements ContentService {
+public class ContentServiceImpl extends PagedServiceImpl<Content, ContentSearch> implements ContentService {
     private ContentMapper contentMapper;
 
     @Override
-    protected PagedMapper<ContentSearch, Content> getPagedMapper() {
+    protected PagedMapper<Content, ContentSearch> getPagedMapper() {
         return contentMapper;
     }
 

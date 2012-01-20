@@ -17,7 +17,7 @@ import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.model.Permission;
 import com.bulain.jbpm4order.pojo.GroupSearch;
 
-public class GroupServiceImpl extends PagedServiceImpl<GroupSearch, Group> implements GroupService {
+public class GroupServiceImpl extends PagedServiceImpl<Group, GroupSearch> implements GroupService {
     private GroupMapper groupMapper;
     private GroupLoginMapper groupLoginMapper;
     private GroupPermissionMapper groupPermissionMapper;
@@ -25,7 +25,7 @@ public class GroupServiceImpl extends PagedServiceImpl<GroupSearch, Group> imple
     private LoginMapper loginMapper;
 
     @Override
-    protected PagedMapper<GroupSearch, Group> getPagedMapper() {
+    protected PagedMapper<Group, GroupSearch> getPagedMapper() {
         return groupMapper;
     }
 

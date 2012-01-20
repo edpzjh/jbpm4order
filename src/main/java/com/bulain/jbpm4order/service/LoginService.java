@@ -6,7 +6,7 @@ import com.bulain.common.service.PagedService;
 import com.bulain.jbpm4order.model.Login;
 import com.bulain.jbpm4order.pojo.LoginSearch;
 
-public interface LoginService extends PagedService<LoginSearch, Login> {
+public interface LoginService extends PagedService<Login, LoginSearch> {
     // GroupLogin
     Long countLoginByGroupId(Integer groupId);
     List<Login> findLoginByGroupId(Integer groupId);
