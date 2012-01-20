@@ -8,9 +8,9 @@ import java.util.Map;
 
 import org.jbpm.api.Execution;
 import org.jbpm.api.ProcessInstance;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.context.transaction.AfterTransaction;
-import org.springframework.test.context.transaction.BeforeTransaction;
 
 import com.bulain.common.dataset.DataSet;
 import com.bulain.jbpm4order.pojo.Item;
@@ -20,13 +20,13 @@ import com.bulain.jbpm4order.test.JbpmTestCase;
 public class SpringTest extends JbpmTestCase {
     private String deploymentId;
 
-    @BeforeTransaction
+    @Before
     public void setUp() throws Exception {
         deploymentId = repositoryService.createDeployment()
                 .addResourceFromClasspath("com/bulain/jbpm4order/workflow/spring.jpdl.xml").deploy();
     }
 
-    @AfterTransaction
+    @After
     public void tearDown() throws Exception {
         repositoryService.deleteDeploymentCascade(deploymentId);
     }
