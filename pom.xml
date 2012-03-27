@@ -32,7 +32,7 @@
 		<!-- common -->
         <dependency>
             <groupId>com.bulain</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>common-core</artifactId>
             <version>${common.version}</version>
         </dependency>
 		<!-- jbpm4 -->
@@ -107,6 +107,12 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 		<!-- test -->
+        <dependency>
+            <groupId>com.bulain</groupId>
+            <artifactId>common-test</artifactId>
+            <version>${common.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
