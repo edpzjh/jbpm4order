@@ -8,7 +8,7 @@ import com.bulain.common.model.Trackable;
 public class Referance implements Trackable, Serializable {
     private static final long serialVersionUID = -4031103519069387934L;
 
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -28,11 +28,11 @@ public class Referance implements Trackable, Serializable {
 
     private Date updatedAt;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

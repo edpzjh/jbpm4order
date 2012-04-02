@@ -21,7 +21,7 @@ public class PermissionMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = permissionMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = permissionMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -43,7 +43,7 @@ public class PermissionMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Permission selectByPrimaryKey = permissionMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Permission selectByPrimaryKey = permissionMapper.selectByPrimaryKey(Long.valueOf(102));
         assertNotNull(selectByPrimaryKey);
 
         assertEquals("permission_102", selectByPrimaryKey.getPermission());
@@ -52,7 +52,7 @@ public class PermissionMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Permission record = new Permission();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setPermission("permission-updated");
         int updateByPrimaryKeySelective = permissionMapper.updateByPrimaryKeySelective(record);
         assertEquals(1, updateByPrimaryKeySelective);
@@ -61,7 +61,7 @@ public class PermissionMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Permission record = new Permission();
-        record.setId(Integer.valueOf(104));
+        record.setId(Long.valueOf(104));
         record.setPermission("permission-updated");
         int updateByPrimaryKey = permissionMapper.updateByPrimaryKey(record);
         assertEquals(1, updateByPrimaryKey);
@@ -97,13 +97,13 @@ public class PermissionMapperTest extends ServiceTestCase {
 
     @Test
     public void testFindPermissionByGroupId() {
-        List<Permission> findPermissionByGroupId = permissionMapper.findPermissionByGroupId(Integer.valueOf(105));
+        List<Permission> findPermissionByGroupId = permissionMapper.findPermissionByGroupId(Long.valueOf(105));
         assertEquals(3, findPermissionByGroupId.size());
     }
 
     @Test
     public void testFindPermissionByNoGroupId() {
-        List<Permission> findPermissionByNoGroupId = permissionMapper.findPermissionByNoGroupId(Integer.valueOf(105));
+        List<Permission> findPermissionByNoGroupId = permissionMapper.findPermissionByNoGroupId(Long.valueOf(105));
         assertEquals(4, findPermissionByNoGroupId.size());
     }
 }

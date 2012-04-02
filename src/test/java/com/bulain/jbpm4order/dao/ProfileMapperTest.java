@@ -22,7 +22,7 @@ public class ProfileMapperTest extends ServiceTestCase {
     @Test
     public void testFind() {
         ProfileSearch search = new ProfileSearch();
-        search.setPersonId(Integer.valueOf(105));
+        search.setPersonId(Long.valueOf(105));
         search.setLanguage("language_page");
         search.setCountry("country_page");
         List<Profile> find = profileMapper.find(search);
@@ -32,7 +32,7 @@ public class ProfileMapperTest extends ServiceTestCase {
     @Test
     public void testCount() {
         ProfileSearch search = new ProfileSearch();
-        search.setPersonId(Integer.valueOf(105));
+        search.setPersonId(Long.valueOf(105));
         search.setLanguage("language_page");
         search.setCountry("country_page");
         Long count = profileMapper.count(search);
@@ -42,7 +42,7 @@ public class ProfileMapperTest extends ServiceTestCase {
     @Test
     public void testPage() {
         ProfileSearch search = new ProfileSearch();
-        search.setPersonId(Integer.valueOf(105));
+        search.setPersonId(Long.valueOf(105));
         search.setLanguage("language_page");
         search.setCountry("country_page");
         Page page = new Page();
@@ -55,14 +55,14 @@ public class ProfileMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = profileMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = profileMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
     @Test
     public void testInsert() {
         Profile record = new Profile();
-        record.setPersonId(Integer.valueOf(108));
+        record.setPersonId(Long.valueOf(108));
         record.setLanguage("language");
         record.setCountry("country");
         int insert = profileMapper.insert(record);
@@ -72,7 +72,7 @@ public class ProfileMapperTest extends ServiceTestCase {
     @Test
     public void testInsertSelective() {
         Profile record = new Profile();
-        record.setPersonId(Integer.valueOf(108));
+        record.setPersonId(Long.valueOf(108));
         record.setLanguage("language");
         record.setCountry("country");
         int insertSelective = profileMapper.insertSelective(record);
@@ -81,9 +81,9 @@ public class ProfileMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Profile selectByPrimaryKey = profileMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Profile selectByPrimaryKey = profileMapper.selectByPrimaryKey(Long.valueOf(102));
         assertNotNull(selectByPrimaryKey);
-        assertEquals(Integer.valueOf(102), selectByPrimaryKey.getPersonId());
+        assertEquals(Long.valueOf(102), selectByPrimaryKey.getPersonId());
         assertEquals("language_102", selectByPrimaryKey.getLanguage());
         assertEquals("country_102", selectByPrimaryKey.getCountry());
     }
@@ -91,8 +91,8 @@ public class ProfileMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Profile record = new Profile();
-        record.setId(Integer.valueOf(103));
-        record.setPersonId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
+        record.setPersonId(Long.valueOf(103));
         record.setLanguage("language-updated");
         record.setCountry("country-updated");
         int updateByPrimaryKeySelective = profileMapper.updateByPrimaryKeySelective(record);
@@ -102,8 +102,8 @@ public class ProfileMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Profile record = new Profile();
-        record.setId(Integer.valueOf(104));
-        record.setPersonId(Integer.valueOf(104));
+        record.setId(Long.valueOf(104));
+        record.setPersonId(Long.valueOf(104));
         record.setLanguage("language-updated");
         record.setCountry("country-updated");
         int updateByPrimaryKey = profileMapper.updateByPrimaryKey(record);

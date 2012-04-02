@@ -22,7 +22,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGetWithoutBLOBs() {
-        MailTemplate select = mailTemplateService.getWithoutBLOBs(Integer.valueOf(109));
+        MailTemplate select = mailTemplateService.getWithoutBLOBs(Long.valueOf(109));
         assertEquals("name_109", select.getName());
         assertEquals("lang_109", select.getLang());
         assertEquals("subject_109", select.getSubject());
@@ -59,7 +59,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        MailTemplate mailTemplate = mailTemplateService.get(Integer.valueOf(109));
+        MailTemplate mailTemplate = mailTemplateService.get(Long.valueOf(109));
         assertNotNull(mailTemplate);
         assertEquals("name_109", mailTemplate.getName());
         assertEquals("lang_109", mailTemplate.getLang());
@@ -80,7 +80,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         MailTemplate record = new MailTemplate();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name-updated");
         record.setLang("lang-updated");
         record.setSubject("subject-updated");
@@ -90,7 +90,7 @@ public class MailTemplateServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        mailTemplateService.delete(Integer.valueOf(101));
+        mailTemplateService.delete(Long.valueOf(101));
     }
 
 }

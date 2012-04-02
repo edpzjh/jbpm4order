@@ -63,10 +63,10 @@ public class ContentActionTest extends ActionTestCase {
         Page page = contentAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer id = listContent.get(0).getId();
+        Long id = listContent.get(0).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/content/edit");
         contentAction = (ContentAction) proxy.getAction();
         result = proxy.execute();
@@ -77,7 +77,7 @@ public class ContentActionTest extends ActionTestCase {
         assertEquals("catagory", content.getCatagory());
 
         initServletMockObjects();
-        request.setParameter("content.id", Integer.toString(id));
+        request.setParameter("content.id", Long.toString(id));
         request.setParameter("content.fileName", "fileName-updated");
         request.setParameter("content.contentType", "contentType-updated");
         request.setParameter("content.catagory", "catagory-updated");
@@ -88,7 +88,7 @@ public class ContentActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/content/show");
         contentAction = (ContentAction) proxy.getAction();
         result = proxy.execute();
@@ -99,7 +99,7 @@ public class ContentActionTest extends ActionTestCase {
         assertEquals("catagory-updated", content.getCatagory());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/content/destroy");
         contentAction = (ContentAction) proxy.getAction();
         result = proxy.execute();

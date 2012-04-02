@@ -49,7 +49,7 @@ public class PersonServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        Person person = personService.get(Integer.valueOf(102));
+        Person person = personService.get(Long.valueOf(102));
         assertNotNull(person);
         assertEquals("first_name_102", person.getFirstName());
         assertEquals("last_name_102", person.getLastName());
@@ -66,7 +66,7 @@ public class PersonServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         Person record = new Person();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setFirstName("firstName-updated");
         record.setLastName("lastName-updated");
         personService.update(record, true);
@@ -74,7 +74,7 @@ public class PersonServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        personService.delete(Integer.valueOf(101));
+        personService.delete(Long.valueOf(101));
     }
 
 }

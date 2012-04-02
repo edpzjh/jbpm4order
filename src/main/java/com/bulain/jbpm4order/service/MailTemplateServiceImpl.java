@@ -17,7 +17,7 @@ public class MailTemplateServiceImpl extends PagedServiceImpl<MailTemplate, Mail
         return mailTemplateMapper;
     }
 
-    public MailTemplate getWithoutBLOBs(Integer id) {
+    public MailTemplate getWithoutBLOBs(Long id) {
         MailTemplate selectByPrimaryKeyWithoutBLOBs = mailTemplateMapper.selectByPrimaryKeyWithoutBLOBs(id);
         if (selectByPrimaryKeyWithoutBLOBs == null) {
             throw new NotFoundException();

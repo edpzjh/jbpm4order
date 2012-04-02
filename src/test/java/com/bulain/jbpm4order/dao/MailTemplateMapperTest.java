@@ -22,7 +22,7 @@ public class MailTemplateMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeyWithBLOBs() {
         MailTemplate record = new MailTemplate();
-        record.setId(Integer.valueOf(108));
+        record.setId(Long.valueOf(108));
         record.setName("name-updated");
         record.setLang("lang-updated");
         record.setSubject("subject-updated");
@@ -33,7 +33,7 @@ public class MailTemplateMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKeyWithoutBLOBs() {
-        MailTemplate select = mailTemplateMapper.selectByPrimaryKeyWithoutBLOBs(Integer.valueOf(109));
+        MailTemplate select = mailTemplateMapper.selectByPrimaryKeyWithoutBLOBs(Long.valueOf(109));
         assertEquals("name_109", select.getName());
         assertEquals("lang_109", select.getLang());
         assertEquals("subject_109", select.getSubject());
@@ -42,7 +42,7 @@ public class MailTemplateMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = mailTemplateMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = mailTemplateMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -70,7 +70,7 @@ public class MailTemplateMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        MailTemplate select = mailTemplateMapper.selectByPrimaryKey(Integer.valueOf(102));
+        MailTemplate select = mailTemplateMapper.selectByPrimaryKey(Long.valueOf(102));
         assertEquals("name_102", select.getName());
         assertEquals("lang_102", select.getLang());
         assertEquals("subject_102", select.getSubject());
@@ -80,7 +80,7 @@ public class MailTemplateMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         MailTemplate record = new MailTemplate();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name-updated");
         record.setLang("lang-updated");
         record.setSubject("subject-updated");
@@ -92,7 +92,7 @@ public class MailTemplateMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         MailTemplate record = new MailTemplate();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name-updated");
         record.setLang("lang-updated");
         record.setSubject("subject-updated");

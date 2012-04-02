@@ -58,11 +58,11 @@ public class ReferanceActionTest extends ActionTestCase {
         Page page = referanceAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer idEN = listReferance.get(0).getId();
-        Integer idCN = listReferance.get(1).getId();
+        Long idEN = listReferance.get(0).getId();
+        Long idCN = listReferance.get(1).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(idEN));
+        request.setParameter("id", Long.toString(idEN));
         proxy = getActionProxy("/referance/edit");
         referanceAction = (ReferanceAction) proxy.getAction();
         result = proxy.execute();
@@ -75,7 +75,7 @@ public class ReferanceActionTest extends ActionTestCase {
         assertEquals("catagory", referance.getCatagory());
 
         initServletMockObjects();
-        request.setParameter("referance.id", Integer.toString(idEN));
+        request.setParameter("referance.id", Long.toString(idEN));
         request.setParameter("referance.name", "name-updated");
         request.setParameter("referance.code", "code-updated");
         request.setParameter("referance.text", "textEN-updated");
@@ -87,7 +87,7 @@ public class ReferanceActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(idEN));
+        request.setParameter("id", Long.toString(idEN));
         proxy = getActionProxy("/referance/show");
         referanceAction = (ReferanceAction) proxy.getAction();
         result = proxy.execute();
@@ -100,14 +100,14 @@ public class ReferanceActionTest extends ActionTestCase {
         assertEquals("catagory-updated", referance.getCatagory());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(idEN));
+        request.setParameter("id", Long.toString(idEN));
         proxy = getActionProxy("/referance/destroy");
         referanceAction = (ReferanceAction) proxy.getAction();
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(idCN));
+        request.setParameter("id", Long.toString(idCN));
         proxy = getActionProxy("/referance/destroy");
         referanceAction = (ReferanceAction) proxy.getAction();
         result = proxy.execute();

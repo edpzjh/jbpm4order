@@ -15,7 +15,7 @@ import com.bulain.jbpm4order.service.ReferanceService;
 public class MailTemplateAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -4573803081036830823L;
 
-    private Integer id;
+    private Long id;
 
     private MailTemplateSearch search;
     private MailTemplate mailTemplate;
@@ -105,11 +105,11 @@ public class MailTemplateAction extends PageSupportActionSupport {
         return refv;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

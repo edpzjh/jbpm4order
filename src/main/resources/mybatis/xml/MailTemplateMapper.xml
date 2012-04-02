@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bulain.jbpm4order.dao.MailTemplateMapper" >
   <resultMap id="BaseResultMap" type="com.bulain.jbpm4order.model.MailTemplate" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
     <result column="subject" property="subject" jdbcType="VARCHAR" />
@@ -20,7 +20,7 @@
   <sql id="Blob_Column_List" >
     body
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     ,
@@ -28,7 +28,7 @@
     from mail_templates
     where id = #{id}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from mail_templates
     where id = #{id}
   </delete>
@@ -37,7 +37,7 @@
       body)
     values (#{name}, #{lang}, #{subject}, #{createdBy}, #{createdAt}, #{updatedBy}, #{updatedAt}, 
       #{body})
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -95,7 +95,7 @@
         #{body},
       </if>
     </trim>
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -185,7 +185,7 @@
     <include refid="common.orderby"/>
     <![CDATA[${PAGE_FOOT}]]>
   </select>
-  <select id="selectByPrimaryKeyWithoutBLOBs" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKeyWithoutBLOBs" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from mail_templates

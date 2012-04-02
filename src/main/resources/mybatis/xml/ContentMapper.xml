@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bulain.jbpm4order.dao.ContentMapper" >
   <resultMap id="BaseResultMap" type="com.bulain.jbpm4order.model.Content" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="file_name" property="fileName" jdbcType="VARCHAR" />
     <result column="content_type" property="contentType" jdbcType="VARCHAR" />
-    <result column="ref_id" property="refId" jdbcType="INTEGER" />
+    <result column="ref_id" property="refId" jdbcType="BIGINT" />
     <result column="ref_name" property="refName" jdbcType="VARCHAR" />
     <result column="catagory" property="catagory" jdbcType="VARCHAR" />
     <result column="lang" property="lang" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
   <sql id="Blob_Column_List" >
     bytes
   </sql>
-  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     ,
@@ -32,7 +32,7 @@
     from contents
     where id = #{id}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from contents
     where id = #{id}
   </delete>
@@ -41,7 +41,7 @@
       created_by, created_at, updated_by, updated_at, bytes)
     values (#{fileName}, #{contentType}, #{refId}, #{refName}, #{catagory}, #{lang}, 
       #{createdBy}, #{createdAt}, #{updatedBy}, #{updatedAt}, #{bytes})
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -117,7 +117,7 @@
         #{bytes},
       </if>
     </trim>
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -234,7 +234,7 @@
     <include refid="common.orderby"/>
     <![CDATA[${PAGE_FOOT}]]>
   </select>
-  <select id="selectByPrimaryKeyWithoutBLOBs" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKeyWithoutBLOBs" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from contents

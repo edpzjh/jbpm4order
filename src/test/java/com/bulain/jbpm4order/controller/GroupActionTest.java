@@ -67,10 +67,10 @@ public class GroupActionTest extends ActionTestCase {
         Page page = groupAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer id = listGroup.get(1).getId();
+        Long id = listGroup.get(1).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/group/edit");
         groupAction = (GroupAction) proxy.getAction();
         result = proxy.execute();
@@ -80,7 +80,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals("note", group.getNote());
 
         initServletMockObjects();
-        request.setParameter("group.id", Integer.toString(id));
+        request.setParameter("group.id", Long.toString(id));
         request.setParameter("group.name", "name-updated");
         request.setParameter("group.note", "note-updated");
         proxy = getActionProxy("/group/update");
@@ -89,7 +89,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/group/show");
         groupAction = (GroupAction) proxy.getAction();
         result = proxy.execute();
@@ -99,7 +99,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals("note-updated", group.getNote());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/group/destroy");
         groupAction = (GroupAction) proxy.getAction();
         result = proxy.execute();
@@ -122,7 +122,7 @@ public class GroupActionTest extends ActionTestCase {
         List<Login> find = loginService.find(search);
         assertTrue(find.size() > 0);
         Login login2 = find.get(find.size() - 1);
-        Integer loginId = login2.getId();
+        Long loginId = login2.getId();
 
         Group group = new Group();
         group.setName("name");
@@ -134,10 +134,10 @@ public class GroupActionTest extends ActionTestCase {
         List<Group> find2 = groupService.find(gsearch);
         assertTrue(find2.size() > 0);
         Group group2 = find2.get(find2.size() - 1);
-        Integer groupId = group2.getId();
+        Long groupId = group2.getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         ActionProxy proxy = getActionProxy("/group/editLogin");
         GroupAction groupAction = (GroupAction) proxy.getAction();
         String result = proxy.execute();
@@ -150,15 +150,15 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals(0, listLoginDist.size());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
-        request.setParameter("listLoginId", new String[]{Integer.toString(loginId)});
+        request.setParameter("id", Long.toString(groupId));
+        request.setParameter("listLoginId", new String[]{Long.toString(loginId)});
         proxy = getActionProxy("/group/updateLogin");
         groupAction = (GroupAction) proxy.getAction();
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         proxy = getActionProxy("/group/editLogin");
         groupAction = (GroupAction) proxy.getAction();
         result = proxy.execute();
@@ -171,7 +171,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals(1, listLoginDist.size());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         request.setParameter("listLoginId", new String[]{});
         proxy = getActionProxy("/group/updateLogin");
         groupAction = (GroupAction) proxy.getAction();
@@ -195,10 +195,10 @@ public class GroupActionTest extends ActionTestCase {
         List<Group> find2 = groupService.find(gsearch);
         assertTrue(find2.size() > 0);
         Group group2 = find2.get(find2.size() - 1);
-        Integer groupId = group2.getId();
+        Long groupId = group2.getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         ActionProxy proxy = getActionProxy("/group/editPermission");
         GroupAction groupAction = (GroupAction) proxy.getAction();
         String result = proxy.execute();
@@ -211,7 +211,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals(0, listPermissionDist.size());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         request.setParameter("listPermission", new String[]{"Admin"});
         proxy = getActionProxy("/group/updatePermission");
         groupAction = (GroupAction) proxy.getAction();
@@ -219,7 +219,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         proxy = getActionProxy("/group/editPermission");
         groupAction = (GroupAction) proxy.getAction();
         result = proxy.execute();
@@ -232,7 +232,7 @@ public class GroupActionTest extends ActionTestCase {
         assertEquals(1, listPermissionDist.size());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(groupId));
+        request.setParameter("id", Long.toString(groupId));
         request.setParameter("listPermission", new String[]{});
         proxy = getActionProxy("/group/updatePermission");
         groupAction = (GroupAction) proxy.getAction();

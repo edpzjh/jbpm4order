@@ -5,5 +5,5 @@ import com.bulain.jbpm4order.model.MailTemplate;
 import com.bulain.jbpm4order.pojo.MailTemplateSearch;
 
 public interface MailTemplateService extends PagedService<MailTemplate, MailTemplateSearch> {
-    MailTemplate getWithoutBLOBs(Integer id);
+    MailTemplate getWithoutBLOBs(Long id);
 }

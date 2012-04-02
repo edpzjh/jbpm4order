@@ -21,26 +21,26 @@ public class LoginServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testCountLoginByGroupId() {
-        Long countLoginByGroupId = loginService.countLoginByGroupId(Integer.valueOf(105));
+        Long countLoginByGroupId = loginService.countLoginByGroupId(Long.valueOf(105));
         assertEquals(Long.valueOf(3), countLoginByGroupId);
     }
 
     @Test
     public void testFindLoginByGroupId() {
-        List<Login> findLoginByGroupId = loginService.findLoginByGroupId(Integer.valueOf(105));
+        List<Login> findLoginByGroupId = loginService.findLoginByGroupId(Long.valueOf(105));
         assertEquals(3, findLoginByGroupId.size());
     }
 
     @Test
     public void testFindLoginByNoInGroupId() {
-        List<Login> findLoginByNoInGroupId = loginService.findLoginByNoInGroupId(Integer.valueOf(105));
+        List<Login> findLoginByNoInGroupId = loginService.findLoginByNoInGroupId(Long.valueOf(105));
         assertEquals(4, findLoginByNoInGroupId.size());
     }
 
     @Test
     public void testUpdateGroupLogin() {
-        Integer loginId = Integer.valueOf(102);
-        List<Integer> listGroupId = Arrays.asList(new Integer[]{102, 105});
+        Long loginId = Long.valueOf(102);
+        List<Long> listGroupId = Arrays.asList(new Long[]{102L, 105L});
         loginService.updateGroupLogin(loginId, listGroupId);
     }
 
@@ -55,7 +55,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testFindPermission() {
-        List<String> findPermission = loginService.findPermission(Integer.valueOf(102));
+        List<String> findPermission = loginService.findPermission(Long.valueOf(102));
         assertEquals(1, findPermission.size());
     }
 
@@ -92,7 +92,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        Login login = loginService.get(Integer.valueOf(102));
+        Login login = loginService.get(Long.valueOf(102));
         assertEquals("login_name_102", login.getLoginName());
         assertEquals("email_102", login.getEmail());
         assertEquals("hashed_password_102", login.getHashedPassword());
@@ -112,7 +112,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         Login record = new Login();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setLoginName("loginName-updated");
         record.setEmail("email@email.com-updated");
         record.setHashedPassword("hashedPassword-updated");
@@ -122,7 +122,7 @@ public class LoginServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        loginService.delete(Integer.valueOf(101));
+        loginService.delete(Long.valueOf(101));
     }
 
 }

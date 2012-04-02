@@ -29,7 +29,7 @@ public class AuthorizeServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        Authorize authorize = authorizeService.get(Integer.valueOf(102));
+        Authorize authorize = authorizeService.get(Long.valueOf(102));
         assertNotNull(authorize);
 
         assertEquals("controller_102", authorize.getController());
@@ -49,7 +49,7 @@ public class AuthorizeServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         Authorize record = new Authorize();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setController("controller-updated");
         record.setAction("action-updated");
         record.setPermission("permission-updated");
@@ -59,7 +59,7 @@ public class AuthorizeServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        authorizeService.delete(Integer.valueOf(101));
+        authorizeService.delete(Long.valueOf(101));
     }
 
     @Test

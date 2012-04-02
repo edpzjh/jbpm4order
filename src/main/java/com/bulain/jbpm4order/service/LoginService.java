@@ -8,11 +8,11 @@ import com.bulain.jbpm4order.pojo.LoginSearch;
 
 public interface LoginService extends PagedService<Login, LoginSearch> {
     // GroupLogin
-    Long countLoginByGroupId(Integer groupId);
-    List<Login> findLoginByGroupId(Integer groupId);
-    List<Login> findLoginByNoInGroupId(Integer groupId);
-    void updateGroupLogin(Integer loginId, List<Integer> listGroupId);
+    Long countLoginByGroupId(Long groupId);
+    List<Login> findLoginByGroupId(Long groupId);
+    List<Login> findLoginByNoInGroupId(Long groupId);
+    void updateGroupLogin(Long loginId, List<Long> listGroupId);
 
     Login getLogin(String loginName, String password);
-    List<String> findPermission(Integer loginId);
+    List<String> findPermission(Long loginId);
 }

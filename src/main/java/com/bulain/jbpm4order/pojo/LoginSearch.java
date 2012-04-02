@@ -7,13 +7,13 @@ import com.bulain.common.page.Search;
 public class LoginSearch extends Search {
     private static final long serialVersionUID = -8765991056341544073L;
 
-    private Integer groupId;
+    private Long groupId;
     private String loginName;
     private String email;
     private String enabled;
 
-    private Integer loginId;
-    private List<Integer> listGroupId;
+    private Long loginId;
+    private List<Long> listGroupId;
 
     private List<String> listLoginName;
 
@@ -35,22 +35,22 @@ public class LoginSearch extends Search {
     public void setEnabled(String enabled) {
         this.enabled = enabled;
     }
-    public Integer getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
-    public void setGroupId(Integer groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
-    public Integer getLoginId() {
+    public Long getLoginId() {
         return loginId;
     }
-    public void setLoginId(Integer loginId) {
+    public void setLoginId(Long loginId) {
         this.loginId = loginId;
     }
-    public List<Integer> getListGroupId() {
+    public List<Long> getListGroupId() {
         return listGroupId;
     }
-    public void setListGroupId(List<Integer> listGroupId) {
+    public void setListGroupId(List<Long> listGroupId) {
         this.listGroupId = listGroupId;
     }
     public List<String> getListLoginName() {

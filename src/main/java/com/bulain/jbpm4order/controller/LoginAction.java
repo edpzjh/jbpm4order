@@ -19,13 +19,13 @@ import com.bulain.jbpm4order.service.ReferanceService;
 public class LoginAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -4301484346812182688L;
 
-    private Integer id;
+    private Long id;
 
     private LoginSearch search;
     private Login login;
     private List<LoginView> listLogin;
 
-    private List<Integer> listGroupId;
+    private List<Long> listGroupId;
     private List<Group> listGroupSrc;
     private List<Group> listGroupDist;
 
@@ -123,10 +123,10 @@ public class LoginAction extends PageSupportActionSupport {
         return lgnView;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public LoginSearch getSearch() {
@@ -180,10 +180,10 @@ public class LoginAction extends PageSupportActionSupport {
     public void setReferanceService(ReferanceService referanceService) {
         this.referanceService = referanceService;
     }
-    public List<Integer> getListGroupId() {
+    public List<Long> getListGroupId() {
         return listGroupId;
     }
-    public void setListGroupId(List<Integer> listGroupId) {
+    public void setListGroupId(List<Long> listGroupId) {
         this.listGroupId = listGroupId;
     }
     public void setMasterService(MasterService masterService) {

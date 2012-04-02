@@ -20,19 +20,19 @@ public class LoginMapperTest extends ServiceTestCase {
 
     @Test
     public void testCountLoginByGroupId() {
-        Long countLoginByGroupId = loginMapper.countLoginByGroupId(Integer.valueOf(105));
+        Long countLoginByGroupId = loginMapper.countLoginByGroupId(Long.valueOf(105));
         assertEquals(Long.valueOf(3), countLoginByGroupId);
     }
 
     @Test
     public void testFindLoginByGroupId() {
-        List<Login> findLoginByGroupId = loginMapper.findLoginByGroupId(Integer.valueOf(105));
+        List<Login> findLoginByGroupId = loginMapper.findLoginByGroupId(Long.valueOf(105));
         assertEquals(3, findLoginByGroupId.size());
     }
 
     @Test
     public void testFindLoginByNoGroupId() {
-        List<Login> findLoginByNoGroupId = loginMapper.findLoginByNoGroupId(Integer.valueOf(105));
+        List<Login> findLoginByNoGroupId = loginMapper.findLoginByNoGroupId(Long.valueOf(105));
         assertEquals(4, findLoginByNoGroupId.size());
     }
 
@@ -45,7 +45,7 @@ public class LoginMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = loginMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = loginMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -73,7 +73,7 @@ public class LoginMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Login select = loginMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Login select = loginMapper.selectByPrimaryKey(Long.valueOf(102));
         assertEquals("login_name_102", select.getLoginName());
         assertEquals("email_102", select.getEmail());
         assertEquals("hashed_password_102", select.getHashedPassword());
@@ -83,7 +83,7 @@ public class LoginMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Login record = new Login();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setLoginName("loginName-updated");
         record.setEmail("email@email.com-updated");
         record.setHashedPassword("hashedPassword-updated");
@@ -95,7 +95,7 @@ public class LoginMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Login record = new Login();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setLoginName("loginName-updated");
         record.setEmail("email@email.com-updated");
         record.setHashedPassword("hashedPassword-updated");

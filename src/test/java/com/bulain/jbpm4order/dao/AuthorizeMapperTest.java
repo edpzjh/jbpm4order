@@ -21,7 +21,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = authorizeMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = authorizeMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -47,7 +47,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Authorize selectByPrimaryKey = authorizeMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Authorize selectByPrimaryKey = authorizeMapper.selectByPrimaryKey(Long.valueOf(102));
         assertNotNull(selectByPrimaryKey);
 
         assertEquals("controller_102", selectByPrimaryKey.getController());
@@ -58,7 +58,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Authorize record = new Authorize();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setController("controller-updated");
         record.setAction("action-updated");
         record.setPermission("permission-updated");
@@ -69,7 +69,7 @@ public class AuthorizeMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Authorize record = new Authorize();
-        record.setId(Integer.valueOf(104));
+        record.setId(Long.valueOf(104));
         record.setController("controller-updated");
         record.setAction("action-updated");
         record.setPermission("permission-updated");

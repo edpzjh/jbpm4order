@@ -22,38 +22,38 @@ public class GroupServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testFindGroupByLoginId() {
-        List<Group> findGroupByLoginId = groupService.findGroupByLoginId(Integer.valueOf(105));
+        List<Group> findGroupByLoginId = groupService.findGroupByLoginId(Long.valueOf(105));
         assertEquals(3, findGroupByLoginId.size());
     }
 
     @Test
     public void testFindGroupByNoLoginId() {
-        List<Group> findGroupByNoLoginId = groupService.findGroupByNoLoginId(Integer.valueOf(105));
+        List<Group> findGroupByNoLoginId = groupService.findGroupByNoLoginId(Long.valueOf(105));
         assertEquals(4, findGroupByNoLoginId.size());
     }
 
     @Test
     public void testUpdateGroupLogin() {
-        Integer groupId = Integer.valueOf(102);
-        List<Integer> listLoginId = Arrays.asList(new Integer[]{102, 105});
+        Long groupId = Long.valueOf(102);
+        List<Long> listLoginId = Arrays.asList(new Long[]{102L, 105L});
         groupService.updateGroupLogin(groupId, listLoginId);
     }
 
     @Test
     public void testFindPermissionByGroupId() {
-        List<Permission> findPermissionByGroupId = groupService.findPermissionByGroupId(Integer.valueOf(105));
+        List<Permission> findPermissionByGroupId = groupService.findPermissionByGroupId(Long.valueOf(105));
         assertEquals(3, findPermissionByGroupId.size());
     }
 
     @Test
     public void testFindPermissionByNoGroupId() {
-        List<Permission> findPermissionByNoGroupId = groupService.findPermissionByNoGroupId(Integer.valueOf(105));
+        List<Permission> findPermissionByNoGroupId = groupService.findPermissionByNoGroupId(Long.valueOf(105));
         assertEquals(2, findPermissionByNoGroupId.size());
     }
 
     @Test
     public void testUpdateGroupPermission() {
-        Integer groupId = Integer.valueOf(102);
+        Long groupId = Long.valueOf(102);
         List<String> listPermission = Arrays.asList(new String[]{"permission_102", "permission_103"});
         groupService.updateGroupPermission(groupId, listPermission);
     }
@@ -85,7 +85,7 @@ public class GroupServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        Group group = groupService.get(Integer.valueOf(102));
+        Group group = groupService.get(Long.valueOf(102));
         assertEquals("name_102", group.getName());
         assertEquals("note_102", group.getNote());
     }
@@ -101,7 +101,7 @@ public class GroupServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         Group record = new Group();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name");
         record.setNote("note");
         groupService.update(record, true);
@@ -109,7 +109,7 @@ public class GroupServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        groupService.delete(Integer.valueOf(101));
+        groupService.delete(Long.valueOf(101));
     }
 
 }

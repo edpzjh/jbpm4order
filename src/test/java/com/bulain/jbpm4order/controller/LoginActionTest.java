@@ -68,10 +68,10 @@ public class LoginActionTest extends ActionTestCase {
         Page page = loginAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer id = listLogin.get(1).getId();
+        Long id = listLogin.get(1).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/login/edit");
         loginAction = (LoginAction) proxy.getAction();
         result = proxy.execute();
@@ -83,7 +83,7 @@ public class LoginActionTest extends ActionTestCase {
         assertEquals("enabled", login.getEnabled());
 
         initServletMockObjects();
-        request.setParameter("login.id", Integer.toString(id));
+        request.setParameter("login.id", Long.toString(id));
         request.setParameter("login.loginName", "loginName-updated");
         request.setParameter("login.email", "email-updated@email.com");
         request.setParameter("login.hashedPassword", "hashedPassword-updated");
@@ -94,7 +94,7 @@ public class LoginActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/login/show");
         loginAction = (LoginAction) proxy.getAction();
         result = proxy.execute();
@@ -106,7 +106,7 @@ public class LoginActionTest extends ActionTestCase {
         assertEquals("enabled-updated", login.getEnabled());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/login/destroy");
         loginAction = (LoginAction) proxy.getAction();
         result = proxy.execute();
@@ -129,7 +129,7 @@ public class LoginActionTest extends ActionTestCase {
         List<Login> find = loginService.find(search);
         assertTrue(find.size() > 0);
         Login login2 = find.get(find.size() - 1);
-        Integer loginId = login2.getId();
+        Long loginId = login2.getId();
 
         Group group = new Group();
         group.setName("name");
@@ -141,10 +141,10 @@ public class LoginActionTest extends ActionTestCase {
         List<Group> find2 = groupService.find(gsearch);
         assertTrue(find2.size() > 0);
         Group group2 = find2.get(find2.size() - 1);
-        Integer groupId = group2.getId();
+        Long groupId = group2.getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(loginId));
+        request.setParameter("id", Long.toString(loginId));
         ActionProxy proxy = getActionProxy("/login/editGroup");
         LoginAction loginAction = (LoginAction) proxy.getAction();
         String result = proxy.execute();
@@ -157,15 +157,15 @@ public class LoginActionTest extends ActionTestCase {
         assertEquals(2, listGroupSrc.size());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(loginId));
-        request.setParameter("listGroupId", new String[]{Integer.toString(groupId)});
+        request.setParameter("id", Long.toString(loginId));
+        request.setParameter("listGroupId", new String[]{Long.toString(groupId)});
         proxy = getActionProxy("/login/updateGroup");
         loginAction = (LoginAction) proxy.getAction();
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(loginId));
+        request.setParameter("id", Long.toString(loginId));
         proxy = getActionProxy("/login/editGroup");
         loginAction = (LoginAction) proxy.getAction();
         result = proxy.execute();
@@ -178,7 +178,7 @@ public class LoginActionTest extends ActionTestCase {
         assertEquals(1, listGroupSrc.size());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(loginId));
+        request.setParameter("id", Long.toString(loginId));
         request.setParameter("listGroupId", new String[]{});
         proxy = getActionProxy("/login/updateGroup");
         loginAction = (LoginAction) proxy.getAction();

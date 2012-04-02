@@ -30,25 +30,25 @@ public class GroupServiceImpl extends PagedServiceImpl<Group, GroupSearch> imple
     }
 
     // GroupLogin
-    public List<Group> findGroupByLoginId(Integer loginId) {
+    public List<Group> findGroupByLoginId(Long loginId) {
         return groupMapper.findGroupByLoginId(loginId);
     }
-    public List<Group> findGroupByNoLoginId(Integer loginId) {
+    public List<Group> findGroupByNoLoginId(Long loginId) {
         return groupMapper.findGroupByNoLoginId(loginId);
     }
-    public void updateGroupLogin(Integer groupId, List<Integer> listLoginId) {
+    public void updateGroupLogin(Long groupId, List<Long> listLoginId) {
         GroupSearch search = new GroupSearch();
         search.setGroupId(groupId);
         search.setListLoginId(listLoginId);
         groupLoginMapper.deleteGroupLoginByNotInLoginId(search);
 
         List<Login> listLogin = loginMapper.findLoginByGroupId(groupId);
-        List<Integer> listId = new ArrayList<Integer>();
+        List<Long> listId = new ArrayList<Long>();
         for (Login l : listLogin) {
             listId.add(l.getId());
         }
 
-        for (Integer loginId : listLoginId) {
+        for (Long loginId : listLoginId) {
             if (listId.contains(loginId)) {
                 continue;
             }
@@ -60,14 +60,14 @@ public class GroupServiceImpl extends PagedServiceImpl<Group, GroupSearch> imple
     }
 
     // GroupPermission
-    public List<Permission> findPermissionByGroupId(Integer groupId) {
+    public List<Permission> findPermissionByGroupId(Long groupId) {
         return permissionMapper.findPermissionByGroupId(groupId);
     }
-    public List<Permission> findPermissionByNoGroupId(Integer groupId) {
+    public List<Permission> findPermissionByNoGroupId(Long groupId) {
         return permissionMapper.findPermissionByNoGroupId(groupId);
     }
 
-    public void updateGroupPermission(Integer groupId, List<String> listPermission) {
+    public void updateGroupPermission(Long groupId, List<String> listPermission) {
         GroupSearch search = new GroupSearch();
         search.setGroupId(groupId);
         search.setListPermission(listPermission);

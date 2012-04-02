@@ -9,12 +9,12 @@ import com.bulain.jbpm4order.pojo.GroupSearch;
 
 public interface GroupService extends PagedService<Group, GroupSearch> {
     // GroupLogin
-    List<Group> findGroupByLoginId(Integer loginId);
-    List<Group> findGroupByNoLoginId(Integer loginId);
-    void updateGroupLogin(Integer groupId, List<Integer> listLoginId);
+    List<Group> findGroupByLoginId(Long loginId);
+    List<Group> findGroupByNoLoginId(Long loginId);
+    void updateGroupLogin(Long groupId, List<Long> listLoginId);
 
     // GroupPermission
-    List<Permission> findPermissionByGroupId(Integer groupId);
-    List<Permission> findPermissionByNoGroupId(Integer groupId);
-    void updateGroupPermission(Integer groupId, List<String> listPermission);
+    List<Permission> findPermissionByGroupId(Long groupId);
+    List<Permission> findPermissionByNoGroupId(Long groupId);
+    void updateGroupPermission(Long groupId, List<String> listPermission);
 }

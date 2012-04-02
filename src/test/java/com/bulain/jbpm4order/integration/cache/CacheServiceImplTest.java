@@ -21,10 +21,10 @@ public class CacheServiceImplTest extends ServiceTestCase {
         page.setPage(10);
         page.setCount(100);
 
-        boolean set = cacheService.set(Page.class, page.getPage(), page);
+        boolean set = cacheService.set(Page.class, Long.valueOf(page.getPage()), page);
         assertTrue(set);
 
-        Page get = (Page) cacheService.get(Page.class, page.getPage());
+        Page get = (Page) cacheService.get(Page.class, Long.valueOf(page.getPage()));
         assertNotNull(get);
         assertEquals(page.getLow(), get.getLow());
         assertEquals(page.getHigh(), get.getHigh());
@@ -33,10 +33,10 @@ public class CacheServiceImplTest extends ServiceTestCase {
         page.setPage(5);
         page.setCount(100);
 
-        boolean add = cacheService.add(Page.class, page.getPage(), page);
+        boolean add = cacheService.add(Page.class, Long.valueOf(page.getPage()), page);
         assertTrue(add);
 
-        get = (Page) cacheService.get(Page.class, page.getPage());
+        get = (Page) cacheService.get(Page.class, Long.valueOf(page.getPage()));
         assertNotNull(get);
         assertEquals(page.getLow(), get.getLow());
         assertEquals(page.getHigh(), get.getHigh());
@@ -45,15 +45,15 @@ public class CacheServiceImplTest extends ServiceTestCase {
         page.setPage(5);
         page.setCount(1000);
 
-        boolean replace = cacheService.replace(Page.class, page.getPage(), page);
+        boolean replace = cacheService.replace(Page.class, Long.valueOf(page.getPage()), page);
         assertTrue(replace);
 
-        get = (Page) cacheService.get(Page.class, page.getPage());
+        get = (Page) cacheService.get(Page.class, Long.valueOf(page.getPage()));
         assertNotNull(get);
         assertEquals(page.getLow(), get.getLow());
         assertEquals(page.getHigh(), get.getHigh());
 
-        boolean delete = cacheService.delete(Page.class, page.getPage());
+        boolean delete = cacheService.delete(Page.class, Long.valueOf(page.getPage()));
         assertTrue(delete);
     }
 
@@ -63,10 +63,10 @@ public class CacheServiceImplTest extends ServiceTestCase {
         page.setPage(10);
         page.setCount(100);
 
-        boolean set = cacheService.set(Page.class, Integer.toString(page.getPage()), page);
+        boolean set = cacheService.set(Page.class, Long.toString(page.getPage()), page);
         assertTrue(set);
 
-        Page get = (Page) cacheService.get(Page.class, Integer.toString(page.getPage()));
+        Page get = (Page) cacheService.get(Page.class, Long.toString(page.getPage()));
         assertNotNull(get);
         assertEquals(page.getLow(), get.getLow());
         assertEquals(page.getHigh(), get.getHigh());
@@ -75,10 +75,10 @@ public class CacheServiceImplTest extends ServiceTestCase {
         page.setPage(5);
         page.setCount(100);
 
-        boolean add = cacheService.add(Page.class, Integer.toString(page.getPage()), page);
+        boolean add = cacheService.add(Page.class, Long.toString(page.getPage()), page);
         assertTrue(add);
 
-        get = (Page) cacheService.get(Page.class, Integer.toString(page.getPage()));
+        get = (Page) cacheService.get(Page.class, Long.toString(page.getPage()));
         assertNotNull(get);
         assertEquals(page.getLow(), get.getLow());
         assertEquals(page.getHigh(), get.getHigh());
@@ -87,15 +87,15 @@ public class CacheServiceImplTest extends ServiceTestCase {
         page.setPage(5);
         page.setCount(1000);
 
-        boolean replace = cacheService.replace(Page.class, Integer.toString(page.getPage()), page);
+        boolean replace = cacheService.replace(Page.class, Long.toString(page.getPage()), page);
         assertTrue(replace);
 
-        get = (Page) cacheService.get(Page.class, Integer.toString(page.getPage()));
+        get = (Page) cacheService.get(Page.class, Long.toString(page.getPage()));
         assertNotNull(get);
         assertEquals(page.getLow(), get.getLow());
         assertEquals(page.getHigh(), get.getHigh());
 
-        boolean delete = cacheService.delete(Page.class, Integer.toString(page.getPage()));
+        boolean delete = cacheService.delete(Page.class, Long.toString(page.getPage()));
         assertTrue(delete);
 
     }

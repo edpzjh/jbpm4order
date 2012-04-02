@@ -5,6 +5,6 @@ import com.bulain.jbpm4order.model.GroupPermission;
 import com.bulain.jbpm4order.pojo.GroupSearch;
 
 public interface GroupPermissionMapper extends BasicMapper<GroupPermission> {
-    int deleteGroupPermissionByGroupId(Integer groupId);
+    int deleteGroupPermissionByGroupId(Long groupId);
     int deleteGroupPermissionByNotInPermission(GroupSearch search);
 }

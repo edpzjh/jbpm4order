@@ -8,7 +8,7 @@ import com.bulain.common.model.Trackable;
 public class Permission implements Trackable, Serializable {
     private static final long serialVersionUID = -183875412485462606L;
 
-    private Integer id;
+    private Long id;
 
     private String permission;
 
@@ -20,11 +20,11 @@ public class Permission implements Trackable, Serializable {
 
     private Date updatedAt;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

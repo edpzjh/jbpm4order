@@ -98,10 +98,10 @@ public class OrderActionWorkflowTest extends ActionTestCase {
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
 
-        Integer orderId = orderAction.getOrder().getId();
+        Long orderId = orderAction.getOrder().getId();
 
         initServletMockObjects();
-        request.setParameter("order.id", Integer.toString(orderId));
+        request.setParameter("order.id", Long.toString(orderId));
         request.setParameter("taskId", taskId);
         request.setParameter("submit", "Approve");
         proxy = getActionProxy("/order/submitApproval");
@@ -147,10 +147,10 @@ public class OrderActionWorkflowTest extends ActionTestCase {
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
 
-        Integer orderId = orderAction.getOrder().getId();
+        Long orderId = orderAction.getOrder().getId();
 
         initServletMockObjects();
-        request.setParameter("order.id", Integer.toString(orderId));
+        request.setParameter("order.id", Long.toString(orderId));
         request.setParameter("taskId", taskId);
         request.setParameter("submit", "Reject");
         proxy = getActionProxy("/order/submitApproval");

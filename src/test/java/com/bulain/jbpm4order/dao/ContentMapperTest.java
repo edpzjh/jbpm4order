@@ -22,12 +22,12 @@ public class ContentMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeyWithBLOBs() {
         Content record = new Content();
-        record.setId(Integer.valueOf(108));
+        record.setId(Long.valueOf(108));
         record.setFileName("fileName-updated");
         record.setContentType("contentType-updated");
         record.setCatagory("catagory-updated");
         record.setLang("lang-updated");
-        record.setRefId(Integer.valueOf(1));
+        record.setRefId(Long.valueOf(1));
         record.setRefName("refName-updated");
         record.setBytes(new byte[]{'a', 'b', 'c'});
         int updateByPrimaryKey = contentMapper.updateByPrimaryKey(record);
@@ -36,19 +36,19 @@ public class ContentMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKeyWithoutBLOBs() {
-        Content select = contentMapper.selectByPrimaryKeyWithoutBLOBs(Integer.valueOf(109));
+        Content select = contentMapper.selectByPrimaryKeyWithoutBLOBs(Long.valueOf(109));
         assertEquals("file_name_109", select.getFileName());
         assertEquals("content_type_109", select.getContentType());
         assertEquals("catagory_109", select.getCatagory());
         assertEquals("lang_109", select.getLang());
-        assertEquals(Integer.valueOf(109), select.getRefId());
+        assertEquals(Long.valueOf(109), select.getRefId());
         assertEquals("ref_name_109", select.getRefName());
         assertNull(select.getBytes());
     }
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = contentMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = contentMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -59,7 +59,7 @@ public class ContentMapperTest extends ServiceTestCase {
         record.setContentType("contentType");
         record.setCatagory("catagory");
         record.setLang("lang");
-        record.setRefId(Integer.valueOf(1));
+        record.setRefId(Long.valueOf(1));
         record.setRefName("refName");
         record.setBytes(new byte[]{'a', 'b', 'c'});
         int insert = contentMapper.insert(record);
@@ -73,7 +73,7 @@ public class ContentMapperTest extends ServiceTestCase {
         record.setContentType("contentType");
         record.setCatagory("catagory");
         record.setLang("lang");
-        record.setRefId(Integer.valueOf(1));
+        record.setRefId(Long.valueOf(1));
         record.setRefName("refName");
         record.setBytes(new byte[]{'a', 'b', 'c'});
         int insertSelective = contentMapper.insertSelective(record);
@@ -82,12 +82,12 @@ public class ContentMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Content select = contentMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Content select = contentMapper.selectByPrimaryKey(Long.valueOf(102));
         assertEquals("file_name_102", select.getFileName());
         assertEquals("content_type_102", select.getContentType());
         assertEquals("catagory_102", select.getCatagory());
         assertEquals("lang_102", select.getLang());
-        assertEquals(Integer.valueOf(102), select.getRefId());
+        assertEquals(Long.valueOf(102), select.getRefId());
         assertEquals("ref_name_102", select.getRefName());
         assertNull(select.getBytes());
     }
@@ -95,12 +95,12 @@ public class ContentMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Content record = new Content();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setFileName("fileName-updated");
         record.setContentType("contentType-updated");
         record.setCatagory("catagory-updated");
         record.setLang("lang-updated");
-        record.setRefId(Integer.valueOf(1));
+        record.setRefId(Long.valueOf(1));
         record.setRefName("refName-updated");
         record.setBytes(new byte[]{'a', 'b', 'c'});
         int updateByPrimaryKeySelective = contentMapper.updateByPrimaryKeySelective(record);
@@ -110,12 +110,12 @@ public class ContentMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Content record = new Content();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setFileName("fileName-updated");
         record.setContentType("contentType-updated");
         record.setCatagory("catagory-updated");
         record.setLang("lang-updated");
-        record.setRefId(Integer.valueOf(1));
+        record.setRefId(Long.valueOf(1));
         record.setRefName("refName-updated");
         record.setBytes(new byte[]{'a', 'b', 'c'});
         int updateByPrimaryKey = contentMapper.updateByPrimaryKey(record);
@@ -129,7 +129,7 @@ public class ContentMapperTest extends ServiceTestCase {
         search.setContentType("content_type_page");
         search.setCatagory("catagory_page");
         search.setLang("lang_page");
-        search.setRefId(Integer.valueOf(1));
+        search.setRefId(Long.valueOf(1));
         search.setRefName("ref_name_page");
         List<Content> find = contentMapper.find(search);
         assertEquals(3, find.size());
@@ -142,7 +142,7 @@ public class ContentMapperTest extends ServiceTestCase {
         search.setContentType("content_type_page");
         search.setCatagory("catagory_page");
         search.setLang("lang_page");
-        search.setRefId(Integer.valueOf(1));
+        search.setRefId(Long.valueOf(1));
         search.setRefName("ref_name_page");
         Long count = contentMapper.count(search);
         assertEquals(Long.valueOf(3), count);
@@ -155,7 +155,7 @@ public class ContentMapperTest extends ServiceTestCase {
         search.setContentType("content_type_page");
         search.setCatagory("catagory_page");
         search.setLang("lang_page");
-        search.setRefId(Integer.valueOf(1));
+        search.setRefId(Long.valueOf(1));
         search.setRefName("ref_name_page");
         Page page = new Page();
         page.setCount(10);

@@ -56,21 +56,21 @@ public class ProfileActionTest extends ActionTestCase {
         Page page = profileAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer id = listProfile.get(0).getId();
+        Long id = listProfile.get(0).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/profile/edit");
         profileAction = (ProfileAction) proxy.getAction();
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
         Profile profile = profileAction.getProfile();
-        assertEquals(Integer.valueOf(1), profile.getPersonId());
+        assertEquals(Long.valueOf(1), profile.getPersonId());
         assertEquals("language", profile.getLanguage());
         assertEquals("country", profile.getCountry());
 
         initServletMockObjects();
-        request.setParameter("profile.id", Integer.toString(id));
+        request.setParameter("profile.id", Long.toString(id));
         request.setParameter("profile.personId", "1");
         request.setParameter("profile.language", "language-updated");
         request.setParameter("profile.country", "country-updated");
@@ -80,18 +80,18 @@ public class ProfileActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/profile/show");
         profileAction = (ProfileAction) proxy.getAction();
         result = proxy.execute();
         assertEquals(Action.SUCCESS, result);
         profile = profileAction.getProfile();
-        assertEquals(Integer.valueOf(1), profile.getPersonId());
+        assertEquals(Long.valueOf(1), profile.getPersonId());
         assertEquals("language-updated", profile.getLanguage());
         assertEquals("country-updated", profile.getCountry());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/profile/destroy");
         profileAction = (ProfileAction) proxy.getAction();
         result = proxy.execute();

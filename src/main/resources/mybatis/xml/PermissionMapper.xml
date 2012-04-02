@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bulain.jbpm4order.dao.PermissionMapper" >
   <resultMap id="BaseResultMap" type="com.bulain.jbpm4order.model.Permission" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
     <result column="permission" property="permission" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
@@ -12,20 +12,20 @@
   <sql id="Base_Column_List" >
     id, permission, created_by, created_at, updated_by, updated_at
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from permissions
     where id = #{id}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from permissions
     where id = #{id}
   </delete>
   <insert id="insert" parameterType="com.bulain.jbpm4order.model.Permission" >
     insert into permissions (permission, created_by, created_at, updated_by, updated_at)
     values (#{permission}, #{createdBy}, #{createdAt}, #{updatedBy}, #{updatedAt})
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -65,7 +65,7 @@
         #{updatedAt},
       </if>
     </trim>
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -130,13 +130,13 @@
     <![CDATA[${PAGE_FOOT}]]>
   </select>
   
-    <select id="findPermissionByGroupId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    <select id="findPermissionByGroupId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select p.id, p.permission, p.created_by, p.created_at, p.updated_by, p.updated_at
     from permissions p
     where exists (select 1 from group_permissions gp where gp.permission = p.permission and gp.group_id = #{groupId})
     order by p.id
   </select>
-  <select id="findPermissionByNoGroupId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="findPermissionByNoGroupId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select p.id, p.permission, p.created_by, p.created_at, p.updated_by, p.updated_at
     from permissions p
     where not exists (select 1 from group_permissions gp where gp.permission = p.permission and gp.group_id = #{groupId})

@@ -7,7 +7,7 @@ public class ContentSearch extends Search {
 
     private String fileName;
     private String contentType;
-    private Integer refId;
+    private Long refId;
     private String refName;
     private String catagory;
     private String lang;
@@ -24,10 +24,10 @@ public class ContentSearch extends Search {
     public void setContentType(String contentType) {
         this.contentType = contentType;
     }
-    public Integer getRefId() {
+    public Long getRefId() {
         return refId;
     }
-    public void setRefId(Integer refId) {
+    public void setRefId(Long refId) {
         this.refId = refId;
     }
     public String getRefName() {

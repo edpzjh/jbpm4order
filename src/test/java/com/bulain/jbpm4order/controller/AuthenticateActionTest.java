@@ -21,7 +21,7 @@ public class AuthenticateActionTest extends ActionTestCase {
     @Autowired
     private LoginService loginService;
 
-    private Integer loginId;
+    private Long loginId;
 
     @Before
     public void setUp() throws Exception {

@@ -15,7 +15,7 @@ public class ContentServiceImpl extends PagedServiceImpl<Content, ContentSearch>
         return contentMapper;
     }
 
-    public Content getWithoutBLOBs(Integer id) {
+    public Content getWithoutBLOBs(Long id) {
         Content selectByPrimaryKeyWithoutBLOBs = contentMapper.selectByPrimaryKeyWithoutBLOBs(id);
         if (selectByPrimaryKeyWithoutBLOBs == null) {
             throw new NotFoundException();

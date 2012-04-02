@@ -9,9 +9,9 @@ public class GroupSearch extends Search {
 
     private String name;
 
-    private Integer loginId;
-    private Integer groupId;
-    private List<Integer> listLoginId;
+    private Long loginId;
+    private Long groupId;
+    private List<Long> listLoginId;
     private List<String> listPermission;
 
     public String getName() {
@@ -20,16 +20,16 @@ public class GroupSearch extends Search {
     public void setName(String name) {
         this.name = name;
     }
-    public List<Integer> getListLoginId() {
+    public List<Long> getListLoginId() {
         return listLoginId;
     }
-    public void setListLoginId(List<Integer> listLoginId) {
+    public void setListLoginId(List<Long> listLoginId) {
         this.listLoginId = listLoginId;
     }
-    public Integer getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
-    public void setGroupId(Integer groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
     public List<String> getListPermission() {
@@ -38,10 +38,10 @@ public class GroupSearch extends Search {
     public void setListPermission(List<String> listPermission) {
         this.listPermission = listPermission;
     }
-    public Integer getLoginId() {
+    public Long getLoginId() {
         return loginId;
     }
-    public void setLoginId(Integer loginId) {
+    public void setLoginId(Long loginId) {
         this.loginId = loginId;
     }
 

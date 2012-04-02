@@ -11,7 +11,7 @@ public class MasterServiceImpl implements MasterService {
 
     private MasterMapper masterMapper;
 
-    public String getValue4Group(Integer id) {
+    public String getValue4Group(Long id) {
         Master master = masterMapper.selectMaster4Group(id);
         if (master != null) {
             return master.getValue();
@@ -23,7 +23,7 @@ public class MasterServiceImpl implements MasterService {
         list.add(0, DEFAULT_MASTER);
         return list;
     }
-    public String getValue4Person(Integer id) {
+    public String getValue4Person(Long id) {
         Master master = masterMapper.selectMaster4Person(id);
         if (master != null) {
             return master.getValue();

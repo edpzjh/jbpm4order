@@ -8,13 +8,13 @@ import com.bulain.common.model.Trackable;
 public class Content implements Trackable, Serializable {
     private static final long serialVersionUID = -3212752477980635381L;
 
-    private Integer id;
+    private Long id;
 
     private String fileName;
 
     private String contentType;
 
-    private Integer refId;
+    private Long refId;
 
     private String refName;
 
@@ -32,11 +32,11 @@ public class Content implements Trackable, Serializable {
 
     private byte[] bytes;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,11 +56,11 @@ public class Content implements Trackable, Serializable {
         this.contentType = contentType == null ? null : contentType.trim();
     }
 
-    public Integer getRefId() {
+    public Long getRefId() {
         return refId;
     }
 
-    public void setRefId(Integer refId) {
+    public void setRefId(Long refId) {
         this.refId = refId;
     }
 

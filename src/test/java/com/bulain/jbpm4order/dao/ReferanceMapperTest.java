@@ -80,7 +80,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = referanceMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = referanceMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -110,7 +110,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Referance selectByPrimaryKey = referanceMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Referance selectByPrimaryKey = referanceMapper.selectByPrimaryKey(Long.valueOf(102));
         assertNotNull(selectByPrimaryKey);
         assertEquals("name_102", selectByPrimaryKey.getName());
         assertEquals("code_102", selectByPrimaryKey.getCode());
@@ -122,7 +122,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Referance record = new Referance();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name-updated");
         record.setCode("code-updated");
         record.setLang("lang-updated");
@@ -135,7 +135,7 @@ public class ReferanceMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Referance record = new Referance();
-        record.setId(Integer.valueOf(104));
+        record.setId(Long.valueOf(104));
         record.setName("name-updated");
         record.setCode("code-updated");
         record.setLang("lang-updated");

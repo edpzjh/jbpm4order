@@ -20,19 +20,19 @@ public class GroupMapperTest extends ServiceTestCase {
 
     @Test
     public void testFindGroupByLoginId() {
-        List<Group> findGroupByLoginId = groupMapper.findGroupByLoginId(Integer.valueOf(105));
+        List<Group> findGroupByLoginId = groupMapper.findGroupByLoginId(Long.valueOf(105));
         assertEquals(3, findGroupByLoginId.size());
     }
 
     @Test
     public void testFindGroupByNoLoginId() {
-        List<Group> findGroupByNoLoginId = groupMapper.findGroupByNoLoginId(Integer.valueOf(105));
+        List<Group> findGroupByNoLoginId = groupMapper.findGroupByNoLoginId(Long.valueOf(105));
         assertEquals(4, findGroupByNoLoginId.size());
     }
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = groupMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = groupMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -56,7 +56,7 @@ public class GroupMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        Group select = groupMapper.selectByPrimaryKey(Integer.valueOf(102));
+        Group select = groupMapper.selectByPrimaryKey(Long.valueOf(102));
         assertEquals("name_102", select.getName());
         assertEquals("note_102", select.getNote());
     }
@@ -64,7 +64,7 @@ public class GroupMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKeySelective() {
         Group record = new Group();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name");
         record.setNote("note");
         int updateByPrimaryKeySelective = groupMapper.updateByPrimaryKeySelective(record);
@@ -74,7 +74,7 @@ public class GroupMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         Group record = new Group();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name");
         record.setNote("note");
         int updateByPrimaryKey = groupMapper.updateByPrimaryKey(record);

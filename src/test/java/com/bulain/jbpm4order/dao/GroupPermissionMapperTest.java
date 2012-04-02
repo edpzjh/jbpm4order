@@ -19,14 +19,14 @@ public class GroupPermissionMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteGroupPermissionByGroupId() {
-        int deleteGroupPermissionByGroupId = groupPermissionMapper.deleteGroupPermissionByGroupId(Integer.valueOf(101));
+        int deleteGroupPermissionByGroupId = groupPermissionMapper.deleteGroupPermissionByGroupId(Long.valueOf(101));
         assertEquals(2, deleteGroupPermissionByGroupId);
     }
 
     @Test
     public void testDeleteGroupPermissionByNotInPermission() {
         GroupSearch search = new GroupSearch();
-        search.setGroupId(Integer.valueOf(101));
+        search.setGroupId(Long.valueOf(101));
         search.setListPermission(Arrays.asList(new String[]{"permission_101", "permission_102"}));
         int deleteGroupPermissionByNotInPermission = groupPermissionMapper
                 .deleteGroupPermissionByNotInPermission(search);
@@ -35,7 +35,7 @@ public class GroupPermissionMapperTest extends ServiceTestCase {
 
     @Test
     public void testDeleteByPrimaryKey() {
-        int deleteByPrimaryKey = groupPermissionMapper.deleteByPrimaryKey(Integer.valueOf(101));
+        int deleteByPrimaryKey = groupPermissionMapper.deleteByPrimaryKey(Long.valueOf(101));
         assertEquals(1, deleteByPrimaryKey);
     }
 
@@ -57,14 +57,14 @@ public class GroupPermissionMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectByPrimaryKey() {
-        GroupPermission select = groupPermissionMapper.selectByPrimaryKey(Integer.valueOf(102));
+        GroupPermission select = groupPermissionMapper.selectByPrimaryKey(Long.valueOf(102));
         assertEquals("permission_102", select.getPermission());
     }
 
     @Test
     public void testUpdateByPrimaryKeySelective() {
         GroupPermission record = new GroupPermission();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setPermission("permission-updated");
         int updateByPrimaryKeySelective = groupPermissionMapper.updateByPrimaryKeySelective(record);
         assertEquals(1, updateByPrimaryKeySelective);
@@ -73,7 +73,7 @@ public class GroupPermissionMapperTest extends ServiceTestCase {
     @Test
     public void testUpdateByPrimaryKey() {
         GroupPermission record = new GroupPermission();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setPermission("permission-updated");
         int updateByPrimaryKey = groupPermissionMapper.updateByPrimaryKey(record);
         assertEquals(1, updateByPrimaryKey);

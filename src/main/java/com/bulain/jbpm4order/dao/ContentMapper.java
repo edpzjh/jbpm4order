@@ -6,5 +6,5 @@ import com.bulain.jbpm4order.pojo.ContentSearch;
 
 public interface ContentMapper extends PagedMapper<Content, ContentSearch> {
     int updateByPrimaryKeyWithBLOBs(Content record);
-    Content selectByPrimaryKeyWithoutBLOBs(Integer id);
+    Content selectByPrimaryKeyWithoutBLOBs(Long id);
 }

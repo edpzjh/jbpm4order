@@ -29,28 +29,28 @@ public class LoginServiceImpl extends PagedServiceImpl<Login, LoginSearch> imple
     }
 
     // GroupLogin
-    public Long countLoginByGroupId(Integer groupId) {
+    public Long countLoginByGroupId(Long groupId) {
         return loginMapper.countLoginByGroupId(groupId);
     }
-    public List<Login> findLoginByGroupId(Integer groupId) {
+    public List<Login> findLoginByGroupId(Long groupId) {
         return loginMapper.findLoginByGroupId(groupId);
     }
-    public List<Login> findLoginByNoInGroupId(Integer groupId) {
+    public List<Login> findLoginByNoInGroupId(Long groupId) {
         return loginMapper.findLoginByNoGroupId(groupId);
     }
-    public void updateGroupLogin(Integer loginId, List<Integer> listGroupId) {
+    public void updateGroupLogin(Long loginId, List<Long> listGroupId) {
         LoginSearch search = new LoginSearch();
         search.setLoginId(loginId);
         search.setListGroupId(listGroupId);
         groupLoginMapper.deleteGroupLoginByNotInGroupId(search);
 
         List<Group> listGroup = groupMapper.findGroupByLoginId(loginId);
-        List<Integer> listId = new ArrayList<Integer>();
+        List<Long> listId = new ArrayList<Long>();
         for (Group group : listGroup) {
             listId.add(group.getId());
         }
 
-        for (Integer groupId : listGroupId) {
+        for (Long groupId : listGroupId) {
             if (listId.contains(groupId)) {
                 continue;
             }
@@ -74,7 +74,7 @@ public class LoginServiceImpl extends PagedServiceImpl<Login, LoginSearch> imple
         return null;
     }
 
-    public List<String> findPermission(Integer loginId) {
+    public List<String> findPermission(Long loginId) {
         Set<String> setPermission = new HashSet<String>();
         List<Group> listGroup = groupMapper.findGroupByLoginId(loginId);
         for (Group grp : listGroup) {

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bulain.jbpm4order.dao.LoginMapper" >
   <resultMap id="BaseResultMap" type="com.bulain.jbpm4order.model.Login" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="person_id" property="personId" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="person_id" property="personId" jdbcType="BIGINT" />
     <result column="login_name" property="loginName" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="hashed_password" property="hashedPassword" jdbcType="VARCHAR" />
@@ -17,13 +17,13 @@
     id, person_id, login_name, email, hashed_password, enabled, created_by, created_at, 
     updated_by, updated_at
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from logins
     where id = #{id}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from logins
     where id = #{id}
   </delete>
@@ -32,7 +32,7 @@
       created_at, updated_by, updated_at)
     values (#{personId}, #{loginName}, #{email}, #{hashedPassword}, #{enabled}, #{createdBy}, 
       #{createdAt}, #{updatedBy}, #{updatedAt})
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -96,7 +96,7 @@
         #{updatedAt},
       </if>
     </trim>
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -186,19 +186,19 @@
     <![CDATA[${PAGE_FOOT}]]>
   </select>
   
-  <select id="countLoginByGroupId" resultType="java.lang.Long" parameterType="java.lang.Integer">
+  <select id="countLoginByGroupId" resultType="java.lang.Long" parameterType="java.lang.Long">
   	select count(*)
     from group_logins 
     where group_id = #{groupId}
   </select>
-  <select id="findLoginByGroupId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="findLoginByGroupId" resultMap="BaseResultMap" parameterType="java.lang.Long">
   	select l.id, l.person_id, l.login_name, l.email, l.hashed_password, l.enabled, l.created_by, l.created_at, l.updated_by, l.updated_at
     from logins l
     join group_logins gl on gl.login_id = l.id
     where gl.group_id = #{groupId}
     order by l.id
   </select>
-  <select id="findLoginByNoGroupId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  <select id="findLoginByNoGroupId" resultMap="BaseResultMap" parameterType="java.lang.Long">
   	select l.id, l.person_id, l.login_name, l.email, l.hashed_password, l.enabled, l.created_by, l.created_at, l.updated_by, l.updated_at
     from logins l
     where not exists (select 1 from group_logins gl where gl.login_id = l.id and gl.group_id = #{groupId})

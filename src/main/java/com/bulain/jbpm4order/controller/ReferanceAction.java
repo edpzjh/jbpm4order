@@ -15,7 +15,7 @@ import com.bulain.jbpm4order.service.ReferanceService;
 public class ReferanceAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -6586209271699101686L;
 
-    private Integer id;
+    private Long id;
 
     private ReferanceSearch search;
     private Referance referance;
@@ -111,11 +111,11 @@ public class ReferanceAction extends PageSupportActionSupport {
         this.search = search;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

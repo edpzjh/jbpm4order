@@ -5,14 +5,14 @@ import com.bulain.common.page.Search;
 public class ProfileSearch extends Search {
     private static final long serialVersionUID = 1942246139418477787L;
 
-    private Integer personId;
+    private Long personId;
     private String language;
     private String country;
 
-    public Integer getPersonId() {
+    public Long getPersonId() {
         return personId;
     }
-    public void setPersonId(Integer personId) {
+    public void setPersonId(Long personId) {
         this.personId = personId;
     }
     public String getLanguage() {

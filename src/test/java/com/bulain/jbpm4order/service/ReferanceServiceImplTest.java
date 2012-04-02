@@ -21,12 +21,12 @@ public class ReferanceServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        referanceService.delete(Integer.valueOf(101));
+        referanceService.delete(Long.valueOf(101));
     }
 
     @Test
-    public void testGetInteger() {
-        Referance referance = referanceService.get(Integer.valueOf(102));
+    public void testGetLong() {
+        Referance referance = referanceService.get(Long.valueOf(102));
         assertNotNull(referance);
         assertEquals("name_102", referance.getName());
         assertEquals("code_102", referance.getCode());
@@ -60,7 +60,7 @@ public class ReferanceServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdateReferanceBoolean() {
         Referance record = new Referance();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name-updated");
         record.setCode("code-updated");
         record.setLang("lang-updated");

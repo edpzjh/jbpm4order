@@ -15,7 +15,7 @@ import com.bulain.jbpm4order.service.ReferanceService;
 public class ProfileAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 239300271685223451L;
 
-    private Integer id;
+    private Long id;
 
     private ProfileSearch search;
     private Profile profile;
@@ -98,11 +98,11 @@ public class ProfileAction extends PageSupportActionSupport {
         return refv;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -8,11 +8,11 @@ import com.bulain.common.model.Trackable;
 public class GroupLogin implements Trackable, Serializable {
     private static final long serialVersionUID = -6665556888626575558L;
 
-    private Integer id;
+    private Long id;
 
-    private Integer groupId;
+    private Long groupId;
 
-    private Integer loginId;
+    private Long loginId;
 
     private String createdBy;
 
@@ -22,27 +22,27 @@ public class GroupLogin implements Trackable, Serializable {
 
     private Date updatedAt;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Integer groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 
-    public Integer getLoginId() {
+    public Long getLoginId() {
         return loginId;
     }
 
-    public void setLoginId(Integer loginId) {
+    public void setLoginId(Long loginId) {
         this.loginId = loginId;
     }
 

@@ -7,6 +7,6 @@ import com.bulain.jbpm4order.model.Group;
 import com.bulain.jbpm4order.pojo.GroupSearch;
 
 public interface GroupMapper extends PagedMapper<Group, GroupSearch> {
-    List<Group> findGroupByLoginId(Integer loginId);
-    List<Group> findGroupByNoLoginId(Integer loginId);
+    List<Group> findGroupByLoginId(Long loginId);
+    List<Group> findGroupByNoLoginId(Long loginId);
 }

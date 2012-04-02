@@ -18,7 +18,7 @@ public class MasterServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGetValue4Group() {
-        String value4Group = masterService.getValue4Group(Integer.valueOf(105));
+        String value4Group = masterService.getValue4Group(Long.valueOf(105));
         assertEquals("name_page", value4Group);
     }
 
@@ -30,7 +30,7 @@ public class MasterServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGetValue4Person() {
-        String value4Person = masterService.getValue4Person(Integer.valueOf(105));
+        String value4Person = masterService.getValue4Person(Long.valueOf(105));
         assertEquals("last_name_page, first_name_page", value4Person);
     }
 

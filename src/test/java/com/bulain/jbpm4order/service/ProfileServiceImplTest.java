@@ -22,7 +22,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
     @Test
     public void testFind() {
         ProfileSearch search = new ProfileSearch();
-        search.setPersonId(Integer.valueOf(105));
+        search.setPersonId(Long.valueOf(105));
         search.setLanguage("language_page");
         search.setCountry("country_page");
         List<Profile> find = profileService.find(search);
@@ -32,7 +32,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
     @Test
     public void testCount() {
         ProfileSearch search = new ProfileSearch();
-        search.setPersonId(Integer.valueOf(105));
+        search.setPersonId(Long.valueOf(105));
         search.setLanguage("language_page");
         search.setCountry("country_page");
         Long count = profileService.count(search);
@@ -42,7 +42,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
     @Test
     public void testPage() {
         ProfileSearch search = new ProfileSearch();
-        search.setPersonId(Integer.valueOf(105));
+        search.setPersonId(Long.valueOf(105));
         search.setLanguage("language_page");
         search.setCountry("country_page");
         Page page = new Page();
@@ -52,9 +52,9 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        Profile profile = profileService.get(Integer.valueOf(102));
+        Profile profile = profileService.get(Long.valueOf(102));
         assertNotNull(profile);
-        assertEquals(Integer.valueOf(102), profile.getPersonId());
+        assertEquals(Long.valueOf(102), profile.getPersonId());
         assertEquals("language_102", profile.getLanguage());
         assertEquals("country_102", profile.getCountry());
     }
@@ -62,7 +62,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
     @Test
     public void testInsert() {
         Profile record = new Profile();
-        record.setPersonId(Integer.valueOf(108));
+        record.setPersonId(Long.valueOf(108));
         record.setLanguage("language");
         record.setCountry("country");
         profileService.insert(record);
@@ -71,8 +71,8 @@ public class ProfileServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         Profile record = new Profile();
-        record.setId(Integer.valueOf(103));
-        record.setPersonId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
+        record.setPersonId(Long.valueOf(103));
         record.setLanguage("language-updated");
         record.setCountry("country-updated");
         profileService.update(record, true);
@@ -80,7 +80,7 @@ public class ProfileServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        profileService.delete(Integer.valueOf(101));
+        profileService.delete(Long.valueOf(101));
     }
 
 }

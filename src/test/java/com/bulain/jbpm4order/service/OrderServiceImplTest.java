@@ -55,7 +55,7 @@ public class OrderServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testGet() {
-        Order order = orderService.get(Integer.valueOf(102));
+        Order order = orderService.get(Long.valueOf(102));
         assertNotNull(order);
         assertEquals("name_102", order.getName());
         assertEquals("note_102", order.getNote());
@@ -72,7 +72,7 @@ public class OrderServiceImplTest extends ServiceTestCase {
     @Test
     public void testUpdate() {
         Order record = new Order();
-        record.setId(Integer.valueOf(103));
+        record.setId(Long.valueOf(103));
         record.setName("name-updated");
         record.setNote("note-updated");
         orderService.update(record, true);
@@ -80,7 +80,7 @@ public class OrderServiceImplTest extends ServiceTestCase {
 
     @Test
     public void testDelete() {
-        orderService.delete(Integer.valueOf(101));
+        orderService.delete(Long.valueOf(101));
     }
 
 }

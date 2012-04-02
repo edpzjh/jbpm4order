@@ -8,9 +8,9 @@ import com.bulain.common.model.Trackable;
 public class GroupPermission implements Trackable, Serializable {
     private static final long serialVersionUID = -1223644841068158612L;
 
-    private Integer id;
+    private Long id;
 
-    private Integer groupId;
+    private Long groupId;
 
     private String permission;
 
@@ -22,19 +22,19 @@ public class GroupPermission implements Trackable, Serializable {
 
     private Date updatedAt;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
-    public void setGroupId(Integer groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 

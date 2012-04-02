@@ -10,7 +10,7 @@ import com.bulain.jbpm4order.service.PersonService;
 public class PersonAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 4764266080241908757L;
 
-    private Integer id;
+    private Long id;
 
     private PersonSearch search;
     private Person person;
@@ -55,11 +55,11 @@ public class PersonAction extends PageSupportActionSupport {
         return SUCCESS;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

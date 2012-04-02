@@ -8,7 +8,7 @@ import com.bulain.common.model.Trackable;
 public class MailTemplate implements Trackable, Serializable {
     private static final long serialVersionUID = -3962768244528214287L;
 
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -28,11 +28,11 @@ public class MailTemplate implements Trackable, Serializable {
 
     private String bodyName;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

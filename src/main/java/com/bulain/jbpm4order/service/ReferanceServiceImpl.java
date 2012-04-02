@@ -26,7 +26,7 @@ public class ReferanceServiceImpl extends PagedServiceImpl<Referance, ReferanceS
         return referanceMapper;
     }
 
-    public Referance get(Integer id) {
+    public Referance get(Long id) {
         Object object = cacheService.get(Referance.class, id);
         if (object == null) {
             object = super.get(id);
@@ -76,7 +76,7 @@ public class ReferanceServiceImpl extends PagedServiceImpl<Referance, ReferanceS
                 + referance.getCatagory();
         cacheService.delete(Item.class, key);
     }
-    public void delete(Integer id) {
+    public void delete(Long id) {
         Referance referance = super.get(id);
         super.delete(id);
 

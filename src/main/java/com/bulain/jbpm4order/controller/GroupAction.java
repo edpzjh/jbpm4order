@@ -15,13 +15,13 @@ import com.bulain.jbpm4order.service.LoginService;
 public class GroupAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -4301484346812182688L;
 
-    private Integer id;
+    private Long id;
 
     private GroupSearch search;
     private Group group;
     private List<GroupView> listGroup;
 
-    private List<Integer> listLoginId;
+    private List<Long> listLoginId;
     private List<Login> listLoginSrc;
     private List<Login> listLoginDist;
 
@@ -124,10 +124,10 @@ public class GroupAction extends PageSupportActionSupport {
         return grpView;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public GroupSearch getSearch() {
@@ -178,10 +178,10 @@ public class GroupAction extends PageSupportActionSupport {
     public void setListPermissionDist(List<Permission> listPermissionDist) {
         this.listPermissionDist = listPermissionDist;
     }
-    public List<Integer> getListLoginId() {
+    public List<Long> getListLoginId() {
         return listLoginId;
     }
-    public void setListLoginId(List<Integer> listLoginId) {
+    public void setListLoginId(List<Long> listLoginId) {
         this.listLoginId = listLoginId;
     }
     public List<String> getListPermission() {

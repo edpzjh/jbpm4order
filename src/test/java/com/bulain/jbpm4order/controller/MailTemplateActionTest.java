@@ -56,10 +56,10 @@ public class MailTemplateActionTest extends ActionTestCase {
         Page page = mailTemplateAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer id = listMailTemplate.get(0).getId();
+        Long id = listMailTemplate.get(0).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/mailTemplate/edit");
         mailTemplateAction = (MailTemplateAction) proxy.getAction();
         result = proxy.execute();
@@ -71,7 +71,7 @@ public class MailTemplateActionTest extends ActionTestCase {
         assertEquals("body", mailTemplate.getBodyName());
 
         initServletMockObjects();
-        request.setParameter("mailTemplate.id", Integer.toString(id));
+        request.setParameter("mailTemplate.id", Long.toString(id));
         request.setParameter("mailTemplate.name", "name-updated");
         request.setParameter("mailTemplate.lang", "cn");
         request.setParameter("mailTemplate.subject", "subject-updated");
@@ -82,7 +82,7 @@ public class MailTemplateActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/mailTemplate/show");
         mailTemplateAction = (MailTemplateAction) proxy.getAction();
         result = proxy.execute();
@@ -94,7 +94,7 @@ public class MailTemplateActionTest extends ActionTestCase {
         assertEquals("body-updated", mailTemplate.getBodyName());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/mailTemplate/destroy");
         mailTemplateAction = (MailTemplateAction) proxy.getAction();
         result = proxy.execute();

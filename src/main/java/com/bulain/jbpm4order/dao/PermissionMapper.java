@@ -7,6 +7,6 @@ import com.bulain.jbpm4order.model.Permission;
 import com.bulain.jbpm4order.pojo.PermissionSearch;
 
 public interface PermissionMapper extends PagedMapper<Permission, PermissionSearch> {
-    List<Permission> findPermissionByGroupId(Integer groupId);
-    List<Permission> findPermissionByNoGroupId(Integer groupId);
+    List<Permission> findPermissionByGroupId(Long groupId);
+    List<Permission> findPermissionByNoGroupId(Long groupId);
 }

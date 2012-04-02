@@ -54,10 +54,10 @@ public class PersonActionTest extends ActionTestCase {
         Page page = personAction.getPage();
         assertEquals(1, page.getPage());
 
-        Integer id = listPerson.get(1).getId();
+        Long id = listPerson.get(1).getId();
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/person/edit");
         personAction = (PersonAction) proxy.getAction();
         result = proxy.execute();
@@ -67,7 +67,7 @@ public class PersonActionTest extends ActionTestCase {
         assertEquals("lastName", person.getLastName());
 
         initServletMockObjects();
-        request.setParameter("person.id", Integer.toString(id));
+        request.setParameter("person.id", Long.toString(id));
         request.setParameter("person.firstName", "firstName-updated");
         request.setParameter("person.lastName", "lastName-updated");
         proxy = getActionProxy("/person/update");
@@ -76,7 +76,7 @@ public class PersonActionTest extends ActionTestCase {
         assertEquals(Action.SUCCESS, result);
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/person/show");
         personAction = (PersonAction) proxy.getAction();
         result = proxy.execute();
@@ -86,7 +86,7 @@ public class PersonActionTest extends ActionTestCase {
         assertEquals("lastName-updated", person.getLastName());
 
         initServletMockObjects();
-        request.setParameter("id", Integer.toString(id));
+        request.setParameter("id", Long.toString(id));
         proxy = getActionProxy("/person/destroy");
         personAction = (PersonAction) proxy.getAction();
         result = proxy.execute();

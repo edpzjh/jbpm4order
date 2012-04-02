@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.bulain.jbpm4order.dao.GroupPermissionMapper" >
   <resultMap id="BaseResultMap" type="com.bulain.jbpm4order.model.GroupPermission" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="group_id" property="groupId" jdbcType="INTEGER" />
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="group_id" property="groupId" jdbcType="BIGINT" />
     <result column="permission" property="permission" jdbcType="VARCHAR" />
     <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
     <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
@@ -13,13 +13,13 @@
   <sql id="Base_Column_List" >
     id, group_id, permission, created_by, created_at, updated_by, updated_at
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from group_permissions
     where id = #{id}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from group_permissions
     where id = #{id}
   </delete>
@@ -28,7 +28,7 @@
       )
     values (#{groupId}, #{permission}, #{createdBy}, #{createdAt}, #{updatedBy}, #{updatedAt}
       )
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -74,7 +74,7 @@
         #{updatedAt},
       </if>
     </trim>
-    <selectKey resultType="java.lang.Integer" keyProperty="id" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" >
       SELECT LAST_INSERT_ID()
     </selectKey>
   </insert>
@@ -113,11 +113,11 @@
     where id = #{id}
   </update>
 
-  <delete id="deleteGroupPermissionByGroupId" parameterType="java.lang.Integer" >
+  <delete id="deleteGroupPermissionByGroupId" parameterType="java.lang.Long" >
     delete from group_permissions
     where group_id = #{groupId}
   </delete>
-  <delete id="deleteGroupPermissionByNotInPermission" parameterType="java.lang.Integer" >
+  <delete id="deleteGroupPermissionByNotInPermission" parameterType="java.lang.Long" >
     delete from group_permissions
     where group_id = #{groupId}
     <if test="listPermission.size() >  0">

@@ -25,8 +25,8 @@ public class MasterMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectMaster4Group() {
-        Master selectMaster4Group = masterMapper.selectMaster4Group(Integer.valueOf(105));
-        assertEquals(Integer.valueOf(105), selectMaster4Group.getKey());
+        Master selectMaster4Group = masterMapper.selectMaster4Group(Long.valueOf(105));
+        assertEquals(Long.valueOf(105), selectMaster4Group.getKey());
         assertEquals("name_page", selectMaster4Group.getValue());
     }
 
@@ -38,9 +38,9 @@ public class MasterMapperTest extends ServiceTestCase {
 
     @Test
     public void testSelectMaster4Person() {
-        Master selectMaster4Person = masterMapper.selectMaster4Person(Integer.valueOf(105));
+        Master selectMaster4Person = masterMapper.selectMaster4Person(Long.valueOf(105));
         assertNotNull(selectMaster4Person);
-        assertEquals(Integer.valueOf(105), selectMaster4Person.getKey());
+        assertEquals(Long.valueOf(105), selectMaster4Person.getKey());
         assertEquals("last_name_page, first_name_page", selectMaster4Person.getValue());
     }
 
