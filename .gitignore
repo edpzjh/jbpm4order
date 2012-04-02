@@ -5,7 +5,6 @@ Thumbs.db
 .settings/
 activemq-data/
 *.epoch
-tm.out
-tm.out.lck
-tmlog.lck
-tmlog1.log
+*.out
+*.lck
+*.log

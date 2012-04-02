@@ -7,20 +7,20 @@ public class Master implements Serializable {
 
     public static final Master DEFUALT_MASTER = new Master(null, "");
 
-    private Integer key;
+    private Long key;
     private String value;
 
     public Master() {
     };
 
-    public Master(Integer key, String value) {
+    public Master(Long key, String value) {
         this.key = key;
         this.value = value;
     }
-    public Integer getKey() {
+    public Long getKey() {
         return key;
     }
-    public void setKey(Integer key) {
+    public void setKey(Long key) {
         this.key = key;
     }
     public String getValue() {
