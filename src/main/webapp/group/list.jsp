@@ -75,7 +75,7 @@
             <td class="minNoWrap">
         	<s:url id="url" action="show"><s:param name="id" value="id"></s:param></s:url><a href="<s:property value="#url"/>"><s:text name="action.show"/></a>
         	|<s:url id="url" action="edit"><s:param name="id" value="id"></s:param></s:url><a href="<s:property value="#url"/>"><s:text name="action.edit"/></a>
-        	|<s:url id="url" action="destroy"><s:param name="id" value="id"></s:param></s:url><a onclick="javascript:destroy();return false;" href="<s:property value="#url"/>"><s:text name="action.destroy"/></a>
+        	|<s:url id="url" action="destroy"><s:param name="id" value="id"></s:param></s:url><a onclick="javascript:destroy(this);return false;" href="<s:property value="#url"/>"><s:text name="action.destroy"/></a>
         	<br/>
         	<s:url id="url" action="editLogin"><s:param name="id" value="id"></s:param></s:url><a onclick="" href="<s:property value="#url"/>"><s:text name="login.model"/></a>
         	|<s:url id="url" action="editPermission"><s:param name="id" value="id"></s:param></s:url><a onclick="" href="<s:property value="#url"/>"><s:text name="authorize.permission"/></a>
