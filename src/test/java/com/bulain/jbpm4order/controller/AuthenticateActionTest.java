@@ -8,11 +8,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.bulain.common.model.Constants;
+import com.bulain.common.model.Login;
+import com.bulain.common.pojo.LoginSearch;
+import com.bulain.common.service.LoginService;
 import com.bulain.common.test.ActionTestCase;
-import com.bulain.jbpm4order.model.Constants;
-import com.bulain.jbpm4order.model.Login;
-import com.bulain.jbpm4order.pojo.LoginSearch;
-import com.bulain.jbpm4order.service.LoginService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionProxy;

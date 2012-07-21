@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Profile;
-import com.bulain.jbpm4order.pojo.Item;
-import com.bulain.jbpm4order.pojo.ItemConst;
-import com.bulain.jbpm4order.pojo.ProfileSearch;
-import com.bulain.jbpm4order.pojo.ProfileView;
-import com.bulain.jbpm4order.service.ProfileService;
-import com.bulain.jbpm4order.service.ReferanceService;
+import com.bulain.common.model.Profile;
+import com.bulain.common.pojo.Item;
+import com.bulain.common.pojo.ItemConst;
+import com.bulain.common.pojo.ProfileSearch;
+import com.bulain.common.pojo.ProfileView;
+import com.bulain.common.service.ProfileService;
+import com.bulain.common.service.ReferanceService;
 
 public class ProfileAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 239300271685223451L;

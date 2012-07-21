@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Group;
-import com.bulain.jbpm4order.model.Login;
-import com.bulain.jbpm4order.pojo.Item;
-import com.bulain.jbpm4order.pojo.ItemConst;
-import com.bulain.jbpm4order.pojo.LoginSearch;
-import com.bulain.jbpm4order.pojo.LoginView;
-import com.bulain.jbpm4order.pojo.Master;
-import com.bulain.jbpm4order.service.GroupService;
-import com.bulain.jbpm4order.service.LoginService;
-import com.bulain.jbpm4order.service.MasterService;
-import com.bulain.jbpm4order.service.ReferanceService;
+import com.bulain.common.model.Group;
+import com.bulain.common.model.Login;
+import com.bulain.common.pojo.Item;
+import com.bulain.common.pojo.ItemConst;
+import com.bulain.common.pojo.LoginSearch;
+import com.bulain.common.pojo.LoginView;
+import com.bulain.common.pojo.Master;
+import com.bulain.common.service.GroupService;
+import com.bulain.common.service.LoginService;
+import com.bulain.common.service.MasterService;
+import com.bulain.common.service.ReferanceService;
 
 public class LoginAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -4301484346812182688L;

@@ -9,7 +9,7 @@ import org.apache.struts2.ServletActionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bulain.jbpm4order.model.Constants;
+import com.bulain.common.model.Constants;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;

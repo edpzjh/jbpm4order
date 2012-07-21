@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.MailTemplate;
-import com.bulain.jbpm4order.pojo.Item;
-import com.bulain.jbpm4order.pojo.ItemConst;
-import com.bulain.jbpm4order.pojo.MailTemplateSearch;
-import com.bulain.jbpm4order.pojo.MailTemplateView;
-import com.bulain.jbpm4order.service.MailTemplateService;
-import com.bulain.jbpm4order.service.ReferanceService;
+import com.bulain.common.model.MailTemplate;
+import com.bulain.common.pojo.Item;
+import com.bulain.common.pojo.ItemConst;
+import com.bulain.common.pojo.MailTemplateSearch;
+import com.bulain.common.pojo.MailTemplateView;
+import com.bulain.common.service.MailTemplateService;
+import com.bulain.common.service.ReferanceService;
 
 public class MailTemplateAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -4573803081036830823L;

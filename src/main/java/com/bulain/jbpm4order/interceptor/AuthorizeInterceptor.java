@@ -13,8 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.bulain.jbpm4order.model.Constants;
-import com.bulain.jbpm4order.service.AuthorizeService;
+import com.bulain.common.model.Constants;
+import com.bulain.common.service.AuthorizeService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.MethodFilterInterceptor;

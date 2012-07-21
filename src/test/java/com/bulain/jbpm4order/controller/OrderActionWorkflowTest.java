@@ -13,9 +13,9 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bulain.common.dataset.SeedDataSet;
+import com.bulain.common.model.Order;
+import com.bulain.common.service.OrderService;
 import com.bulain.common.test.ActionTestCase;
-import com.bulain.jbpm4order.model.Order;
-import com.bulain.jbpm4order.service.OrderService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 

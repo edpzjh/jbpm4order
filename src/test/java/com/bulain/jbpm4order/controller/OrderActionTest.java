@@ -7,9 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bulain.common.dataset.SeedDataSet;
+import com.bulain.common.model.Order;
 import com.bulain.common.page.Page;
 import com.bulain.common.test.ActionTestCase;
-import com.bulain.jbpm4order.model.Order;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 

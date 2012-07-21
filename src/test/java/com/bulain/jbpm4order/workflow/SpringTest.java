@@ -13,7 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bulain.common.dataset.DataSet;
-import com.bulain.jbpm4order.pojo.Item;
+import com.bulain.common.pojo.Item;
 import com.bulain.jbpm4order.test.JbpmTestCase;
 
 @DataSet(file = "data/init_referances.xml")

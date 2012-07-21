@@ -3,9 +3,9 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Person;
-import com.bulain.jbpm4order.pojo.PersonSearch;
-import com.bulain.jbpm4order.service.PersonService;
+import com.bulain.common.model.Person;
+import com.bulain.common.pojo.PersonSearch;
+import com.bulain.common.service.PersonService;
 
 public class PersonAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 4764266080241908757L;

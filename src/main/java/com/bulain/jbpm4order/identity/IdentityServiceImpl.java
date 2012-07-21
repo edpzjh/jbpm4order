@@ -3,17 +3,17 @@ package com.bulain.jbpm4order.identity;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.bulain.jbpm4order.dao.GroupLoginMapper;
-import com.bulain.jbpm4order.dao.GroupMapper;
-import com.bulain.jbpm4order.dao.LoginMapper;
-import com.bulain.jbpm4order.dao.PersonMapper;
-import com.bulain.jbpm4order.model.Group;
-import com.bulain.jbpm4order.model.GroupLogin;
-import com.bulain.jbpm4order.model.Login;
-import com.bulain.jbpm4order.model.Person;
-import com.bulain.jbpm4order.pojo.GroupSearch;
-import com.bulain.jbpm4order.pojo.LoginSearch;
-import com.bulain.jbpm4order.pojo.PersonSearch;
+import com.bulain.common.dao.GroupLoginMapper;
+import com.bulain.common.dao.GroupMapper;
+import com.bulain.common.dao.LoginMapper;
+import com.bulain.common.dao.PersonMapper;
+import com.bulain.common.model.Group;
+import com.bulain.common.model.GroupLogin;
+import com.bulain.common.model.Login;
+import com.bulain.common.model.Person;
+import com.bulain.common.pojo.GroupSearch;
+import com.bulain.common.pojo.LoginSearch;
+import com.bulain.common.pojo.PersonSearch;
 
 public class IdentityServiceImpl implements IdentityService {
     private PersonMapper personMapper;

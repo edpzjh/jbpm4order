@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.bulain.jbpm4order.model.Constants;
+import com.bulain.common.model.Constants;
 
 public class AuthenticateFilter implements Filter {
     private static final Logger LOG = LoggerFactory.getLogger(AuthenticateFilter.class);

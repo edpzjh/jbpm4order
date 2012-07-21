@@ -8,16 +8,16 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bulain.common.dataset.SeedDataSet;
+import com.bulain.common.model.Group;
+import com.bulain.common.model.Login;
+import com.bulain.common.model.Permission;
 import com.bulain.common.page.Page;
+import com.bulain.common.pojo.GroupSearch;
+import com.bulain.common.pojo.GroupView;
+import com.bulain.common.pojo.LoginSearch;
+import com.bulain.common.service.GroupService;
+import com.bulain.common.service.LoginService;
 import com.bulain.common.test.ActionTestCase;
-import com.bulain.jbpm4order.model.Group;
-import com.bulain.jbpm4order.model.Login;
-import com.bulain.jbpm4order.model.Permission;
-import com.bulain.jbpm4order.pojo.GroupSearch;
-import com.bulain.jbpm4order.pojo.GroupView;
-import com.bulain.jbpm4order.pojo.LoginSearch;
-import com.bulain.jbpm4order.service.GroupService;
-import com.bulain.jbpm4order.service.LoginService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 

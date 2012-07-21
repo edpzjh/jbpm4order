@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Referance;
-import com.bulain.jbpm4order.model.ReferanceBean;
-import com.bulain.jbpm4order.pojo.Item;
-import com.bulain.jbpm4order.pojo.ItemConst;
-import com.bulain.jbpm4order.pojo.ReferanceSearch;
-import com.bulain.jbpm4order.pojo.ReferanceView;
-import com.bulain.jbpm4order.service.ReferanceService;
+import com.bulain.common.model.Referance;
+import com.bulain.common.model.ReferanceBean;
+import com.bulain.common.pojo.Item;
+import com.bulain.common.pojo.ItemConst;
+import com.bulain.common.pojo.ReferanceSearch;
+import com.bulain.common.pojo.ReferanceView;
+import com.bulain.common.service.ReferanceService;
 
 public class ReferanceAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -6586209271699101686L;

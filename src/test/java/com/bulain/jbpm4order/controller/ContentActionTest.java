@@ -8,10 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bulain.common.dataset.SeedDataSet;
+import com.bulain.common.model.Content;
 import com.bulain.common.page.Page;
+import com.bulain.common.pojo.ContentView;
 import com.bulain.common.test.ActionTestCase;
-import com.bulain.jbpm4order.model.Content;
-import com.bulain.jbpm4order.pojo.ContentView;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 

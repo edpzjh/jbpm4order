@@ -7,10 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bulain.common.dataset.SeedDataSet;
+import com.bulain.common.model.Profile;
 import com.bulain.common.page.Page;
+import com.bulain.common.pojo.ProfileView;
 import com.bulain.common.test.ActionTestCase;
-import com.bulain.jbpm4order.model.Profile;
-import com.bulain.jbpm4order.pojo.ProfileView;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionProxy;
 

@@ -3,9 +3,9 @@ package com.bulain.jbpm4order.controller;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Authorize;
-import com.bulain.jbpm4order.pojo.AuthorizeSearch;
-import com.bulain.jbpm4order.service.AuthorizeService;
+import com.bulain.common.model.Authorize;
+import com.bulain.common.pojo.AuthorizeSearch;
+import com.bulain.common.service.AuthorizeService;
 
 public class AuthorizeAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 4764266080241908757L;

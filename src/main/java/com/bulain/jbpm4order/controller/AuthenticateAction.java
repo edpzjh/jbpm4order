@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.apache.struts2.dispatcher.DefaultActionSupport;
 
-import com.bulain.jbpm4order.model.Constants;
-import com.bulain.jbpm4order.model.Login;
-import com.bulain.jbpm4order.service.LoginService;
+import com.bulain.common.model.Constants;
+import com.bulain.common.model.Login;
+import com.bulain.common.service.LoginService;
 import com.opensymphony.xwork2.ActionContext;
 
 public class AuthenticateAction extends DefaultActionSupport {

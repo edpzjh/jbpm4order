@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Group;
-import com.bulain.jbpm4order.model.Login;
-import com.bulain.jbpm4order.model.Permission;
-import com.bulain.jbpm4order.pojo.GroupSearch;
-import com.bulain.jbpm4order.pojo.GroupView;
-import com.bulain.jbpm4order.service.GroupService;
-import com.bulain.jbpm4order.service.LoginService;
+import com.bulain.common.model.Group;
+import com.bulain.common.model.Login;
+import com.bulain.common.model.Permission;
+import com.bulain.common.pojo.GroupSearch;
+import com.bulain.common.pojo.GroupView;
+import com.bulain.common.service.GroupService;
+import com.bulain.common.service.LoginService;
 
 public class GroupAction extends PageSupportActionSupport {
     private static final long serialVersionUID = -4301484346812182688L;

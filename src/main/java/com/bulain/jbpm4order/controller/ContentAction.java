@@ -12,13 +12,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.bulain.common.controller.PageSupportActionSupport;
-import com.bulain.jbpm4order.model.Content;
-import com.bulain.jbpm4order.pojo.ContentSearch;
-import com.bulain.jbpm4order.pojo.ContentView;
-import com.bulain.jbpm4order.pojo.Item;
-import com.bulain.jbpm4order.pojo.ItemConst;
-import com.bulain.jbpm4order.service.ContentService;
-import com.bulain.jbpm4order.service.ReferanceService;
+import com.bulain.common.model.Content;
+import com.bulain.common.pojo.ContentSearch;
+import com.bulain.common.pojo.ContentView;
+import com.bulain.common.pojo.Item;
+import com.bulain.common.pojo.ItemConst;
+import com.bulain.common.service.ContentService;
+import com.bulain.common.service.ReferanceService;
 
 public class ContentAction extends PageSupportActionSupport {
     private static final long serialVersionUID = 2135996981420911925L;
