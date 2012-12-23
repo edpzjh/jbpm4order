@@ -17,3 +17,11 @@ jdbc.datatypeFactory=org.dbunit.ext.mysql.MySqlDataTypeFactory
 jdbc.resultSetTableFactory=org.dbunit.database.ForwardOnlyResultSetTableFactory
 jdbc.metadataHandler=org.dbunit.ext.mysql.MySqlMetadataHandler
 
+dataSource.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+dataSource.hbm2ddl.auto=update
+dataSource.isolation=3
+dataSource.contextClass=jta
+dataSource.transactionFactory=org.hibernate.transaction.JTATransactionFactory
+dataSource.transactionManagerLookup=com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup
+
+memcached.url=localhost:11211
