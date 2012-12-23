@@ -2,10 +2,10 @@ PAGE_HEAD=
 PAGE_FOOT= LIMIT #{low}, #{pageSize}
 
 jdbc.driverClassName=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/service_test
-jdbc.username=service
-jdbc.password=service
-jdbc.schema=service_test
+jdbc.url=jdbc:mysql://localhost:3306/jbpm4order_test
+jdbc.username=jbpm4order
+jdbc.password=jbpm4order
+jdbc.schema=jbpm4order_test
 jdbc.acquireIncrement=5
 jdbc.minPoolSize=5
 jdbc.maxPoolSize=50
