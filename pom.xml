@@ -118,6 +118,14 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
 		<!-- test -->
         <dependency>
             <groupId>com.bulain</groupId>
@@ -145,6 +153,7 @@
             <artifactId>struts2-junit-plugin</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- 
         <dependency>
             <groupId>org.jbpm.jbpm4</groupId>
             <artifactId>jbpm-test-base</artifactId>
@@ -160,6 +169,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+         -->
         <dependency>
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
@@ -178,6 +188,16 @@
             <groupId>net.sourceforge.jwebunit</groupId>
             <artifactId>jwebunit-htmlunit-plugin</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -192,24 +212,19 @@
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-core</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.subethamail</groupId>
             <artifactId>subethasmtp-wiser</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>p6spy</groupId>
             <artifactId>p6spy</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.quartz-scheduler</groupId>
-            <artifactId>quartz</artifactId>
-        </dependency>
+
     </dependencies>
 
     <build>
@@ -246,7 +261,7 @@
                         </goals>
                         <configuration>
                             <target name="copydevfile">
-                                <copy file="src/main/resources/jdbc.properties.${database.type}" tofile="${project.build.directory}/classes/jdbc.properties" overwrite="true"/>
+                                <copy file="src/main/resources/jdbc.properties.${database.type}" tofile="${project.build.directory}/classes/jdbc.properties" overwrite="true" />
                             </target>
                         </configuration>
                     </execution>
@@ -258,7 +273,7 @@
                         </goals>
                         <configuration>
                             <target name="copytestfile">
-                                <copy file="src/test/resources/jdbc.properties.${database.type}" tofile="${project.build.directory}/test-classes/jdbc.properties" overwrite="true"/>
+                                <copy file="src/test/resources/jdbc.properties.${database.type}" tofile="${project.build.directory}/test-classes/jdbc.properties" overwrite="true" />
                             </target>
                         </configuration>
                     </execution>
